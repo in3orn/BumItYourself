@@ -1,4 +1,5 @@
 ﻿using Krk.Bum.View.Model;
+using Krk.Bum.View.Buttons;
 using UnityEngine;
 
 namespace Krk.Bum.View.Context
@@ -16,6 +17,21 @@ namespace Krk.Bum.View.Context
                     viewStateController = new ViewStateController();
                 }
                 return viewStateController;
+            }
+        }
+
+
+        private BackButtonListener backButtonListener;
+
+        public BackButtonListener BackButtonListener
+        {
+            get
+            {
+                if (backButtonListener == null)
+                {
+                    backButtonListener = new BackButtonListener(ViewStateController);
+                }
+                return backButtonListener;
             }
         }
     }

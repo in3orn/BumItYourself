@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using Krk.Bum.View.Model;
 
-namespace Krk.Bum.View.Screens
+namespace Krk.Bum.View.Buttons
 {
     public class StreetScreenMediator : ScreenMediator
     {
         [SerializeField]
-        private StreetScreenView screenView;
+        private StreetScreenView screenView = null;
 
 
         protected override ScreenView GetScreenView()

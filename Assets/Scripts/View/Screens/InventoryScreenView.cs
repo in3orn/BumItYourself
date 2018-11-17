@@ -1,40 +1,30 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Krk.Bum.View.Screens
+namespace Krk.Bum.View.Buttons
 {
     public class InventoryScreenView : ScreenView
     {
-        public UnityAction OnBackButtonClicked;
         public UnityAction OnTestButtonClicked;
 
 
-        [SerializeField]
-        private Button backButton;
+        public Button BackButton;
 
         [SerializeField]
-        private Button testButton;
+        private Button testButton = null;
 
 
         private void OnEnable()
         {
-            backButton.onClick.AddListener(HandleBackClicked);
             testButton.onClick.AddListener(HandleTestButtonClicked);
         }
 
         private void OnDisable()
         {
-            backButton.onClick.RemoveListener(HandleBackClicked);
             testButton.onClick.RemoveListener(HandleTestButtonClicked);
         }
-
-        private void HandleBackClicked()
-        {
-            if (OnBackButtonClicked != null) OnBackButtonClicked();
-        }
-
+        
         private void HandleTestButtonClicked()
         {
             if (OnTestButtonClicked != null) OnTestButtonClicked();

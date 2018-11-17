@@ -2,21 +2,21 @@
 using Krk.Bum.View.Model;
 using UnityEngine;
 
-namespace Krk.Bum.View.Screens
+namespace Krk.Bum.View.Buttons
 {
     public abstract class ScreenMediator : MonoBehaviour
     {
         [SerializeField]
-        private ScreenMediatorConfig config;
+        private ScreenMediatorConfig config = null;
 
         [SerializeField]
-        protected ViewContext viewContext;
+        protected ViewContext viewContext = null;
 
 
         protected ViewStateController viewStateController;
 
 
-        private void Awake()
+        protected virtual void Awake()
         {
             viewStateController = viewContext.ViewStateController;
         }

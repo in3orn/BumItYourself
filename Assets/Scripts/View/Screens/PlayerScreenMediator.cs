@@ -1,13 +1,22 @@
 ﻿using UnityEngine;
-using Krk.Bum.View.Model;
+using Krk.Bum.Common;
 
-namespace Krk.Bum.View.Screens
+namespace Krk.Bum.View.Buttons
 {
     public class PlayerScreenMediator : ScreenMediator
     {
         [SerializeField]
-        private PlayerScreenView screenView;
+        private PlayerScreenView screenView = null;
 
+
+        private IButtonListener backListener;
+
+
+        protected override void Awake()
+        {
+            base.Awake();
+            backListener = viewContext.BackButtonListener;
+        }
 
         protected override ScreenView GetScreenView()
         {
@@ -18,22 +27,17 @@ namespace Krk.Bum.View.Screens
         {
             base.OnEnable();
 
-            screenView.OnBackButtonClicked += HandleBackButtonClicked;
+            backListener.Subscribe(screenView.BackButton);
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
 
-            if(screenView != null)
+            if (viewContext != null && screenView != null)
             {
-                screenView.OnBackButtonClicked -= HandleBackButtonClicked;
+                backListener.Unsubscribe(screenView.BackButton);
             }
-        }
-
-        private void HandleBackButtonClicked()
-        {
-            viewStateController.BackState();
         }
     }
 }

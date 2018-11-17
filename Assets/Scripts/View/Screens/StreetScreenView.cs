@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Krk.Bum.View.Screens
+namespace Krk.Bum.View.Buttons
 {
     public class StreetScreenView : ScreenView
     {
@@ -12,13 +12,13 @@ namespace Krk.Bum.View.Screens
 
 
         [SerializeField]
-        private Button settingsButton;
+        private Button settingsButton = null;
 
         [SerializeField]
-        private Button playerButton;
+        private Button playerButton = null;
 
         [SerializeField]
-        private Button inventoryButton;
+        private Button inventoryButton = null;
 
 
         private void OnEnable()

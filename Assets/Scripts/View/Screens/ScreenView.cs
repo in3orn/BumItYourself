@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-namespace Krk.Bum.View.Screens
+namespace Krk.Bum.View.Buttons
 {
     public class ScreenView : MonoBehaviour
     {
         [SerializeField]
-        private GameObject screen;
+        private GameObject screen = null;
 
 
         public void InitShown(bool shown)
