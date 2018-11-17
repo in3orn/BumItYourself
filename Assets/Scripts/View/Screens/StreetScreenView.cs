@@ -8,7 +8,7 @@ namespace Krk.Bum.View.Screens
     {
         public UnityAction OnSettingsButtonClicked;
         public UnityAction OnPlayerButtonClicked;
-        public UnityAction OnItemsButtonClicked;
+        public UnityAction OnInventoryButtonClicked;
 
 
         [SerializeField]
@@ -18,21 +18,21 @@ namespace Krk.Bum.View.Screens
         private Button playerButton;
 
         [SerializeField]
-        private Button itemsButton;
+        private Button inventoryButton;
 
 
         private void OnEnable()
         {
             settingsButton.onClick.AddListener(HandleSettingsClicked);
             playerButton.onClick.AddListener(HandlePlayerClicked);
-            itemsButton.onClick.AddListener(HandleItemsClicked);
+            inventoryButton.onClick.AddListener(HandleItemsClicked);
         }
 
         private void OnDisable()
         {
             settingsButton.onClick.RemoveListener(HandleSettingsClicked);
             playerButton.onClick.RemoveListener(HandlePlayerClicked);
-            itemsButton.onClick.RemoveListener(HandleItemsClicked);
+            inventoryButton.onClick.RemoveListener(HandleItemsClicked);
         }
 
         private void HandleSettingsClicked()
@@ -47,7 +47,7 @@ namespace Krk.Bum.View.Screens
 
         private void HandleItemsClicked()
         {
-            if (OnItemsButtonClicked != null) OnItemsButtonClicked();
+            if (OnInventoryButtonClicked != null) OnInventoryButtonClicked();
         }
     }
 }

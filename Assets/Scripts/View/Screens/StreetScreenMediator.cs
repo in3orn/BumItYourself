@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using Krk.Bum.View.Core;
+using Krk.Bum.View.Model;
 
 namespace Krk.Bum.View.Screens
 {
@@ -20,7 +20,7 @@ namespace Krk.Bum.View.Screens
 
             screenView.OnSettingsButtonClicked += HandleSettingsButtonClicked;
             screenView.OnPlayerButtonClicked += HandlePlayerButtonClicked;
-            screenView.OnItemsButtonClicked += HandleItemsButtonClicked;
+            screenView.OnInventoryButtonClicked += HandleInventoryButtonClicked;
         }
 
         protected override void OnDisable()
@@ -31,7 +31,7 @@ namespace Krk.Bum.View.Screens
             {
                 screenView.OnSettingsButtonClicked -= HandleSettingsButtonClicked;
                 screenView.OnPlayerButtonClicked -= HandlePlayerButtonClicked;
-                screenView.OnItemsButtonClicked -= HandleItemsButtonClicked;
+                screenView.OnInventoryButtonClicked -= HandleInventoryButtonClicked;
             }
         }
 
@@ -45,9 +45,9 @@ namespace Krk.Bum.View.Screens
             viewStateController.State = ViewStateEnum.Player;
         }
 
-        private void HandleItemsButtonClicked()
+        private void HandleInventoryButtonClicked()
         {
-            viewStateController.State = ViewStateEnum.Items;
+            viewStateController.State = ViewStateEnum.Inventory;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine.Events;
 
-namespace Krk.Bum.View.Core
+namespace Krk.Bum.View.Model
 {
     public enum ViewStateEnum
     {
@@ -8,15 +8,16 @@ namespace Krk.Bum.View.Core
         Game,
         Settings,
         Player,
-        Collections,
-        Items
+        Inventory,
+        Collection,
+        Item
     }
 
     public class ViewStateController
     {
         public UnityAction<ViewStateEnum> OnStateChanged;
 
-
+        
         private ViewStateEnum state;
 
 

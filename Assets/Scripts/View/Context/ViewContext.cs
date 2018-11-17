@@ -1,4 +1,4 @@
-﻿using Krk.Bum.View.Core;
+﻿using Krk.Bum.View.Model;
 using UnityEngine;
 
 namespace Krk.Bum.View.Context
