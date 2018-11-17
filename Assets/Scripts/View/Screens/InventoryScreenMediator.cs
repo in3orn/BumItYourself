@@ -36,12 +36,12 @@ namespace Krk.Bum.View.Screens
 
         private void HandleBackButtonClicked()
         {
-            viewStateController.State = ViewStateEnum.Street;
+            viewStateController.BackState();
         }
 
         private void HandleTestButtonClicked()
         {
-            viewStateController.State = ViewStateEnum.Collection;
+            viewStateController.SetState(ViewStateEnum.Collection);
         }
     }
 }

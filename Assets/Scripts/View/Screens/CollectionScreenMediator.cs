@@ -35,12 +35,12 @@ namespace Krk.Bum.View.Screens
 
         private void HandleBackButtonClicked()
         {
-            viewStateController.State = ViewStateEnum.Inventory;
+            viewStateController.BackState();
         }
 
         private void HandleTestButtonClicked()
         {
-            viewStateController.State = ViewStateEnum.Item;
+            viewStateController.SetState(ViewStateEnum.Item);
         }
     }
 }

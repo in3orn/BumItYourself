@@ -27,7 +27,7 @@ namespace Krk.Bum.View.Screens
         {
             base.OnDisable();
 
-            if(screenView != null)
+            if (screenView != null)
             {
                 screenView.OnSettingsButtonClicked -= HandleSettingsButtonClicked;
                 screenView.OnPlayerButtonClicked -= HandlePlayerButtonClicked;
@@ -37,17 +37,17 @@ namespace Krk.Bum.View.Screens
 
         private void HandleSettingsButtonClicked()
         {
-            viewStateController.State = ViewStateEnum.Settings;
+            viewStateController.SetState(ViewStateEnum.Settings);
         }
 
         private void HandlePlayerButtonClicked()
         {
-            viewStateController.State = ViewStateEnum.Player;
+            viewStateController.SetState(ViewStateEnum.Player);
         }
 
         private void HandleInventoryButtonClicked()
         {
-            viewStateController.State = ViewStateEnum.Inventory;
+            viewStateController.SetState(ViewStateEnum.Inventory);
         }
     }
 }

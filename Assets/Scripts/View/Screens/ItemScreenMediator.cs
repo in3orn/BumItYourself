@@ -33,7 +33,7 @@ namespace Krk.Bum.View.Screens
 
         private void HandleBackButtonClicked()
         {
-            viewStateController.State = ViewStateEnum.Collection;
+            viewStateController.BackState();
         }
     }
 }

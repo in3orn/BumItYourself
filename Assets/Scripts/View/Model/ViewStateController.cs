@@ -1,4 +1,5 @@
-﻿using UnityEngine.Events;
+﻿using System.Collections.Generic;
+using UnityEngine.Events;
 
 namespace Krk.Bum.View.Model
 {
@@ -17,21 +18,32 @@ namespace Krk.Bum.View.Model
     {
         public UnityAction<ViewStateEnum> OnStateChanged;
 
-        
-        private ViewStateEnum state;
+
+        private Stack<ViewStateEnum> states;
 
 
         public ViewStateEnum State
         {
-            get { return state; }
-            set
-            {
-                if (state != value)
-                {
-                    state = value;
-                    if (OnStateChanged != null) OnStateChanged(state);
-                }
-            }
+            get { return states.Peek(); }
+        }
+
+
+        public ViewStateController()
+        {
+            states = new Stack<ViewStateEnum>();
+            states.Push(ViewStateEnum.Street);
+        }
+
+        public void SetState(ViewStateEnum state)
+        {
+            states.Push(state);
+            if (OnStateChanged != null) OnStateChanged(State);
+        }
+
+        public void BackState()
+        {
+            states.Pop();
+            if (OnStateChanged != null) OnStateChanged(State);
         }
     }
 }
