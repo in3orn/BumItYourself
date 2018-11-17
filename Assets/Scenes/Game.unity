@@ -789,6 +789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 616420433}
   - component: {fileID: 616420434}
+  - component: {fileID: 616420435}
   m_Layer: 5
   m_Name: Inventory Screen View
   m_TagString: Untagged
@@ -829,8 +830,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screen: {fileID: 1340959108}
+  showable: {fileID: 616420435}
   BackButton: {fileID: 1601854116}
   testButton: {fileID: 1452448401}
+--- !u!114 &616420435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616420432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f60974904a3cb64a9cca9ca5215177e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1340959108}
+  background: {fileID: 1340959110}
+  window: {fileID: 1695082724}
 --- !u!1 &710765976
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,6 +984,7 @@ GameObject:
   m_Component:
   - component: {fileID: 748570114}
   - component: {fileID: 748570115}
+  - component: {fileID: 748570116}
   m_Layer: 5
   m_Name: Item Screen View
   m_TagString: Untagged
@@ -1007,7 +1025,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screen: {fileID: 822991683}
+  showable: {fileID: 748570116}
   BackButton: {fileID: 865276247}
+--- !u!114 &748570116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748570113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f60974904a3cb64a9cca9ca5215177e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 822991683}
+  background: {fileID: 822991685}
+  window: {fileID: 954584945}
 --- !u!1 &821790839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1934,6 +1968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1311633017}
   - component: {fileID: 1311633018}
+  - component: {fileID: 1311633019}
   m_Layer: 5
   m_Name: Settings Screen View
   m_TagString: Untagged
@@ -1974,7 +2009,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screen: {fileID: 284968636}
+  showable: {fileID: 1311633019}
   BackButton: {fileID: 1867306022}
+--- !u!114 &1311633019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311633016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f60974904a3cb64a9cca9ca5215177e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 284968636}
+  background: {fileID: 284968638}
+  window: {fileID: 1756363337}
 --- !u!1 &1340959108
 GameObject:
   m_ObjectHideFlags: 0
@@ -2393,7 +2444,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2549,6 +2600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1473196512}
   - component: {fileID: 1473196513}
+  - component: {fileID: 1473196514}
   m_Layer: 5
   m_Name: Collection Screen View
   m_TagString: Untagged
@@ -2589,8 +2641,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screen: {fileID: 1225174059}
+  showable: {fileID: 1473196514}
   BackButton: {fileID: 394342310}
   testButton: {fileID: 1289244858}
+--- !u!114 &1473196514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473196511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f60974904a3cb64a9cca9ca5215177e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1225174059}
+  background: {fileID: 1225174061}
+  window: {fileID: 355713183}
 --- !u!1 &1474845633
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,6 +3369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1856918122}
   - component: {fileID: 1856918123}
+  - component: {fileID: 1856918124}
   m_Layer: 5
   m_Name: Player Screen View
   m_TagString: Untagged
@@ -3341,7 +3410,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screen: {fileID: 1229553293}
+  showable: {fileID: 1856918124}
   BackButton: {fileID: 1300619399}
+--- !u!114 &1856918124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856918121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f60974904a3cb64a9cca9ca5215177e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1229553293}
+  background: {fileID: 1229553295}
+  window: {fileID: 1371061606}
 --- !u!1 &1867306020
 GameObject:
   m_ObjectHideFlags: 0
@@ -3469,6 +3554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1868339259}
   - component: {fileID: 1868339260}
+  - component: {fileID: 1868339261}
   m_Layer: 5
   m_Name: Street Screen View
   m_TagString: Untagged
@@ -3509,9 +3595,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screen: {fileID: 375332519}
+  showable: {fileID: 1868339261}
   settingsButton: {fileID: 1916499987}
   playerButton: {fileID: 1412752117}
   inventoryButton: {fileID: 555035576}
+--- !u!114 &1868339261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868339258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1c49bfa00e6524797b2ba1eb4c2a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 375332519}
 --- !u!1 &1916499985
 GameObject:
   m_ObjectHideFlags: 0
