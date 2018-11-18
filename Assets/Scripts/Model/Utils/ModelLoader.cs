@@ -4,10 +4,13 @@
     {
         private readonly CollectionLoader collectionLoader;
 
+        private readonly PartLoader partLoader;
 
-        public ModelLoader(CollectionLoader collectionLoader)
+
+        public ModelLoader(CollectionLoader collectionLoader, PartLoader partLoader)
         {
             this.collectionLoader = collectionLoader;
+            this.partLoader = partLoader;
         }
 
 
@@ -15,7 +18,8 @@
         {
             return new ModelData
             {
-                Collections = collectionLoader.Load(config.Collections)
+                Collections = collectionLoader.Load(config.Collections),
+                Parts = partLoader.Load(config.Parts)
             };
         }
     }

@@ -13,7 +13,7 @@ namespace Krk.Bum.Model.Context
 
         public ModelController ModelController
         {
-            get { return modelController ?? (modelController = new ModelController(ModelData)); }
+            get { return modelController ?? (modelController = new ModelController(ModelData, PartLoader)); }
         }
 
         private ModelData modelData;
@@ -27,7 +27,7 @@ namespace Krk.Bum.Model.Context
 
         public ModelLoader ModelLoader
         {
-            get { return modelLoader ?? (modelLoader = new ModelLoader(CollectionLoader)); }
+            get { return modelLoader ?? (modelLoader = new ModelLoader(CollectionLoader, PartLoader)); }
         }
 
         private CollectionLoader collectionLoader;
@@ -42,6 +42,13 @@ namespace Krk.Bum.Model.Context
         public ItemLoader ItemLoader
         {
             get { return itemLoader ?? (itemLoader = new ItemLoader(PrefsWrapper)); }
+        }
+
+        private PartLoader partLoader;
+
+        public PartLoader PartLoader
+        {
+            get { return partLoader ?? (partLoader = new PartLoader(PrefsWrapper)); }
         }
 
         private PrefsWrapper prefsWrapper;

@@ -6,5 +6,7 @@ namespace Krk.Bum.Model
     public class ModelData
     {
         public CollectionData[] Collections;
+
+        public PartData[] Parts;
     }
 }

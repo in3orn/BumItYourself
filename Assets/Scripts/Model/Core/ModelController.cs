@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Krk.Bum.Model.Utils;
+using System;
 
 namespace Krk.Bum.Model.Core
 {
@@ -6,10 +7,13 @@ namespace Krk.Bum.Model.Core
     {
         private readonly ModelData modelData;
 
+        private readonly PartLoader partLoader;
 
-        public ModelController(ModelData modelData)
+
+        public ModelController(ModelData modelData, PartLoader partLoader)
         {
             this.modelData = modelData;
+            this.partLoader = partLoader;
         }
 
 
@@ -38,6 +42,27 @@ namespace Krk.Bum.Model.Core
             }
 
             return null;
+        }
+
+        public PartData[] GetAllParts()
+        {
+            return modelData.Parts;
+        }
+
+        public PartData GetPart(string id)
+        {
+            foreach (var part in modelData.Parts)
+            {
+                if (part.Id.Equals(id)) return part;
+            }
+            return null;
+        }
+
+        public void IncreasePartCount(string id, int value)
+        {
+            var part = GetPart(id);
+            part.Count += value;
+            partLoader.Save(part);
         }
     }
 }

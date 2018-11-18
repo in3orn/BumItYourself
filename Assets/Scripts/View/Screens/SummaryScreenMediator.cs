@@ -1,5 +1,7 @@
-﻿using System;
-using Krk.Bum.Common;
+﻿using Krk.Bum.Game.Context;
+using Krk.Bum.Game.Core;
+using Krk.Bum.Model.Context;
+using Krk.Bum.Model.Core;
 using UnityEngine;
 
 namespace Krk.Bum.View.Buttons
@@ -7,8 +9,26 @@ namespace Krk.Bum.View.Buttons
     public class SummaryScreenMediator : ScreenMediator
     {
         [SerializeField]
+        private ModelContext modelContext = null;
+
+        [SerializeField]
+        private GameContext gameContext = null;
+
+        [SerializeField]
         private SummaryScreenView screenView = null;
 
+
+        private ModelController modelController;
+
+        private GameStateController gameStateController;
+
+
+        protected override void Awake()
+        {
+            base.Awake();
+            modelController = modelContext.ModelController;
+            gameStateController = gameContext.GameStateController;
+        }
 
         protected override ScreenView GetScreenView()
         {
@@ -34,7 +54,27 @@ namespace Krk.Bum.View.Buttons
 
         private void HandleCollectButtonClicked()
         {
+            CollectLoot();
             viewStateController.SetState(Model.ViewStateEnum.Street);
+        }
+
+        private void CollectLoot()
+        {
+            foreach (var part in gameStateController.Loot)
+            {
+                modelController.IncreasePartCount(part.Id, part.Count);
+            }
+            gameStateController.ClearLoot();
+        }
+
+
+        protected override void SetShown(bool shown)
+        {
+            if (shown)
+            {
+                screenView.Init(gameStateController.Loot);
+            }
+            base.SetShown(shown);
         }
     }
 }

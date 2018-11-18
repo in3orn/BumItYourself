@@ -6,5 +6,7 @@ namespace Krk.Bum.Model
     public class ModelConfig : ScriptableObject
     {
         public CollectionConfig[] Collections;
+
+        public PartConfig[] Parts;
     }
 }
