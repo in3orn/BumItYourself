@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6735d2c94a7484b8dd0d74210e170a, type: 3}
+  m_Name: Fall
+  m_EditorClassIdentifier: 
+  Id: fall
+  Name: Fall collection
+  Image:
+    Image: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    Color: {r: 0.7169812, g: 0.3009968, b: 0.3009968, a: 1}
+    Rotation: 0
+  Items:
+  - {fileID: 11400000, guid: b1c16a5d87f9efd488e47aa66750f4a5, type: 2}
+  - {fileID: 11400000, guid: 5a0907483f3514e409c4db3181137314, type: 2}
+  - {fileID: 11400000, guid: 492d862cb7288754c991d03c072ce6f5, type: 2}

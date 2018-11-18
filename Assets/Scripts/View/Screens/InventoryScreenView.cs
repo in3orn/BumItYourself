@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using Krk.Bum.Model;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -28,6 +30,12 @@ namespace Krk.Bum.View.Buttons
         private void HandleTestButtonClicked()
         {
             if (OnTestButtonClicked != null) OnTestButtonClicked();
+        }
+
+
+        public void InitCollections(CollectionData[] collectionData)
+        {
+            Debug.Log("Collections: " + collectionData.Length);
         }
     }
 }

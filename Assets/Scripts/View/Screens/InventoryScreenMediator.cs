@@ -1,14 +1,21 @@
 ﻿using UnityEngine;
 using Krk.Bum.View.Model;
 using Krk.Bum.Common;
+using Krk.Bum.Model.Context;
+using Krk.Bum.Model.Core;
 
 namespace Krk.Bum.View.Buttons
 {
     public class InventoryScreenMediator : ScreenMediator
     {
         [SerializeField]
+        private ModelContext modelContext = null;
+
+        [SerializeField]
         private InventoryScreenView screenView = null;
 
+
+        private ModelController modelController;
 
         private IButtonListener backListener;
 
@@ -16,6 +23,7 @@ namespace Krk.Bum.View.Buttons
         protected override void Awake()
         {
             base.Awake();
+            modelController = modelContext.ModelController;
             backListener = viewContext.BackButtonListener;
         }
 
@@ -46,6 +54,12 @@ namespace Krk.Bum.View.Buttons
         private void HandleTestButtonClicked()
         {
             viewStateController.SetState(ViewStateEnum.Collection);
+        }
+
+
+        protected override void Start()
+        {
+            screenView.InitCollections(modelController.GetAllCollections());
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Krk.Bum.View.Buttons
             viewStateController = viewContext.ViewStateController;
         }
 
-        private void Start()
+        protected virtual void Start()
         {
             GetScreenView().InitShown(ShouldShow(viewStateController.State));
         }
