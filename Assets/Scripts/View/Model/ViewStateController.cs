@@ -29,6 +29,7 @@ namespace Krk.Bum.View.Model
 
 
         public string CurrentCollectionId { get; set; }
+        public string CurrentItemId { get; set; }
 
 
         public ViewStateController()

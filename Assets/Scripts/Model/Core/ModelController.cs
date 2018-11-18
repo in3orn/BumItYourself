@@ -1,4 +1,6 @@
-﻿namespace Krk.Bum.Model.Core
+﻿using System;
+
+namespace Krk.Bum.Model.Core
 {
     public class ModelController
     {
@@ -18,9 +20,21 @@
 
         public CollectionData GetCollection(string id)
         {
-            foreach(var collection in modelData.Collections)
+            foreach (var collection in modelData.Collections)
             {
                 if (collection.Id.Equals(id)) return collection;
+            }
+
+            return null;
+        }
+
+        public ItemData GetItem(string collectionId, string itemId)
+        {
+            var collection = GetCollection(collectionId);
+
+            foreach (var item in collection.Items)
+            {
+                if (item.Id.Equals(itemId)) return item;
             }
 
             return null;

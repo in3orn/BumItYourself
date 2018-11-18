@@ -36,8 +36,12 @@ namespace Krk.Bum.View.Buttons
         {
             if (shown)
             {
-                var collection = modelController.GetCollection(viewStateController.CurrentCollectionId);
-                Debug.Log("Items: " + collection.Items.Length);
+                var id = viewStateController.CurrentCollectionId;
+                var collection = modelController.GetCollection(id);
+
+                Unsubscribe();
+                screenView.Init(collection.Items);
+                Subscribe();
             }
             base.SetShown(shown);
         }
@@ -47,7 +51,7 @@ namespace Krk.Bum.View.Buttons
             base.OnEnable();
 
             backListener.Subscribe(screenView.BackButton);
-            screenView.OnTestButtonClicked += HandleTestButtonClicked;
+            Subscribe();
         }
 
         protected override void OnDisable()
@@ -57,12 +61,29 @@ namespace Krk.Bum.View.Buttons
             if (viewContext != null && screenView != null)
             {
                 backListener.Unsubscribe(screenView.BackButton);
-                screenView.OnTestButtonClicked -= HandleTestButtonClicked;
+                Unsubscribe();
             }
         }
 
-        private void HandleTestButtonClicked()
+        private void Subscribe()
         {
+            foreach (var button in screenView.ItemButtons)
+            {
+                button.OnButtonClicked += HandleCollectionButtonClicked;
+            }
+        }
+
+        private void Unsubscribe()
+        {
+            foreach (var button in screenView.ItemButtons)
+            {
+                button.OnButtonClicked -= HandleCollectionButtonClicked;
+            }
+        }
+
+        private void HandleCollectionButtonClicked(string id)
+        {
+            viewStateController.CurrentItemId = id;
             viewStateController.SetState(ViewStateEnum.Item);
         }
     }

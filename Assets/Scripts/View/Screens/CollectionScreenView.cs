@@ -1,33 +1,66 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
+﻿using Krk.Bum.Model;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Krk.Bum.View.Buttons
 {
     public class CollectionScreenView : ScreenView
     {
-        public UnityAction OnTestButtonClicked;
-
-
         public Button BackButton;
 
         [SerializeField]
-        private Button testButton = null;
+        private ItemButton itemButton = null;
+
+        [SerializeField]
+        private RectTransform itemsContent = null;
 
 
-        private void OnEnable()
+        private readonly List<ItemButton> itemButtons;
+
+        public List<ItemButton> ItemButtons { get { return itemButtons; } }
+
+
+        public CollectionScreenView()
         {
-            testButton.onClick.AddListener(HandleTestButtonClicked);
+            itemButtons = new List<ItemButton>();
         }
 
-        private void OnDisable()
+        public void Init(ItemData[] items)
         {
-            testButton.onClick.RemoveListener(HandleTestButtonClicked);
+            var size = Mathf.Min(items.Length, itemButtons.Count);
+
+            DisableItems(size);
+            UpdateItems(items, size);
+            CreateItems(items, size);
         }
 
-        private void HandleTestButtonClicked()
+        private void CreateItems(ItemData[] items, int size)
         {
-            if (OnTestButtonClicked != null) OnTestButtonClicked();
+            for (int i = size; i < items.Length; i++)
+            {
+                var gameObject = Instantiate(itemButton, itemsContent);
+                var button = gameObject.GetComponent<ItemButton>();
+                button.Init(items[i]);
+                itemButtons.Add(button);
+            }
+        }
+
+        private void UpdateItems(ItemData[] items, int size)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                itemButtons[i].gameObject.SetActive(true);
+                itemButtons[i].Init(items[i]);
+            }
+        }
+
+        private void DisableItems(int size)
+        {
+            for (int i = size; i < itemButtons.Count; i++)
+            {
+                itemButtons[i].gameObject.SetActive(false);
+            }
         }
     }
 }
