@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Krk.Bum.Model;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,34 +9,35 @@ namespace Krk.Bum.View.Buttons
 {
     public class InventoryScreenView : ScreenView
     {
-        public UnityAction OnTestButtonClicked;
-
-
         public Button BackButton;
 
         [SerializeField]
-        private Button testButton = null;
+        private CollectionButton collectionButton = null;
 
-
-        private void OnEnable()
-        {
-            testButton.onClick.AddListener(HandleTestButtonClicked);
-        }
-
-        private void OnDisable()
-        {
-            testButton.onClick.RemoveListener(HandleTestButtonClicked);
-        }
+        [SerializeField]
+        private RectTransform collectionsContent = null;
         
-        private void HandleTestButtonClicked()
+
+        public List<CollectionButton> CollectionButtons { get; private set; }
+        
+
+        public InventoryScreenView()
         {
-            if (OnTestButtonClicked != null) OnTestButtonClicked();
+            CollectionButtons = new List<CollectionButton>();
         }
 
 
-        public void InitCollections(CollectionData[] collectionData)
+        public void Init(CollectionData[] collections)
         {
-            Debug.Log("Collections: " + collectionData.Length);
+            CollectionButtons.Clear();
+
+            foreach (var collection in collections)
+            {
+                var gameObject = Instantiate(collectionButton, collectionsContent);
+                var button = gameObject.GetComponent<CollectionButton>();
+                button.Init(collection);
+                CollectionButtons.Add(button);
+            }
         }
     }
 }

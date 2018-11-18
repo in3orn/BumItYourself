@@ -28,6 +28,9 @@ namespace Krk.Bum.View.Model
         }
 
 
+        public string CurrentCollectionId { get; set; }
+
+
         public ViewStateController()
         {
             states = new Stack<ViewStateEnum>();

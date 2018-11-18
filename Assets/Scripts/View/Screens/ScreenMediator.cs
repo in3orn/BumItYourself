@@ -41,12 +41,17 @@ namespace Krk.Bum.View.Buttons
 
         private void HandleViewStateChanged(ViewStateEnum state)
         {
-            GetScreenView().SetShown(ShouldShow(state));
+            SetShown(ShouldShow(state));
+        }
+
+        protected virtual void SetShown(bool shown)
+        {
+            GetScreenView().SetShown(shown);
         }
 
         private bool ShouldShow(ViewStateEnum state)
         {
-            foreach(var showScreenState in config.ShowScreenStates)
+            foreach (var showScreenState in config.ShowScreenStates)
             {
                 if (state == showScreenState) return true;
             }
