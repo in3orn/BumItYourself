@@ -6,12 +6,13 @@ namespace Krk.Bum.View.Model
     public enum ViewStateEnum
     {
         Street = 0,
-        Game,
         Settings,
         Player,
         Inventory,
         Collection,
-        Item
+        Item,
+        Game,
+        Summary
     }
 
     public class ViewStateController

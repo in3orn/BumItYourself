@@ -21,6 +21,8 @@ namespace Krk.Bum.View.Buttons
             screenView.OnSettingsButtonClicked += HandleSettingsButtonClicked;
             screenView.OnPlayerButtonClicked += HandlePlayerButtonClicked;
             screenView.OnInventoryButtonClicked += HandleInventoryButtonClicked;
+
+            screenView.TestButton.onClick.AddListener(HandleTestButtonClicked);
         }
 
         protected override void OnDisable()
@@ -32,6 +34,8 @@ namespace Krk.Bum.View.Buttons
                 screenView.OnSettingsButtonClicked -= HandleSettingsButtonClicked;
                 screenView.OnPlayerButtonClicked -= HandlePlayerButtonClicked;
                 screenView.OnInventoryButtonClicked -= HandleInventoryButtonClicked;
+
+                screenView.TestButton.onClick.RemoveListener(HandleTestButtonClicked);
             }
         }
 
@@ -48,6 +52,11 @@ namespace Krk.Bum.View.Buttons
         private void HandleInventoryButtonClicked()
         {
             viewStateController.SetState(ViewStateEnum.Inventory);
+        }
+
+        private void HandleTestButtonClicked()
+        {
+            viewStateController.SetState(ViewStateEnum.Game);
         }
     }
 }

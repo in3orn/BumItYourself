@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6eb5c21af9f89124ab4ac58f0a1d0e96, type: 3}
-  m_Name: Street Screen Mediator
+  m_Name: Summary Screen Mediator
   m_EditorClassIdentifier: 
-  ShowScreenStates: 000000000100000002000000030000000400000005000000
+  ShowScreenStates: 07000000

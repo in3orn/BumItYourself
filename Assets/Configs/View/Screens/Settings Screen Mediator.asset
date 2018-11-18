@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb5c21af9f89124ab4ac58f0a1d0e96, type: 3}
   m_Name: Settings Screen Mediator
   m_EditorClassIdentifier: 
-  ShowScreenStates: 02000000
+  ShowScreenStates: 01000000

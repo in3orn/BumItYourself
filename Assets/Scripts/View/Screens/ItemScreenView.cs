@@ -10,13 +10,13 @@ namespace Krk.Bum.View.Buttons
         public Button BackButton;
 
         [SerializeField]
-        private Image image;
+        private Image image = null;
 
         [SerializeField]
-        private TextMeshProUGUI itemName;
+        private TextMeshProUGUI itemName = null;
 
         [SerializeField]
-        private TextMeshProUGUI countLabel;
+        private TextMeshProUGUI countLabel = null;
 
 
         public void Init(ItemData item)
