@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Required Part Row
   m_EditorClassIdentifier: 
   CountFormat: '{0} / {1}'
-  SuccessColor: {r: 0.11035956, g: 0.754717, b: 0.14569156, a: 1}
+  AvailableColor: {r: 0.23111585, g: 0.8962264, b: 0.20714669, a: 1}
+  UnavailableColor: {r: 0.745283, g: 0.0035154943, b: 0.0035154943, a: 1}

@@ -3,6 +3,7 @@ using Krk.Bum.Common;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using Krk.Bum.Model;
+using System;
 
 namespace Krk.Bum.View.Screens
 {
@@ -40,30 +41,9 @@ namespace Krk.Bum.View.Screens
                 var itemId = viewStateController.CurrentItemId;
                 var item = modelController.GetItem(collectionId, itemId);
 
-                screenView.Init(item, GetRequiredParts(item));
+                InitView(item);
             }
             base.SetShown(shown);
-        }
-
-        private RequiredPartData[] GetRequiredParts(ItemData item)
-        {
-            var result = new RequiredPartData[item.RequiredParts.Length];
-
-            for (int i = 0; i < result.Length; i++)
-            {
-                var itemPart = item.RequiredParts[i];
-                var part = modelController.GetPart(itemPart.PartId);
-                result[i] = new RequiredPartData
-                {
-                    Id = part.Id,
-                    Name = part.Name,
-                    Image = part.Image,
-                    Count = part.Count,
-                    RequiredCount = itemPart.RequiredCount
-                };
-            }
-
-            return result;
         }
 
         protected override void OnEnable()
@@ -71,6 +51,8 @@ namespace Krk.Bum.View.Screens
             base.OnEnable();
 
             backListener.Subscribe(screenView.BackButton);
+
+            screenView.CreateButton.onClick.AddListener(HandleCreateButtonClicked);
         }
 
         protected override void OnDisable()
@@ -81,6 +63,31 @@ namespace Krk.Bum.View.Screens
             {
                 backListener.Unsubscribe(screenView.BackButton);
             }
+
+            if (screenView != null)
+            {
+                screenView.CreateButton.onClick.RemoveListener(HandleCreateButtonClicked);
+            }
+        }
+
+        private void HandleCreateButtonClicked()
+        {
+            var collectionId = viewStateController.CurrentCollectionId;
+            var itemId = viewStateController.CurrentItemId;
+            var item = modelController.GetItem(collectionId, itemId);
+
+            if (modelController.CanCreateItem(item))
+            {
+                modelController.CreateItem(item);
+                InitView(item);
+            }
+        }
+
+        private void InitView(ItemData item)
+        {
+            var parts = modelController.GetRequiredParts(item);
+            var canCreate = modelController.CanCreateItem(item);
+            screenView.Init(item, parts, canCreate);
         }
     }
 }

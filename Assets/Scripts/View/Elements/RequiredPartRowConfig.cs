@@ -6,6 +6,7 @@ namespace Krk.Bum.View.Elements
     public class RequiredPartRowConfig : ScriptableObject
     {
         public string CountFormat;
-        public Color SuccessColor;
+        public Color AvailableColor;
+        public Color UnavailableColor;
     }
 }

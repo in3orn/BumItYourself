@@ -1,5 +1,6 @@
 ﻿using Krk.Bum.Model;
 using Krk.Bum.View.Elements;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -38,10 +39,11 @@ namespace Krk.Bum.View.Screens
         }
 
 
-        public void Init(ItemData item, RequiredPartData[] parts)
+        public void Init(ItemData item, RequiredPartData[] parts, bool canCreate)
         {
             itemName.text = item.Name;
             countLabel.text = "Count: " + item.Count;
+            CreateButton.interactable = canCreate;
             InitImage(item.Image);
             Init(parts);
         }

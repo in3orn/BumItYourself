@@ -1,5 +1,4 @@
 ﻿using Krk.Bum.Model.Utils;
-using System;
 
 namespace Krk.Bum.Model.Core
 {
@@ -7,12 +6,15 @@ namespace Krk.Bum.Model.Core
     {
         private readonly ModelData modelData;
 
+        private readonly ItemLoader itemLoader;
+
         private readonly PartLoader partLoader;
 
 
-        public ModelController(ModelData modelData, PartLoader partLoader)
+        public ModelController(ModelData modelData, ItemLoader itemLoader, PartLoader partLoader)
         {
             this.modelData = modelData;
+            this.itemLoader = itemLoader;
             this.partLoader = partLoader;
         }
 
@@ -42,6 +44,53 @@ namespace Krk.Bum.Model.Core
             }
 
             return null;
+        }
+
+        public bool CanCreateItem(ItemData item)
+        {
+            if (item.Count >= 99) return false; //TODO max count in model config?
+
+            foreach (var requiredPart in item.RequiredParts)
+            {
+                var part = GetPart(requiredPart.PartId);
+                if (part.Count < requiredPart.RequiredCount) return false;
+            }
+
+            return true;
+        }
+
+        public void CreateItem(ItemData item)
+        {
+            item.Count++;
+            itemLoader.Save(item);
+
+            foreach (var requiredPart in item.RequiredParts)
+            {
+                var part = GetPart(requiredPart.PartId);
+                part.Count -= requiredPart.RequiredCount;
+                partLoader.Save(part);
+            }
+        }
+
+        public RequiredPartData[] GetRequiredParts(ItemData item)
+        {
+            var result = new RequiredPartData[item.RequiredParts.Length];
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                var itemPart = item.RequiredParts[i];
+                var part = GetPart(itemPart.PartId);
+                result[i] = new RequiredPartData
+                {
+                    Id = part.Id,
+                    Name = part.Name,
+                    Image = part.Image,
+                    Count = part.Count,
+                    RequiredCount = itemPart.RequiredCount
+                };
+            }
+
+            return result;
         }
 
         public PartData[] GetAllParts()

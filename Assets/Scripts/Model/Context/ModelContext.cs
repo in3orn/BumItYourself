@@ -13,7 +13,11 @@ namespace Krk.Bum.Model.Context
 
         public ModelController ModelController
         {
-            get { return modelController ?? (modelController = new ModelController(ModelData, PartLoader)); }
+            get
+            {
+                return modelController ?? (modelController =
+                  new ModelController(ModelData, ItemLoader, PartLoader));
+            }
         }
 
         private ModelData modelData;

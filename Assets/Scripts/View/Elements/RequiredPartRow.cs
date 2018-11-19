@@ -8,7 +8,7 @@ namespace Krk.Bum.View.Elements
     public class RequiredPartRow : MonoBehaviour
     {
         [SerializeField]
-        private RequiredPartRowConfig config;
+        private RequiredPartRowConfig config = null;
 
         [SerializeField]
         private Image image = null;
@@ -20,17 +20,6 @@ namespace Krk.Bum.View.Elements
         private TextMeshProUGUI countLabel = null;
 
 
-        private Color defaultNameColor;
-        private Color defaultCountColor;
-
-
-        private void Awake()
-        {
-            defaultNameColor = nameLabel.color;
-            defaultCountColor = countLabel.color;
-        }
-
-
         public void Init(RequiredPartData data)
         {
             nameLabel.text = data.Name;
@@ -39,13 +28,11 @@ namespace Krk.Bum.View.Elements
 
             if (data.Count >= data.RequiredCount)
             {
-                nameLabel.color = config.SuccessColor;
-                countLabel.color = config.SuccessColor;
+                countLabel.color = config.AvailableColor;
             }
             else
             {
-                nameLabel.color = defaultNameColor;
-                countLabel.color = defaultCountColor;
+                countLabel.color = config.UnavailableColor;
             }
         }
 
