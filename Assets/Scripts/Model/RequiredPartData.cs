@@ -3,7 +3,7 @@
 namespace Krk.Bum.Model
 {
     [Serializable]
-    public class ItemData
+    public class RequiredPartData
     {
         public string Id;
         public string Name;
@@ -11,7 +11,6 @@ namespace Krk.Bum.Model
         public ImageData Image;
 
         public int Count;
-
-        public ItemPartData[] RequiredParts;
+        public int RequiredCount;
     }
 }

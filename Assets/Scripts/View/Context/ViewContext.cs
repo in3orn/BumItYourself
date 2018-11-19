@@ -1,5 +1,5 @@
-﻿using Krk.Bum.View.Model;
-using Krk.Bum.View.Buttons;
+﻿using Krk.Bum.View.Buttons;
+using Krk.Bum.View.Model;
 using UnityEngine;
 
 namespace Krk.Bum.View.Context

@@ -2,7 +2,7 @@
 using Krk.Bum.View.Model;
 using UnityEngine;
 
-namespace Krk.Bum.View.Buttons
+namespace Krk.Bum.View.Screens
 {
     public abstract class ScreenMediator : MonoBehaviour
     {

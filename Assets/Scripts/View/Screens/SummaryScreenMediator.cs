@@ -4,7 +4,7 @@ using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using UnityEngine;
 
-namespace Krk.Bum.View.Buttons
+namespace Krk.Bum.View.Screens
 {
     public class SummaryScreenMediator : ScreenMediator
     {

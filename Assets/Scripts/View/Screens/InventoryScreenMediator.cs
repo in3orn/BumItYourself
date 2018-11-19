@@ -4,7 +4,7 @@ using Krk.Bum.Common;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 
-namespace Krk.Bum.View.Buttons
+namespace Krk.Bum.View.Screens
 {
     public class InventoryScreenMediator : ScreenMediator
     {

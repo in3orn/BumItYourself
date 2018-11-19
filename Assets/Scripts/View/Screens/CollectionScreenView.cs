@@ -1,9 +1,10 @@
 ﻿using Krk.Bum.Model;
+using Krk.Bum.View.Buttons;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Krk.Bum.View.Buttons
+namespace Krk.Bum.View.Screens
 {
     public class CollectionScreenView : ScreenView
     {

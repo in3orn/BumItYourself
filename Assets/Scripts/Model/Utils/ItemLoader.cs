@@ -35,7 +35,9 @@
 
                 Image = config.Image,
 
-                Count = wrapper.GetInt(config.Id, CountKey)
+                Count = wrapper.GetInt(config.Id, CountKey),
+
+                RequiredParts = config.RequiredParts
             };
         }
 

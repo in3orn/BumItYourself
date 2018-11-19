@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Krk.Bum.View.Model;
 
-namespace Krk.Bum.View.Buttons
+namespace Krk.Bum.View.Screens
 {
     public class StreetScreenMediator : ScreenMediator
     {

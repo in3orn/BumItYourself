@@ -18,3 +18,8 @@ MonoBehaviour:
     Image: {fileID: 0}
     Color: {r: 0.7735849, g: 0.39044145, b: 0.75611854, a: 1}
     Rotation: 30
+  RequiredParts:
+  - PartId: wine-bottle
+    RequiredCount: 1
+  - PartId: wine-cork
+    RequiredCount: 3

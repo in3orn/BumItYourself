@@ -18,3 +18,8 @@ MonoBehaviour:
     Image: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
     Color: {r: 0.25342646, g: 0.8018868, b: 0.3622078, a: 1}
     Rotation: 0
+  RequiredParts:
+  - PartId: beer-bottle
+    RequiredCount: 1
+  - PartId: part-02
+    RequiredCount: 1

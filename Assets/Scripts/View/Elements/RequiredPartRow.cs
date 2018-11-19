@@ -3,20 +3,24 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Krk.Bum.View.Buttons
+namespace Krk.Bum.View.Elements
 {
-    public class PartTile : MonoBehaviour
+    public class RequiredPartRow : MonoBehaviour
     {
         [SerializeField]
         private Image image = null;
 
         [SerializeField]
-        private TextMeshProUGUI count = null;
+        private TextMeshProUGUI nameLabel = null;
+
+        [SerializeField]
+        private TextMeshProUGUI countLabel = null;
 
 
-        public void Init(PartData data)
+        public void Init(RequiredPartData data)
         {
-            count.text = data.Count.ToString();
+            nameLabel.text = data.Name;
+            countLabel.text = string.Format("{0} / {1}", data.Count, data.RequiredCount);
             InitImage(data.Image);
         }
 

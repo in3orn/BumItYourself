@@ -9,5 +9,7 @@ namespace Krk.Bum.Model
         public string Name;
 
         public ImageData Image;
+
+        public ItemPartData[] RequiredParts;
     }
 }

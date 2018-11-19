@@ -1,7 +1,7 @@
 ﻿using Krk.Bum.View.Animations;
 using UnityEngine;
 
-namespace Krk.Bum.View.Buttons
+namespace Krk.Bum.View.Screens
 {
     public class ScreenView : MonoBehaviour
     {

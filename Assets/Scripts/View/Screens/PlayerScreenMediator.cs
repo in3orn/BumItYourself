@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Krk.Bum.Common;
 
-namespace Krk.Bum.View.Buttons
+namespace Krk.Bum.View.Screens
 {
     public class PlayerScreenMediator : ScreenMediator
     {

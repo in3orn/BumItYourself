@@ -2,8 +2,9 @@
 using Krk.Bum.Common;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
+using Krk.Bum.Model;
 
-namespace Krk.Bum.View.Buttons
+namespace Krk.Bum.View.Screens
 {
     public class ItemScreenMediator : ScreenMediator
     {
@@ -38,10 +39,31 @@ namespace Krk.Bum.View.Buttons
                 var collectionId = viewStateController.CurrentCollectionId;
                 var itemId = viewStateController.CurrentItemId;
                 var item = modelController.GetItem(collectionId, itemId);
-                
-                screenView.Init(item);
+
+                screenView.Init(item, GetRequiredParts(item));
             }
             base.SetShown(shown);
+        }
+
+        private RequiredPartData[] GetRequiredParts(ItemData item)
+        {
+            var result = new RequiredPartData[item.RequiredParts.Length];
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                var itemPart = item.RequiredParts[i];
+                var part = modelController.GetPart(itemPart.PartId);
+                result[i] = new RequiredPartData
+                {
+                    Id = part.Id,
+                    Name = part.Name,
+                    Image = part.Image,
+                    Count = part.Count,
+                    RequiredCount = itemPart.RequiredCount
+                };
+            }
+
+            return result;
         }
 
         protected override void OnEnable()
