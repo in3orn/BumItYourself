@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398a10577cdf3a0459002ca6484312a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: 39223e5e0ea64d041b027352217eab61, type: 2}
   image: {fileID: 3511386319345209121}
   nameLabel: {fileID: 3511386319331312135}
   countLabel: {fileID: 3511386318625142914}

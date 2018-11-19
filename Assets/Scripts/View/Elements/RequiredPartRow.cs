@@ -8,6 +8,9 @@ namespace Krk.Bum.View.Elements
     public class RequiredPartRow : MonoBehaviour
     {
         [SerializeField]
+        private RequiredPartRowConfig config;
+
+        [SerializeField]
         private Image image = null;
 
         [SerializeField]
@@ -17,11 +20,33 @@ namespace Krk.Bum.View.Elements
         private TextMeshProUGUI countLabel = null;
 
 
+        private Color defaultNameColor;
+        private Color defaultCountColor;
+
+
+        private void Awake()
+        {
+            defaultNameColor = nameLabel.color;
+            defaultCountColor = countLabel.color;
+        }
+
+
         public void Init(RequiredPartData data)
         {
             nameLabel.text = data.Name;
-            countLabel.text = string.Format("{0} / {1}", data.Count, data.RequiredCount);
+            countLabel.text = string.Format(config.CountFormat, data.Count, data.RequiredCount);
             InitImage(data.Image);
+
+            if (data.Count >= data.RequiredCount)
+            {
+                nameLabel.color = config.SuccessColor;
+                countLabel.color = config.SuccessColor;
+            }
+            else
+            {
+                nameLabel.color = defaultNameColor;
+                countLabel.color = defaultCountColor;
+            }
         }
 
         private void InitImage(ImageData data) //TODO make some util method??
