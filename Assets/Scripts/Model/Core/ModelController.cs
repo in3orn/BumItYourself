@@ -107,7 +107,7 @@ namespace Krk.Bum.Model.Core
             return null;
         }
 
-        public void IncreasePartCount(string id, int value)
+        public void CollectPart(string id, int value)
         {
             var part = GetPart(id);
             part.Count += value;

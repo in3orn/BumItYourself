@@ -62,7 +62,7 @@ namespace Krk.Bum.View.Screens
         {
             foreach (var part in gameStateController.Loot)
             {
-                modelController.IncreasePartCount(part.Id, part.Count);
+                modelController.CollectPart(part.Id, part.Count);
             }
             gameStateController.ClearLoot();
         }
