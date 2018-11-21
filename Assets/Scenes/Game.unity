@@ -573,6 +573,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284968636}
   m_CullTransparentMesh: 0
+--- !u!1 &292625227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 292625229}
+  - component: {fileID: 292625228}
+  m_Layer: 0
+  m_Name: Street Blocks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &292625228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292625227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9332a484a9e7849b88151c7b60284f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 292625229}
+  templates:
+  - {fileID: 3207372310158591930, guid: 417d47d10adcf7f4fb1cd52ca7804085, type: 3}
+  - {fileID: 7236865534308095786, guid: 2788c655f3600c14f89573fac219859c, type: 3}
+  viewContext: {fileID: 1474845635}
+  gameContext: {fileID: 998196326}
+--- !u!4 &292625229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292625227}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &293180891
 GameObject:
   m_ObjectHideFlags: 0
@@ -4567,7 +4616,7 @@ Transform:
   - {fileID: 2103126796}
   - {fileID: 421092163}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1301454274
 MonoBehaviour:
@@ -5683,6 +5732,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30c5a7cabb85a1c41a25c0bddc9716ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BlocksControllerConfig: {fileID: 11400000, guid: 1226bb7383ffcf94c9c4aaec73ad6a16,
+    type: 2}
 --- !u!1 &1475252268
 GameObject:
   m_ObjectHideFlags: 0

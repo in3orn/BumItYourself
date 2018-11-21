@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Camera Follower
   m_EditorClassIdentifier: 
   MinFollowDistance: 0.1
-  FollowStrength: 0.1
+  FollowStrength: 2

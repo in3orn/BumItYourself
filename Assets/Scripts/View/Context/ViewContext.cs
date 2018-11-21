@@ -1,5 +1,6 @@
 ﻿using Krk.Bum.View.Buttons;
 using Krk.Bum.View.Model;
+using Krk.Bum.View.Street;
 using UnityEngine;
 
 namespace Krk.Bum.View.Context
@@ -32,6 +33,18 @@ namespace Krk.Bum.View.Context
                     backButtonListener = new BackButtonListener(ViewStateController);
                 }
                 return backButtonListener;
+            }
+        }
+
+        public BlocksControllerConfig BlocksControllerConfig;
+
+        public BlocksController blocksController;
+
+        public BlocksController BlocksController
+        {
+            get
+            {
+                return blocksController ?? (blocksController = new BlocksController(BlocksControllerConfig));
             }
         }
     }
