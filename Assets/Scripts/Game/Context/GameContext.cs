@@ -20,20 +20,6 @@ namespace Krk.Bum.Game.Context
         }
 
 
-        public TrashConfig TrashConfig;
-
-        private TrashController trashController;
-
-        public TrashController TrashController
-        {
-            get
-            {
-                return trashController ?? (trashController =
-                  new TrashController(modelContext.ModelController, TrashConfig));
-            }
-        }
-
-
         public PlayerConfig PlayerConfig;
 
         private PlayerController playerController;

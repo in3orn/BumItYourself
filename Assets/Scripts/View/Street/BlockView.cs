@@ -1,13 +1,15 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Krk.Bum.View.Street
 {
     public class BlockView : MonoBehaviour
     {
+        [SerializeField]
+        private SpriteRenderer mainImage = null;
+        
         public float Width
         {
-            get { return 10f; }
+            get { return mainImage.bounds.size.x; }
         }
 
         public void SetX(float centerX)

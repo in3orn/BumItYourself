@@ -14,10 +14,10 @@ namespace Krk.Bum.View.Street
         private BlockView[] templates;
 
         [SerializeField]
-        private ViewContext viewContext;
+        protected ViewContext viewContext;
 
         [SerializeField]
-        private GameContext gameContext;
+        protected GameContext gameContext;
 
         private BlocksController blocksController;
 
@@ -26,14 +26,20 @@ namespace Krk.Bum.View.Street
 
         private void Awake()
         {
-            blocksController = viewContext.BlocksController;
+            blocksController = GetBlocksController();
             playerController = gameContext.PlayerController;
+        }
+
+        protected virtual BlocksController GetBlocksController()
+        {
+            return viewContext.BlocksController;
         }
 
         public void Update()
         {
             blocksController.UpdatePosition(playerController.Position.x);
-            if(blocksController.ShouldSpawnLeftBlock())
+
+            while (blocksController.ShouldSpawnLeftBlock())
             {
                 var index = Random.Range(0, templates.Length);
                 var template = templates[index];
@@ -42,7 +48,8 @@ namespace Krk.Bum.View.Street
                 var data = blocksController.SpawnLeftBlock(view);
                 view.SetX(data.CenterX);
             }
-            else if(blocksController.ShouldSpawnRightBlock())
+
+            while (blocksController.ShouldSpawnRightBlock())
             {
                 var index = Random.Range(0, templates.Length);
                 var template = templates[index];

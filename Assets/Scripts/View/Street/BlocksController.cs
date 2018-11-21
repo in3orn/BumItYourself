@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
+using UnityEngine.Events;
 
 namespace Krk.Bum.View.Street
 {
     public class BlocksController
     {
+        public UnityAction<BlockView, BlockData> OnBlockSpawned;
+
+
         private readonly BlocksControllerConfig config;
 
         private readonly List<BlockData> leftBlocks;
@@ -57,6 +61,7 @@ namespace Krk.Bum.View.Street
                 CenterX = GetLeftEnd() - halfWidth
             };
             leftBlocks.Add(data);
+            if(OnBlockSpawned != null) OnBlockSpawned(blockView, data);
             return data;
         }
 
@@ -64,7 +69,7 @@ namespace Krk.Bum.View.Street
         {
             if (leftBlocks.Count <= 0) return 0f;
             var lastBlock = leftBlocks[leftBlocks.Count - 1];
-            return lastBlock.CenterX - lastBlock.HalfWidth;
+            return lastBlock.CenterX - lastBlock.HalfWidth - config.SpawnIntervalRange.GetRandom();
         }
 
         public BlockData SpawnRightBlock(BlockView blockView)
@@ -76,6 +81,7 @@ namespace Krk.Bum.View.Street
                 CenterX = GetRightEnd() + halfWidth
             };
             rightBlocks.Add(data);
+            if (OnBlockSpawned != null) OnBlockSpawned(blockView, data);
             return data;
         }
 
@@ -83,7 +89,7 @@ namespace Krk.Bum.View.Street
         {
             if (rightBlocks.Count <= 0) return 0f;
             var lastBlock = rightBlocks[rightBlocks.Count - 1];
-            return lastBlock.CenterX + lastBlock.HalfWidth;
+            return lastBlock.CenterX + lastBlock.HalfWidth + config.SpawnIntervalRange.GetRandom();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Krk.Bum.Common;
+using UnityEngine;
 
 namespace Krk.Bum.View.Street
 {
@@ -6,5 +7,7 @@ namespace Krk.Bum.View.Street
     public class BlocksControllerConfig : ScriptableObject
     {
         public float SpawnDistance;
+
+        public FloatRange SpawnIntervalRange;
     }
 }

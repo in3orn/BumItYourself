@@ -21,5 +21,10 @@ namespace Krk.Bum.Common
         {
             return Mathf.Clamp(value, Min, Max);
         }
+
+        public float GetRandom()
+        {
+            return Min + UnityEngine.Random.value * (Max - Min);
+        }
     }
 }
