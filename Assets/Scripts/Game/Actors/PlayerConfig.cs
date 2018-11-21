@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Krk.Bum.Common;
+using UnityEngine;
 
 namespace Krk.Bum.Game.Actors
 {
@@ -7,5 +8,6 @@ namespace Krk.Bum.Game.Actors
     {
         public float WalkSpeed;
         public float MinTargetDistance;
+        public FloatRange WalkRange;
     }
 }
