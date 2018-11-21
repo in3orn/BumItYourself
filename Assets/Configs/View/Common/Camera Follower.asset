@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 193207e3f33b63440bb513e72575cf53, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: 4f9c0a4034a87d144a9a93e5f90a9634, type: 3}
+  m_Name: Camera Follower
   m_EditorClassIdentifier: 
-  WalkSpeed: 2
-  MinTargetDistance: 0.1
+  MinFollowDistance: 0.1
+  FollowStrength: 0.1
