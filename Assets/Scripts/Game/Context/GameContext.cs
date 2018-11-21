@@ -1,4 +1,5 @@
-﻿using Krk.Bum.Game.Core;
+﻿using Krk.Bum.Game.Actors;
+using Krk.Bum.Game.Core;
 using Krk.Bum.Game.Items;
 using Krk.Bum.Model.Context;
 using UnityEngine;
@@ -29,6 +30,19 @@ namespace Krk.Bum.Game.Context
             {
                 return trashController ?? (trashController =
                   new TrashController(modelContext.ModelController, TrashConfig));
+            }
+        }
+
+
+        public PlayerConfig PlayerConfig;
+
+        private PlayerController playerController;
+
+        public PlayerController PlayerController
+        {
+            get
+            {
+                return playerController ?? (playerController = new PlayerController(PlayerConfig));
             }
         }
     }
