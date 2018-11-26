@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnDistance: 10
   SpawnIntervalRange:
-    min: 5
+    min: 10
     max: 15

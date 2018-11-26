@@ -67,7 +67,7 @@ namespace Krk.Bum.View.Street
 
         private float GetLeftEnd()
         {
-            if (leftBlocks.Count <= 0) return 0f;
+            if (leftBlocks.Count <= 0) return config.SpawnIntervalRange.GetRandom();
             var lastBlock = leftBlocks[leftBlocks.Count - 1];
             return lastBlock.CenterX - lastBlock.HalfWidth - config.SpawnIntervalRange.GetRandom();
         }
@@ -87,7 +87,7 @@ namespace Krk.Bum.View.Street
 
         private float GetRightEnd()
         {
-            if (rightBlocks.Count <= 0) return 0f;
+            if (rightBlocks.Count <= 0) return config.SpawnIntervalRange.GetRandom();
             var lastBlock = rightBlocks[rightBlocks.Count - 1];
             return lastBlock.CenterX + lastBlock.HalfWidth + config.SpawnIntervalRange.GetRandom();
         }
