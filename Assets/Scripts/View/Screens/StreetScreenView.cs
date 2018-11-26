@@ -20,8 +20,6 @@ namespace Krk.Bum.View.Screens
         [SerializeField]
         private Button inventoryButton = null;
 
-        public Button TestButton;
-
 
         private void OnEnable()
         {
