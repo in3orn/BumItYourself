@@ -23,11 +23,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0d8c5417ac77bb64ba98d7fb4bd6b504, type: 3}
   DamagedTopRotations:
   - 0
-  - 5
-  - 10
-  - 15
+  - -5
+  - -15
+  - -30
   DamagedTopPositions:
   - {x: 0, y: 0}
-  - {x: -0.5, y: -0.1}
-  - {x: -0.75, y: -0.2}
-  - {x: -1, y: -0.3}
+  - {x: 0.05, y: 0.73}
+  - {x: 0.1, y: 0.63}
+  - {x: 0.15, y: 0.53}
