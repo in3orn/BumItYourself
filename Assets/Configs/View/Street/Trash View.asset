@@ -12,7 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814d49aa02f9821488a75c4030a3964d, type: 3}
   m_Name: Trash View
   m_EditorClassIdentifier: 
-  HitColor: {r: 0.9811321, g: 0.790361, b: 0.16197933, a: 1}
+  HitColor: {r: 0.19921875, g: 0.25, b: 0, a: 1}
   HitDuration: 0.5
-  EmptyHitColor: {r: 0.41509432, g: 0.123353496, b: 0.123353496, a: 1}
+  EmptyHitColor: {r: 0.2509804, g: 0.16700768, b: 0, a: 1}
   EmptyHitDuration: 0.5
+  DamagedImages:
+  - {fileID: 21300000, guid: 41d5f07a7042afb43b84fd5f55937589, type: 3}
+  - {fileID: 21300000, guid: bcbec6b76cf67954789f746bfdd0028f, type: 3}
+  - {fileID: 21300000, guid: f16fab3a5d76f03448ca45ccd1f1e03c, type: 3}
+  - {fileID: 21300000, guid: 0d8c5417ac77bb64ba98d7fb4bd6b504, type: 3}
+  DamagedTopRotations:
+  - 0
+  - 5
+  - 10
+  - 15
+  DamagedTopPositions:
+  - {x: 0, y: 0}
+  - {x: -0.5, y: -0.1}
+  - {x: -0.75, y: -0.2}
+  - {x: -1, y: -0.3}
