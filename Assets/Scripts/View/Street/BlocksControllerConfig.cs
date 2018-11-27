@@ -9,5 +9,9 @@ namespace Krk.Bum.View.Street
         public float SpawnDistance;
 
         public FloatRange SpawnIntervalRange;
+        public FloatRange SpawnYRange;
+        
+        public bool InheritSpawnZFromY;
+        public float SpawnZ;
     }
 }

@@ -16,3 +16,8 @@ MonoBehaviour:
   SpawnIntervalRange:
     min: 10
     max: 15
+  SpawnYRange:
+    min: -2
+    max: 2
+  InheritSpawnZFromY: 1
+  SpawnZ: 0

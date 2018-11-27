@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Krk.Bum.View.Street
@@ -38,7 +39,7 @@ namespace Krk.Bum.View.Street
             }
 
             var lastBlock = leftBlocks[leftBlocks.Count - 1];
-            return currentX - lastBlock.CenterX - lastBlock.HalfWidth < config.SpawnDistance;
+            return currentX - lastBlock.Center.x - lastBlock.HalfWidth < config.SpawnDistance;
         }
 
         public bool ShouldSpawnRightBlock()
@@ -49,16 +50,20 @@ namespace Krk.Bum.View.Street
             }
 
             var lastBlock = rightBlocks[rightBlocks.Count - 1];
-            return lastBlock.CenterX + lastBlock.HalfWidth - currentX < config.SpawnDistance;
+            return lastBlock.Center.x + lastBlock.HalfWidth - currentX < config.SpawnDistance;
         }
 
         public BlockData SpawnLeftBlock(BlockView blockView)
         {
             var halfWidth = blockView.Width / 2f;
+
+            var y = config.SpawnYRange.GetRandom();
+            var z = config.InheritSpawnZFromY ? y : config.SpawnZ;
+
             var data = new BlockData
             {
                 HalfWidth = halfWidth,
-                CenterX = GetLeftEnd() - halfWidth
+                Center = new Vector3(GetLeftEnd() - halfWidth, y, z)
             };
             leftBlocks.Add(data);
             if(OnBlockSpawned != null) OnBlockSpawned(blockView, data);
@@ -69,16 +74,20 @@ namespace Krk.Bum.View.Street
         {
             if (leftBlocks.Count <= 0) return config.SpawnIntervalRange.GetRandom();
             var lastBlock = leftBlocks[leftBlocks.Count - 1];
-            return lastBlock.CenterX - lastBlock.HalfWidth - config.SpawnIntervalRange.GetRandom();
+            return lastBlock.Center.x - lastBlock.HalfWidth - config.SpawnIntervalRange.GetRandom();
         }
 
         public BlockData SpawnRightBlock(BlockView blockView)
         {
             var halfWidth = blockView.Width / 2f;
+
+            var y = config.SpawnYRange.GetRandom();
+            var z = config.InheritSpawnZFromY ? y : config.SpawnZ;
+
             var data = new BlockData
             {
                 HalfWidth = halfWidth,
-                CenterX = GetRightEnd() + halfWidth
+                Center = new Vector3(GetRightEnd() + halfWidth, y, z)
             };
             rightBlocks.Add(data);
             if (OnBlockSpawned != null) OnBlockSpawned(blockView, data);
@@ -89,7 +98,7 @@ namespace Krk.Bum.View.Street
         {
             if (rightBlocks.Count <= 0) return config.SpawnIntervalRange.GetRandom();
             var lastBlock = rightBlocks[rightBlocks.Count - 1];
-            return lastBlock.CenterX + lastBlock.HalfWidth + config.SpawnIntervalRange.GetRandom();
+            return lastBlock.Center.x + lastBlock.HalfWidth + config.SpawnIntervalRange.GetRandom();
         }
     }
 }

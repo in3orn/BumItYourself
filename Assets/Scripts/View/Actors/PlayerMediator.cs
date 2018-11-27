@@ -15,6 +15,8 @@ namespace Krk.Bum.View.Actors
 
         private PlayerController playerController;
 
+        private Vector3 playerPosition;
+
 
         private void Awake()
         {
@@ -27,7 +29,11 @@ namespace Krk.Bum.View.Actors
 
             if ((Vector2)playerView.transform.position != playerController.Position)
             {
-                playerView.transform.position = playerController.Position;
+                playerPosition.x = playerController.Position.x;
+                playerPosition.y = playerController.Position.y;
+                playerPosition.z = playerController.Position.y;
+
+                playerView.transform.position = playerPosition;
             }
         }
     }

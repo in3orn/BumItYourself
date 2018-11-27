@@ -1,11 +1,12 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Krk.Bum.View.Street
 {
     [Serializable]
     public class BlockData
     {
-        public float CenterX;
+        public Vector3 Center;
         public float HalfWidth;
     }
 }

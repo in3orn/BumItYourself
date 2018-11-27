@@ -46,7 +46,7 @@ namespace Krk.Bum.View.Street
                 var gameObject = Instantiate(template, parent);
                 var view = gameObject.GetComponent<BlockView>();
                 var data = blocksController.SpawnLeftBlock(view);
-                view.SetX(data.CenterX);
+                view.SetPosition(data.Center);
             }
 
             while (blocksController.ShouldSpawnRightBlock())
@@ -56,7 +56,7 @@ namespace Krk.Bum.View.Street
                 var gameObject = Instantiate(template, parent);
                 var view = gameObject.GetComponent<BlockView>();
                 var data = blocksController.SpawnRightBlock(view);
-                view.SetX(data.CenterX);
+                view.SetPosition(data.Center);
             }
         }
     }

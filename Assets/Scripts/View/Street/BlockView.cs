@@ -12,9 +12,9 @@ namespace Krk.Bum.View.Street
             get { return mainImage.bounds.size.x; }
         }
 
-        public void SetX(float centerX)
+        public void SetPosition(Vector3 position)
         {
-            transform.position = new Vector3(centerX, transform.position.y, transform.position.z);
+            transform.position = position;
         }
     }
 }

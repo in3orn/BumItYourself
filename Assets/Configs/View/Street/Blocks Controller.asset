@@ -13,3 +13,11 @@ MonoBehaviour:
   m_Name: Blocks Controller
   m_EditorClassIdentifier: 
   SpawnDistance: 10
+  SpawnIntervalRange:
+    min: 0
+    max: 0
+  SpawnYRange:
+    min: 0
+    max: 0
+  InheritSpawnZFromY: 0
+  SpawnZ: 5
