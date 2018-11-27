@@ -16,27 +16,22 @@ namespace Krk.Bum.View.Street
         private ModelContext modelContext = null;
 
         [SerializeField]
-        private GameContext gameContext = null;
-
-        [SerializeField]
         private ViewContext viewContext = null;
 
         [SerializeField]
-        private TrashConfig trashConfig;
+        private TrashConfig trashConfig = null;
 
 
         private ModelController modelController;
         private BlocksController blocksController;
 
 
-        private List<TrashView> views;
-        private List<TrashController> controllers;
+        private Dictionary<TrashView, TrashController> trashes;
 
 
         private void Awake()
         {
-            views = new List<TrashView>();
-            controllers = new List<TrashController>();
+            trashes = new Dictionary<TrashView, TrashController>();
 
             modelController = modelContext.ModelController;
             blocksController = viewContext.TrashBlocksController;
@@ -50,10 +45,12 @@ namespace Krk.Bum.View.Street
         private void HandleBlockSpawned(BlockView blockView, BlockData data)
         {
             var trashView = blockView.GetComponent<TrashView>();
-            views.Add(trashView);
+            var trashController = new TrashController(modelController, trashConfig)
+            {
+                Position = trashView.transform.position
+            };
 
-            var trashController = new TrashController(modelController, trashConfig);
-            controllers.Add(trashController);
+            trashes[trashView] = trashController;
 
             trashView.OnClicked += trashController.Hit;
 
@@ -64,6 +61,19 @@ namespace Krk.Bum.View.Street
         private void OnDisable()
         {
             //TODO
+        }
+
+
+        public TrashController GetControllerFor(TrashView view)
+        {
+            if(trashes.ContainsKey(view))
+            {
+                var result = trashes[view];
+                result.Position = view.transform.position; //TODO hacky :(
+
+                return result;
+            }
+            return null;
         }
     }
 }

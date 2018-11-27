@@ -36,7 +36,7 @@ namespace Krk.Bum.View.Street
 
         private void OnMouseDown()
         {
-            OnClicked?.Invoke();
+            //OnClicked?.Invoke();
         }
 
         public void HitEmpty(TrashData data)

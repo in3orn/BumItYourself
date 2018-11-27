@@ -8,16 +8,16 @@ namespace Krk.Bum.View.Street
     public class BlocksMediator : MonoBehaviour
     {
         [SerializeField]
-        private Transform parent;
+        private Transform parent = null;
 
         [SerializeField]
-        private BlockView[] templates;
+        private BlockView[] templates = null;
 
         [SerializeField]
-        protected ViewContext viewContext;
+        protected ViewContext viewContext = null;
 
         [SerializeField]
-        protected GameContext gameContext;
+        protected GameContext gameContext = null;
 
         private BlocksController blocksController;
 

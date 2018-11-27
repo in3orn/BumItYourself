@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Krk.Bum.Game.Items;
+using UnityEngine;
 
 namespace Krk.Bum.Game.Actors
 {
@@ -7,9 +8,41 @@ namespace Krk.Bum.Game.Actors
         private readonly PlayerConfig config;
 
 
-        public Vector2 TargetPosition { get; set; }
+        private Vector2 targetPosition;
+
+        private TrashController targetTrash;
+
+
+        public Vector2 TargetPosition
+        {
+            get { return targetPosition; }
+            set
+            {
+                if(targetPosition != value)
+                {
+                    targetPosition = value;
+                    targetTrash = null;
+                }
+            }
+        }
 
         public Vector2 Position { get; private set; }
+
+        public TrashController TargetTrash
+        {
+            get { return targetTrash; }
+            set
+            {
+                if (targetTrash != value)
+                {
+                    targetTrash = value;
+                    if (targetTrash != null)
+                    {
+                        targetPosition = targetTrash.Position;
+                    }
+                }
+            }
+        }
 
 
         public PlayerController(PlayerConfig config)
@@ -17,14 +50,28 @@ namespace Krk.Bum.Game.Actors
             this.config = config;
         }
 
-        public void UpdatePosition(float deltaTime)
+        public void Update(float deltaTime)
         {
-            TargetPosition = new Vector2(TargetPosition.x, config.WalkRange.Clamp(TargetPosition.y));
-            var diff = TargetPosition - Position;
-            if (diff.magnitude > config.MinTargetDistance)
+            if (TargetTrash != null && IsInRange(TargetTrash.Position))
             {
-                Position += diff.normalized * config.WalkSpeed * deltaTime;
+                TargetTrash.Hit();
+                TargetPosition = Position;
             }
+            else
+            {
+                TargetPosition = new Vector2(TargetPosition.x, config.WalkRange.Clamp(TargetPosition.y));
+                var diff = TargetPosition - Position;
+                if (diff.magnitude > config.MinTargetDistance)
+                {
+                    Position += diff.normalized * config.WalkSpeed * deltaTime;
+                }
+            }
+        }
+
+        public bool IsInRange(Vector2 position)
+        {
+            var diff = position - Position;
+            return diff.magnitude <= config.ReachRange;
         }
     }
 }

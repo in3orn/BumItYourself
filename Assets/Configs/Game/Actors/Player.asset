@@ -17,3 +17,4 @@ MonoBehaviour:
   WalkRange:
     min: -1.8
     max: 1.8
+  ReachRange: 1.5

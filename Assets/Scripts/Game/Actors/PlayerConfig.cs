@@ -9,5 +9,7 @@ namespace Krk.Bum.Game.Actors
         public float WalkSpeed;
         public float MinTargetDistance;
         public FloatRange WalkRange;
+
+        public float ReachRange;
     }
 }

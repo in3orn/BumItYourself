@@ -23,7 +23,7 @@ namespace Krk.Bum.View.Actors
 
         private void Update()
         {
-            playerController.UpdatePosition(Time.deltaTime);
+            playerController.Update(Time.deltaTime);
 
             if ((Vector2)playerView.transform.position != playerController.Position)
             {

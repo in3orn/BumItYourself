@@ -16,6 +16,8 @@ namespace Krk.Bum.Game.Items
 
         public TrashData State { get; private set; }
 
+        public Vector2 Position { get; set; }
+
 
         public TrashController(ModelController modelController, TrashConfig config)
         {

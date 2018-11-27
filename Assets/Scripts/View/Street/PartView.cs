@@ -7,7 +7,7 @@ namespace Krk.Bum.View.Street
     public class PartView : MonoBehaviour
     {
         [SerializeField]
-        private SpriteRenderer mainRenderer;
+        private SpriteRenderer mainRenderer = null;
 
         public void Show(PartData partData)
         {

@@ -484,6 +484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 293180893}
   gameContext: {fileID: 998196326}
+  trashMediator: {fileID: 1336157321}
 --- !u!1 &305637895
 GameObject:
   m_ObjectHideFlags: 0
