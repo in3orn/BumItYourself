@@ -88,6 +88,10 @@ namespace Krk.Bum.View.Street
             }
 
             sequence.Play();
+
+            var gameObject = Instantiate(config.PartTemplate, transform);
+            var partView = gameObject.GetComponent<PartView>();
+            partView.Show(partData);
         }
     }
 }

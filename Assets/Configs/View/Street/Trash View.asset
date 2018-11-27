@@ -31,3 +31,5 @@ MonoBehaviour:
   - {x: 0.05, y: 0.73}
   - {x: 0.1, y: 0.63}
   - {x: 0.15, y: 0.53}
+  PartTemplate: {fileID: 1704947660694128152, guid: 3dbe7814a22944d4b903f09865738cf1,
+    type: 3}
