@@ -1,9 +1,14 @@
 ﻿using Krk.Bum.Model.Utils;
+using UnityEngine.Events;
 
 namespace Krk.Bum.Model.Core
 {
     public class ModelController
     {
+        public UnityAction<PartData> OnPartCollected;
+        public UnityAction<ItemData> OnItemCreated;
+
+
         private readonly ModelData modelData;
 
         private readonly ItemLoader itemLoader;
@@ -70,6 +75,8 @@ namespace Krk.Bum.Model.Core
                 part.Count -= requiredPart.RequiredCount;
                 partLoader.Save(part);
             }
+
+            if (OnItemCreated != null) OnItemCreated(item);
         }
 
         public RequiredPartData[] GetRequiredParts(ItemData item)
@@ -112,6 +119,18 @@ namespace Krk.Bum.Model.Core
             var part = GetPart(id);
             part.Count += value;
             partLoader.Save(part);
+
+            if (OnPartCollected != null) OnPartCollected(part);
+        }
+
+        public int GetResourcesCount()
+        {
+            var count = 0;
+            foreach (var part in modelData.Parts)
+            {
+                count += part.Count;
+            }
+            return count;
         }
     }
 }
