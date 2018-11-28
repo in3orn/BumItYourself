@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: d6b4381eccb33e6488377f61edd51647, type: 3}
+    totalSpriteSurfaceArea: 202326
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 7b9c4b105da9c0442bdd6b8f91b90e63, type: 3}
+  - {fileID: 21300000, guid: 93b8ec8016bf8144aa8176f76c41feec, type: 3}
+  - {fileID: 21300000, guid: ec0a2201332c71d47b05f5976c218517, type: 3}
+  - {fileID: 21300000, guid: 02ddf2324f195a54481613cf8062b341, type: 3}
+  - {fileID: 21300000, guid: d827daa4ffcde064c89e7f928d3f789d, type: 3}
+  - {fileID: 21300000, guid: a4a557d4c0f72664397b34afe5d40758, type: 3}
+  - {fileID: 21300000, guid: 5c16c0c54346e564382efbf292893ac0, type: 3}
+  - {fileID: 21300000, guid: 0d8c5417ac77bb64ba98d7fb4bd6b504, type: 3}
+  - {fileID: 21300000, guid: bcbec6b76cf67954789f746bfdd0028f, type: 3}
+  - {fileID: 21300000, guid: c737f21a5faeff94691aedce338d6a3b, type: 3}
+  - {fileID: 21300000, guid: f16fab3a5d76f03448ca45ccd1f1e03c, type: 3}
+  - {fileID: 21300000, guid: 41d5f07a7042afb43b84fd5f55937589, type: 3}
+  - {fileID: 21300000, guid: 26e85a4c178bf954884eefd76f3609ef, type: 3}
+  - {fileID: 21300000, guid: d350e8fe909507b42b29961adf86303e, type: 3}
+  - {fileID: 21300000, guid: be4c97afcd322f145b40e096f01f065a, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - trash-top
+  - house-bricks
+  - pixel
+  - pavement-stone
+  - pavement-front
+  - button-fill
+  - icon-settings
+  - trash-base-04
+  - trash-base-02
+  - icon-profile
+  - trash-base-03
+  - trash-base-01
+  - bum
+  - button-border
+  - icon-items
+  m_Tag: Sprite Atlas
+  m_IsVariant: 0
