@@ -1,6 +1,6 @@
 ﻿using Krk.Bum.Model;
 using Krk.Bum.View.Buttons;
-using System;
+using Krk.Bum.View.Screen_Canvas;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -21,6 +21,9 @@ namespace Krk.Bum.View.Screens
         [SerializeField]
         private RectTransform itemsContent = null;
 
+        [SerializeField]
+        private NotificationView notification = null;
+
 
         private readonly List<ItemButton> itemButtons;
 
@@ -35,7 +38,7 @@ namespace Krk.Bum.View.Screens
         public void Init(CollectionData collection)
         {
             nameLabel.text = collection.Name;
-            
+
             CreateItems(collection.Items);
         }
 
@@ -54,6 +57,15 @@ namespace Krk.Bum.View.Screens
         {
             header.gameObject.SetActive(shown);
             itemsContent.gameObject.SetActive(shown);
+        }
+
+        public void SetNotificationShown(bool shown)
+        {
+            if (notification.Shown != shown)
+            {
+                if (!notification.Shown) notification.Show();
+                else notification.Hide();
+            }
         }
     }
 }

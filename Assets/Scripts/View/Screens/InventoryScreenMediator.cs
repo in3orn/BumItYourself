@@ -5,6 +5,7 @@ using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using Krk.Bum.View.Buttons;
 using System;
+using Krk.Bum.Model;
 
 namespace Krk.Bum.View.Screens
 {
@@ -26,6 +27,14 @@ namespace Krk.Bum.View.Screens
             modelController = modelContext.ModelController;
         }
 
+        protected override void Start()
+        {
+            screenView.Init(modelController.GetAllCollections());
+
+            Subscribe();
+            base.Start();
+        }
+
         protected override ScreenView GetScreenView()
         {
             return screenView;
@@ -33,11 +42,13 @@ namespace Krk.Bum.View.Screens
 
         protected override void SetShown(bool shown)
         {
+            base.SetShown(shown);
+
             if (shown)
             {
                 screenView.Update();
+                UpdateNotifications();
             }
-            base.SetShown(shown);
         }
 
         protected override void OnEnable()
@@ -47,6 +58,8 @@ namespace Krk.Bum.View.Screens
             screenView.BackButton.onClick.AddListener(HandleBackClicked);
 
             Subscribe();
+
+            modelController.OnItemCreated += HandleItemCreated;
         }
 
         protected override void OnDisable()
@@ -59,14 +72,11 @@ namespace Krk.Bum.View.Screens
 
                 Unsubscribe();
             }
-        }
 
-        protected override void Start()
-        {
-            screenView.Init(modelController.GetAllCollections());
-
-            Subscribe();
-            base.Start();
+            if (modelContext != null)
+            {
+                modelController.OnItemCreated -= HandleItemCreated;
+            }
         }
 
         private void Subscribe()
@@ -110,6 +120,36 @@ namespace Krk.Bum.View.Screens
         {
             viewStateController.CurrentItemId = button.Item.Id;
             viewStateController.SetState(ViewStateEnum.Item);
+        }
+
+        private void HandleItemCreated(ItemData item)
+        {
+            UpdateNotifications();
+        }
+
+        private void UpdateNotifications()
+        {
+            foreach (var pair in screenView.CollectionViews)
+            {
+                if (pair.Key.Unlocked)
+                {
+                    UpdateNotifications(pair.Value);
+                }
+            }
+        }
+
+        private void UpdateNotifications(CollectionView collectionView)
+        {
+            var collectionShown = false;
+
+            foreach (var button in collectionView.ItemButtons)
+            {
+                var shown = modelController.CanCreateItem(button.Item);
+                button.SetNotificationShown(shown);
+                collectionShown |= shown;
+            }
+
+            collectionView.SetNotificationShown(collectionShown);
         }
     }
 }

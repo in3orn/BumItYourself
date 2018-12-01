@@ -1,4 +1,6 @@
-﻿using Krk.Bum.Model;
+﻿using System;
+using Krk.Bum.Model;
+using Krk.Bum.View.Screen_Canvas;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -19,6 +21,9 @@ namespace Krk.Bum.View.Buttons
 
         [SerializeField]
         private TextMeshProUGUI count = null;
+
+        [SerializeField]
+        private NotificationView notification = null;
 
 
         public ItemData Item { get; private set; }
@@ -69,6 +74,15 @@ namespace Krk.Bum.View.Buttons
             var active = Item.Count > 0;
             count.text = Item.Count.ToString();
             count.color = active ? defaultCountColor : Color.red;
+        }
+
+        public void SetNotificationShown(bool shown)
+        {
+            if (notification.Shown != shown)
+            {
+                if (!notification.Shown) notification.Show();
+                else notification.Hide();
+            }
         }
     }
 }
