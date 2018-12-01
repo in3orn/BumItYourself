@@ -2148,7 +2148,6 @@ GameObject:
   - component: {fileID: 710765981}
   - component: {fileID: 710765980}
   - component: {fileID: 710765978}
-  - component: {fileID: 710765983}
   - component: {fileID: 710765982}
   - component: {fileID: 710765985}
   - component: {fileID: 710765984}
@@ -2251,22 +2250,6 @@ MonoBehaviour:
   viewContext: {fileID: 1474845635}
   modelContext: {fileID: 346672202}
   screenView: {fileID: 748570115}
---- !u!114 &710765983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710765976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b5e3c3d974afce4d826b88d2e6a512a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 9a1515db9f40b834d87b1292bdbe0235, type: 2}
-  viewContext: {fileID: 1474845635}
-  modelContext: {fileID: 346672202}
-  screenView: {fileID: 0}
 --- !u!114 &710765984
 MonoBehaviour:
   m_ObjectHideFlags: 0

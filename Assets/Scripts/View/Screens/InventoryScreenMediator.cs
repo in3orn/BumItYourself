@@ -31,6 +31,15 @@ namespace Krk.Bum.View.Screens
             return screenView;
         }
 
+        protected override void SetShown(bool shown)
+        {
+            if (shown)
+            {
+                screenView.Update();
+            }
+            base.SetShown(shown);
+        }
+
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -62,7 +71,7 @@ namespace Krk.Bum.View.Screens
 
         private void Subscribe()
         {
-            foreach (var collectionView in screenView.CollectionViews)
+            foreach (var collectionView in screenView.CollectionViews.Values)
             {
                 Subscribe(collectionView);
             }
@@ -78,7 +87,7 @@ namespace Krk.Bum.View.Screens
 
         private void Unsubscribe()
         {
-            foreach (var collectionView in screenView.CollectionViews)
+            foreach (var collectionView in screenView.CollectionViews.Values)
             {
                 Unsubscribe(collectionView);
             }

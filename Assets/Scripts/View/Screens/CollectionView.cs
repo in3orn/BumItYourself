@@ -1,5 +1,6 @@
 ﻿using Krk.Bum.Model;
 using Krk.Bum.View.Buttons;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,9 @@ namespace Krk.Bum.View.Screens
 
         [SerializeField]
         private ItemButton itemButton = null;
+
+        [SerializeField]
+        private RectTransform header = null;
 
         [SerializeField]
         private RectTransform itemsContent = null;
@@ -44,6 +48,12 @@ namespace Krk.Bum.View.Screens
                 button.Init(items[i]);
                 itemButtons.Add(button);
             }
+        }
+
+        public void SetShown(bool shown)
+        {
+            header.gameObject.SetActive(shown);
+            itemsContent.gameObject.SetActive(shown);
         }
     }
 }

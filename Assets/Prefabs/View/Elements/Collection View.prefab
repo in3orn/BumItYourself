@@ -367,6 +367,7 @@ MonoBehaviour:
   nameLabel: {fileID: 4311588967809763705}
   itemButton: {fileID: 5488592586881157967, guid: 25510b6078fa8d24ea543dad44f54862,
     type: 3}
+  header: {fileID: 4311588968440931243}
   itemsContent: {fileID: 4311588969356152682}
 --- !u!1 &4311588969356152683
 GameObject:

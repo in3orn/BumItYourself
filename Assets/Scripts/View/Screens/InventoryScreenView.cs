@@ -17,12 +17,12 @@ namespace Krk.Bum.View.Screens
         private RectTransform collectionsContent = null;
 
 
-        public List<CollectionView> CollectionViews { get; private set; }
+        public Dictionary<CollectionData, CollectionView> CollectionViews { get; private set; }
 
 
         public InventoryScreenView()
         {
-            CollectionViews = new List<CollectionView>();
+            CollectionViews = new Dictionary<CollectionData, CollectionView>();
         }
 
 
@@ -35,7 +35,15 @@ namespace Krk.Bum.View.Screens
                 var gameObject = Instantiate(this.collectionView, collectionsContent);
                 var collectionView = gameObject.GetComponent<CollectionView>();
                 collectionView.Init(collection);
-                CollectionViews.Add(collectionView);
+                CollectionViews[collection] = collectionView;
+            }
+        }
+
+        public void Update()
+        {
+            foreach (var pair in CollectionViews)
+            {
+                pair.Value.SetShown(pair.Key.Unlocked);
             }
         }
     }
