@@ -932,6 +932,12 @@ GameObject:
   - component: {fileID: 375332521}
   - component: {fileID: 375332524}
   - component: {fileID: 375332523}
+  - component: {fileID: 375332530}
+  - component: {fileID: 375332529}
+  - component: {fileID: 375332528}
+  - component: {fileID: 375332527}
+  - component: {fileID: 375332526}
+  - component: {fileID: 375332525}
   m_Layer: 5
   m_Name: Street Screen
   m_TagString: Untagged
@@ -1019,6 +1025,88 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTransform: {fileID: 264693325}
   countLabel: {fileID: 1186423198}
+--- !u!114 &375332525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375332519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33d441616c598734b9bc202bf5837e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 375332526}
+  modelContext: {fileID: 346672202}
+--- !u!114 &375332526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375332519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93861674d4f02d409ab48ecdd709f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: a35f3192ba0e69146bb5b5f0f69f8a00, type: 2}
+  button: {fileID: 555035575}
+--- !u!114 &375332527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375332519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc542006a11cbb44af418202c2011ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 375332528}
+--- !u!114 &375332528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375332519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93861674d4f02d409ab48ecdd709f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: 8554d1fd165f5394b948d5fae3eadc5d, type: 2}
+  button: {fileID: 1412752116}
+--- !u!114 &375332529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375332519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 901bca2114ffd2c439aa344a9a36e548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 375332530}
+--- !u!114 &375332530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375332519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93861674d4f02d409ab48ecdd709f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: 9c0710a1aef1d13468395610c89d58e3, type: 2}
+  button: {fileID: 1916499986}
 --- !u!1 &384514000
 GameObject:
   m_ObjectHideFlags: 0

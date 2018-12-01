@@ -18,7 +18,8 @@ namespace Krk.Bum.Model.Context
             get
             {
                 return modelController ?? (modelController =
-                  new ModelController(ModelControllerConfig, ModelData, ModelLoader, ItemLoader, PartLoader));
+                  new ModelController(ModelControllerConfig, ModelData,
+                  ModelLoader, CollectionLoader, ItemLoader, PartLoader));
             }
         }
 

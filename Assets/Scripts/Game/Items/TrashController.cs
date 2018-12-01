@@ -32,6 +32,21 @@ namespace Krk.Bum.Game.Items
 
         public void Use()
         {
+            if (!modelController.IsAnyCollectionUnlocked())
+            {
+                var collection = modelController.GetAllCollections()[0];
+                modelController.UnlockCollection(collection);
+                var part = new PartData()
+                {
+                    Image = collection.Image
+                };
+
+                State.ItemsCount = 0;
+                OnHit?.Invoke(State, part);
+
+                return;
+            }
+
             if (State.ItemsCount > 0)
             {
                 State.ItemsCount--;

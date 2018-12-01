@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Krk.Bum.Model.Utils;
 using UnityEngine.Events;
 
@@ -7,6 +6,7 @@ namespace Krk.Bum.Model.Core
 {
     public class ModelController
     {
+        public UnityAction<CollectionData> OnCollectionUnlocked;
         public UnityAction<PartData> OnPartCollected;
         public UnityAction<ItemData> OnItemCreated;
         public UnityAction<ItemData> OnItemSold;
@@ -15,6 +15,8 @@ namespace Krk.Bum.Model.Core
         private readonly ModelControllerConfig config;
 
         private readonly ModelData modelData;
+
+        private readonly CollectionLoader collectionLoader;
 
         private readonly ModelLoader modelLoader;
 
@@ -30,13 +32,25 @@ namespace Krk.Bum.Model.Core
 
 
         public ModelController(ModelControllerConfig config, ModelData modelData,
-            ModelLoader modelLoader, ItemLoader itemLoader, PartLoader partLoader)
+            ModelLoader modelLoader, CollectionLoader collectionLoader, 
+            ItemLoader itemLoader, PartLoader partLoader)
         {
             this.config = config;
             this.modelData = modelData;
+            this.collectionLoader = collectionLoader;
             this.modelLoader = modelLoader;
             this.itemLoader = itemLoader;
             this.partLoader = partLoader;
+        }
+
+        public bool IsAnyCollectionUnlocked()
+        {
+            foreach(var collection in GetAllCollections())
+            {
+                if (collection.Unlocked) return true;
+            }
+
+            return false;
         }
 
         public CollectionData[] GetAllCollections()
@@ -52,6 +66,13 @@ namespace Krk.Bum.Model.Core
             }
 
             return null;
+        }
+
+        public void UnlockCollection(CollectionData collection)
+        {
+            collection.Unlocked = true;
+            collectionLoader.Save(collection);
+            if (OnCollectionUnlocked != null) OnCollectionUnlocked(collection);
         }
 
         public List<ItemData> GetCreatedItems()
