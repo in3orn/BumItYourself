@@ -24,8 +24,8 @@ namespace Krk.Bum.View.Screen_Canvas
 
         private void Start()
         {
-            if(modelController.IsAnyCollectionUnlocked())
-                display.Init(modelController.GetResourcesCount());
+            var count = modelController.GetResourcesCount();
+            if (count > 0 || modelController.ItemsSold > 0) display.Init(count);
         }
 
         private void OnEnable()
