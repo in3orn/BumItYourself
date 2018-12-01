@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 namespace Krk.Bum.View.Buttons
 {
-    public class ItemButton : MonoBehaviour
+    public class StoreItemButton : MonoBehaviour
     {
-        public UnityAction<ItemButton> OnButtonClicked;
+        public UnityAction<StoreItemButton> OnButtonClicked;
 
+
+        [SerializeField]
+        private StoreItemButtonConfig config = null;
 
         [SerializeField]
         private Button button = null;
@@ -23,13 +26,6 @@ namespace Krk.Bum.View.Buttons
 
         public ItemData Item { get; private set; }
 
-
-        private Color defaultCountColor;
-
-        private void Awake()
-        {
-            defaultCountColor = count.color;
-        }
 
         public void Init(ItemData data)
         {
@@ -68,7 +64,8 @@ namespace Krk.Bum.View.Buttons
         {
             var active = Item.Count > 0;
             count.text = Item.Count.ToString();
-            count.color = active ? defaultCountColor : Color.red;
+            count.color = active ? config.DefaultColor : config.LockedColor;
+            button.interactable = active;
         }
     }
 }

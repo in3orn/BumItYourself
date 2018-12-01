@@ -12,7 +12,8 @@ namespace Krk.Bum.View.Model
         Collection,
         Item,
         Game,
-        Summary
+        Summary,
+        Store
     }
 
     public class ViewStateController

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Krk.Bum.View.Model;
 using Krk.Bum.Common;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
@@ -7,13 +6,13 @@ using Krk.Bum.View.Buttons;
 
 namespace Krk.Bum.View.Screens
 {
-    public class CollectionScreenMediator : ScreenMediator
+    public class StoreScreenMediator : ScreenMediator
     {
         [SerializeField]
         private ModelContext modelContext = null;
 
         [SerializeField]
-        private CollectionScreenView screenView = null;
+        private StoreScreenView screenView = null;
 
 
         private ModelController modelController;
@@ -37,11 +36,8 @@ namespace Krk.Bum.View.Screens
         {
             if (shown)
             {
-                var id = viewStateController.CurrentCollectionId;
-                var collection = modelController.GetCollection(id);
-
                 Unsubscribe();
-                screenView.Init(collection.Items);
+                screenView.Init(modelController.GetCreatedItems().ToArray());
                 Subscribe();
             }
             base.SetShown(shown);
@@ -82,10 +78,15 @@ namespace Krk.Bum.View.Screens
             }
         }
 
-        private void HandleCollectionButtonClicked(ItemButton button)
+        private void HandleCollectionButtonClicked(StoreItemButton button)
         {
-            viewStateController.CurrentItemId = button.Item.Id;
-            viewStateController.SetState(ViewStateEnum.Item);
+            var item = button.Item;
+            if (modelController.CanSellItem(item))
+            {
+                modelController.SellItem(item);
+            }
+
+            button.UpdateAppearance();
         }
     }
 }

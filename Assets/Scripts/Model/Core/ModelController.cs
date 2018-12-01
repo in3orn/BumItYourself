@@ -1,4 +1,6 @@
-﻿using Krk.Bum.Model.Utils;
+﻿using System;
+using System.Collections.Generic;
+using Krk.Bum.Model.Utils;
 using UnityEngine.Events;
 
 namespace Krk.Bum.Model.Core
@@ -37,7 +39,6 @@ namespace Krk.Bum.Model.Core
             this.partLoader = partLoader;
         }
 
-
         public CollectionData[] GetAllCollections()
         {
             return modelData.Collections;
@@ -53,6 +54,21 @@ namespace Krk.Bum.Model.Core
             return null;
         }
 
+        public List<ItemData> GetCreatedItems()
+        {
+            var result = new List<ItemData>();
+
+            foreach (var collection in modelData.Collections)
+            {
+                foreach (var item in collection.Items)
+                {
+                    if (item.Count > 0) result.Add(item);
+                }
+            }
+
+            return result;
+        }
+
         public ItemData GetItem(string collectionId, string itemId)
         {
             var collection = GetCollection(collectionId);
@@ -60,6 +76,19 @@ namespace Krk.Bum.Model.Core
             foreach (var item in collection.Items)
             {
                 if (item.Id.Equals(itemId)) return item;
+            }
+
+            return null;
+        }
+
+        public ItemData GetItem(string itemId)
+        {
+            foreach (var collection in GetAllCollections())
+            {
+                foreach (var item in collection.Items)
+                {
+                    if (item.Id.Equals(itemId)) return item;
+                }
             }
 
             return null;
