@@ -60,9 +60,10 @@ namespace Krk.Bum.View.Screens
 
         private void CollectLoot()
         {
-            foreach (var part in gameStateController.Loot)
+            foreach (var loot in gameStateController.Loot)
             {
-                modelController.CollectPart(part.Id, part.Count);
+                var part = modelController.GetPart(loot.Id);
+                modelController.CollectPart(part, part.Count);
             }
             gameStateController.ClearLoot();
         }

@@ -7,18 +7,32 @@ namespace Krk.Bum.Model.Core
     {
         public UnityAction<PartData> OnPartCollected;
         public UnityAction<ItemData> OnItemCreated;
+        public UnityAction<ItemData> OnItemSold;
 
+
+        private readonly ModelControllerConfig config;
 
         private readonly ModelData modelData;
+
+        private readonly ModelLoader modelLoader;
 
         private readonly ItemLoader itemLoader;
 
         private readonly PartLoader partLoader;
 
 
-        public ModelController(ModelData modelData, ItemLoader itemLoader, PartLoader partLoader)
+        public int Cash
         {
+            get { return modelData.Cash; }
+        }
+
+
+        public ModelController(ModelControllerConfig config, ModelData modelData,
+            ModelLoader modelLoader, ItemLoader itemLoader, PartLoader partLoader)
+        {
+            this.config = config;
             this.modelData = modelData;
+            this.modelLoader = modelLoader;
             this.itemLoader = itemLoader;
             this.partLoader = partLoader;
         }
@@ -51,9 +65,25 @@ namespace Krk.Bum.Model.Core
             return null;
         }
 
+        public bool CanSellItem(ItemData item)
+        {
+            return item.Count > 0;
+        }
+
+        public void SellItem(ItemData item)
+        {
+            modelData.Cash += item.Reward;
+            modelLoader.Save(modelData);
+
+            item.Count--;
+            itemLoader.Save(item);
+
+            if (OnItemSold != null) OnItemSold(item);
+        }
+
         public bool CanCreateItem(ItemData item)
         {
-            if (item.Count >= 99) return false; //TODO max count in model config?
+            if (item.Count >= config.MaxItemCount) return false;
 
             foreach (var requiredPart in item.RequiredParts)
             {
@@ -114,13 +144,23 @@ namespace Krk.Bum.Model.Core
             return null;
         }
 
-        public void CollectPart(string id, int value)
+        public bool CanCollectPart(PartData part)
         {
-            var part = GetPart(id);
-            part.Count += value;
-            partLoader.Save(part);
+            return part.Count < config.MaxResourceCount;
+        }
 
-            if (OnPartCollected != null) OnPartCollected(part);
+        public void CollectPart(PartData part, int value)
+        {
+            var prevCount = part.Count;
+            part.Count += value;
+            if (part.Count > config.MaxResourceCount) part.Count = config.MaxResourceCount;
+
+            if (part.Count != prevCount)
+            {
+                partLoader.Save(part);
+
+                if (OnPartCollected != null) OnPartCollected(part);
+            }
         }
 
         public int GetResourcesCount()

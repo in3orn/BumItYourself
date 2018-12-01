@@ -8,5 +8,7 @@ namespace Krk.Bum.Model
         public CollectionData[] Collections;
 
         public PartData[] Parts;
+
+        public int Cash;
     }
 }

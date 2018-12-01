@@ -47,12 +47,22 @@ namespace Krk.Bum.Game.Items
         private PartData CollectRandomPart()
         {
             var parts = modelController.GetAllParts();
-            var index = Random.Range(0, parts.Length);
 
-            var part = parts[index];
             var count = 1;
+            var index = 0;
+            PartData part = null;
 
-            modelController.CollectPart(part.Id, count);
+            while (true)
+            {
+                index = Random.Range(0, parts.Length);
+                part = parts[index];
+
+                if (modelController.CanCollectPart(part))
+                {
+                    modelController.CollectPart(part, count);
+                    break;
+                }
+            }
 
             return new PartData
             {

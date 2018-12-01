@@ -8,9 +8,10 @@ namespace Krk.Bum.Model
         public string Id;
         public string Name;
 
-        public ImageData Image;
-
         public int Count;
+        public int Reward;
+
+        public ImageData Image;
 
         public ItemPartData[] RequiredParts;
     }

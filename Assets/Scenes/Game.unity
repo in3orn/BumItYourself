@@ -750,6 +750,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ModelConfig: {fileID: 11400000, guid: b16cc1b3af303204d8e7c86c9e2c7f33, type: 2}
+  ModelControllerConfig: {fileID: 11400000, guid: b072249a51b5582438490a49839a66a4,
+    type: 2}
 --- !u!4 &346672203
 Transform:
   m_ObjectHideFlags: 0

@@ -33,9 +33,10 @@
                 Id = config.Id,
                 Name = config.Name,
 
-                Image = config.Image,
-
+                Reward = config.Reward,
                 Count = wrapper.GetInt(config.Id, CountKey),
+
+                Image = config.Image,
 
                 RequiredParts = config.RequiredParts
             };
