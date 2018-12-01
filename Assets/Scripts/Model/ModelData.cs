@@ -10,5 +10,6 @@ namespace Krk.Bum.Model
         public PartData[] Parts;
 
         public int Cash;
+        public int ItemsSold;
     }
 }

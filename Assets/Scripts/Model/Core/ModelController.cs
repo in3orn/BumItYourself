@@ -30,9 +30,14 @@ namespace Krk.Bum.Model.Core
             get { return modelData.Cash; }
         }
 
+        public int ItemsSold
+        {
+            get { return modelData.ItemsSold; }
+        }
+
 
         public ModelController(ModelControllerConfig config, ModelData modelData,
-            ModelLoader modelLoader, CollectionLoader collectionLoader, 
+            ModelLoader modelLoader, CollectionLoader collectionLoader,
             ItemLoader itemLoader, PartLoader partLoader)
         {
             this.config = config;
@@ -45,7 +50,7 @@ namespace Krk.Bum.Model.Core
 
         public bool IsAnyCollectionUnlocked()
         {
-            foreach(var collection in GetAllCollections())
+            foreach (var collection in GetAllCollections())
             {
                 if (collection.Unlocked) return true;
             }
@@ -123,6 +128,7 @@ namespace Krk.Bum.Model.Core
         public void SellItem(ItemData item)
         {
             modelData.Cash += item.Reward;
+            modelData.ItemsSold++;
             modelLoader.Save(modelData);
 
             item.Count--;

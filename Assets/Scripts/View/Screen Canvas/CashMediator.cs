@@ -24,7 +24,8 @@ namespace Krk.Bum.View.Screen_Canvas
 
         private void Start()
         {
-            display.InitValue(modelController.Cash);
+            if(modelController.ItemsSold > 0)
+                display.Init(modelController.Cash);
         }
 
         private void OnEnable()
@@ -42,7 +43,10 @@ namespace Krk.Bum.View.Screen_Canvas
 
         private void HandleItemSold(ItemData data)
         {
-            display.IncreaseValue(modelController.Cash);
+            if (display.Shown)
+                display.IncreaseValue(modelController.Cash);
+            else
+                display.Show(modelController.Cash);
         }
     }
 }

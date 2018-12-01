@@ -995,6 +995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97c6646e53867d4e8af044b3799705e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: fbcf23f16a793f345b6ce3609bb5b3b0, type: 2}
   mainTransform: {fileID: 1368711010}
   countLabel: {fileID: 1558515686}
 --- !u!114 &375332523
@@ -1023,6 +1024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97c6646e53867d4e8af044b3799705e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: 63baab4aa52580445bc9d5c738c5d6e2, type: 2}
   mainTransform: {fileID: 264693325}
   countLabel: {fileID: 1186423198}
 --- !u!114 &375332525

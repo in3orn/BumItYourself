@@ -24,7 +24,8 @@ namespace Krk.Bum.View.Screen_Canvas
 
         private void Start()
         {
-            display.InitValue(modelController.GetResourcesCount());
+            if(modelController.IsAnyCollectionUnlocked())
+                display.Init(modelController.GetResourcesCount());
         }
 
         private void OnEnable()
@@ -44,7 +45,10 @@ namespace Krk.Bum.View.Screen_Canvas
 
         private void HandlePartCollected(PartData data)
         {
-            display.IncreaseValue(modelController.GetResourcesCount());
+            if(display.Shown)
+                display.IncreaseValue(modelController.GetResourcesCount());
+            else
+                display.Show(modelController.GetResourcesCount());
         }
 
         private void HandleItemCreated(ItemData data)
