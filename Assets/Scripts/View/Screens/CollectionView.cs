@@ -4,11 +4,16 @@ using Krk.Bum.View.Screen_Canvas;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace Krk.Bum.View.Screens
 {
     public class CollectionView : MonoBehaviour
     {
+        public UnityAction<bool> OnExpanded;
+
+
         [SerializeField]
         private TextMeshProUGUI nameLabel = null;
 
@@ -24,6 +29,15 @@ namespace Krk.Bum.View.Screens
         [SerializeField]
         private NotificationView notification = null;
 
+        [SerializeField]
+        private RectTransform expander = null;
+
+        [SerializeField]
+        private Button expanderButton = null;
+
+
+        private bool expanded;
+
 
         private readonly List<ItemButton> itemButtons;
 
@@ -33,6 +47,25 @@ namespace Krk.Bum.View.Screens
         public CollectionView()
         {
             itemButtons = new List<ItemButton>();
+        }
+
+        private void OnEnable()
+        {
+            expanderButton.onClick.AddListener(HandleExpanderButtonClicked);
+        }
+
+        private void OnDisable()
+        {
+            expanderButton.onClick.RemoveListener(HandleExpanderButtonClicked);
+        }
+
+        private void HandleExpanderButtonClicked()
+        {
+            expanded = !expanded;
+            itemsContent.gameObject.SetActive(expanded);
+            expander.rotation = Quaternion.Euler(0f, 0f, expanded ? -180f : -90f);
+
+            if (OnExpanded != null) OnExpanded(expanded);
         }
 
         public void Init(CollectionData collection)
@@ -56,7 +89,7 @@ namespace Krk.Bum.View.Screens
         public void SetShown(bool shown)
         {
             header.gameObject.SetActive(shown);
-            itemsContent.gameObject.SetActive(shown);
+            itemsContent.gameObject.SetActive(shown && expanded);
         }
 
         public void SetNotificationShown(bool shown)

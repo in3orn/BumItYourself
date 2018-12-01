@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: d6b4381eccb33e6488377f61edd51647, type: 3}
-    totalSpriteSurfaceArea: 245907
+    totalSpriteSurfaceArea: 257046
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -47,6 +47,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5c16c0c54346e564382efbf292893ac0, type: 3}
   - {fileID: 21300000, guid: 0d8c5417ac77bb64ba98d7fb4bd6b504, type: 3}
   - {fileID: 21300000, guid: bcbec6b76cf67954789f746bfdd0028f, type: 3}
+  - {fileID: 21300000, guid: 9c05890973315a640b9dec5fc69c7ac4, type: 3}
   - {fileID: 21300000, guid: d9f02e29ebddca34ba5901568fa28c1a, type: 3}
   - {fileID: 21300000, guid: c737f21a5faeff94691aedce338d6a3b, type: 3}
   - {fileID: 21300000, guid: f16fab3a5d76f03448ca45ccd1f1e03c, type: 3}
@@ -67,6 +68,7 @@ SpriteAtlas:
   - icon-settings
   - trash-base-04
   - trash-base-02
+  - expander
   - icon-inv-notification
   - icon-profile
   - trash-base-03

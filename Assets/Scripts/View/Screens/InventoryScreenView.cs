@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Krk.Bum.Model;
 using Krk.Bum.View.Buttons;
 using UnityEngine;
@@ -45,6 +46,11 @@ namespace Krk.Bum.View.Screens
             {
                 pair.Value.SetShown(pair.Key.Unlocked);
             }
+        }
+
+        public void Rebuild()
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(collectionsContent);
         }
     }
 }

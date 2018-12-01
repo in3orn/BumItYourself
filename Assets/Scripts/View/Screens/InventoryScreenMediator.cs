@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using Krk.Bum.View.Model;
-using Krk.Bum.Common;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using Krk.Bum.View.Buttons;
-using System;
 using Krk.Bum.Model;
 
 namespace Krk.Bum.View.Screens
@@ -89,10 +87,16 @@ namespace Krk.Bum.View.Screens
 
         private void Subscribe(CollectionView collectionView)
         {
+            collectionView.OnExpanded += HandleCollectionExpanded;
             foreach (var itemButton in collectionView.ItemButtons)
             {
                 itemButton.OnButtonClicked += HandleItemButtonClicked;
             }
+        }
+
+        private void HandleCollectionExpanded(bool expanded)
+        {
+            screenView.Rebuild();
         }
 
         private void Unsubscribe()
