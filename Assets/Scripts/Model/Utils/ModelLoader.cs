@@ -20,18 +20,19 @@
         }
 
 
-    public ModelData Load(ModelConfig config)
-    {
-        return new ModelData
+        public ModelData Load(ModelConfig config)
         {
-            Collections = collectionLoader.Load(config.Collections),
-            Parts = partLoader.Load(config.Parts)
-        };
-    }
+            return new ModelData
+            {
+                Collections = collectionLoader.Load(config.Collections),
+                Parts = partLoader.Load(config.Parts),
+                Cash = wrapper.GetInt(CashKey)
+            };
+        }
 
-    public void Save(ModelData data)
-    {
-        wrapper.SetInt(CashKey, data.Cash);
+        public void Save(ModelData data)
+        {
+            wrapper.SetInt(CashKey, data.Cash);
+        }
     }
-}
 }

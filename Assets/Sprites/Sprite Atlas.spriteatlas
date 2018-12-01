@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: d6b4381eccb33e6488377f61edd51647, type: 3}
-    totalSpriteSurfaceArea: 216348
+    totalSpriteSurfaceArea: 227993
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -40,6 +40,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ec0a2201332c71d47b05f5976c218517, type: 3}
   - {fileID: 21300000, guid: 249a4b318b62f0d46a57ce002baa8d17, type: 3}
   - {fileID: 21300000, guid: 02ddf2324f195a54481613cf8062b341, type: 3}
+  - {fileID: 21300000, guid: 35cd8b728c460e7438c3b698c43460a6, type: 3}
   - {fileID: 21300000, guid: d827daa4ffcde064c89e7f928d3f789d, type: 3}
   - {fileID: 21300000, guid: a4a557d4c0f72664397b34afe5d40758, type: 3}
   - {fileID: 21300000, guid: 5c16c0c54346e564382efbf292893ac0, type: 3}
@@ -57,6 +58,7 @@ SpriteAtlas:
   - pixel
   - icon-resources
   - pavement-stone
+  - icon-cash
   - pavement-front
   - button-fill
   - icon-settings

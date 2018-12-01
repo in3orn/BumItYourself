@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Krk.Bum.View.Screen_Canvas
 {
-    public class ResourcesMediator : MonoBehaviour
+    public class CashMediator : MonoBehaviour
     {
         [SerializeField]
         private CountDisplay display = null;
@@ -24,32 +24,25 @@ namespace Krk.Bum.View.Screen_Canvas
 
         private void Start()
         {
-            display.InitValue(modelController.GetResourcesCount());
+            display.InitValue(modelController.Cash);
         }
 
         private void OnEnable()
         {
-            modelController.OnPartCollected += HandlePartCollected;
-            modelController.OnItemCreated += HandleItemCreated;
+            modelController.OnItemSold += HandleItemSold;
         }
 
         private void OnDisable()
         {
             if (modelContext != null)
             {
-                modelController.OnPartCollected -= HandlePartCollected;
-                modelController.OnItemCreated -= HandleItemCreated;
+                modelController.OnItemSold -= HandleItemSold;
             }
         }
 
-        private void HandlePartCollected(PartData data)
+        private void HandleItemSold(ItemData data)
         {
-            display.IncreaseValue(modelController.GetResourcesCount());
-        }
-
-        private void HandleItemCreated(ItemData data)
-        {
-            display.DecreaseValue(modelController.GetResourcesCount());
+            display.IncreaseValue(modelController.Cash);
         }
     }
 }
