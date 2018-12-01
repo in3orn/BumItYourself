@@ -51,5 +51,12 @@ namespace Krk.Bum.View.Model
             states.Pop();
             if (OnStateChanged != null) OnStateChanged(State);
         }
+
+        public void BackState(ViewStateEnum from)
+        {
+            while (states.Count > 1 && states.Pop() != from);
+
+            if (OnStateChanged != null) OnStateChanged(State);
+        }
     }
 }

@@ -4,6 +4,7 @@ using Krk.Bum.Common;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using Krk.Bum.View.Buttons;
+using System;
 
 namespace Krk.Bum.View.Screens
 {
@@ -18,14 +19,11 @@ namespace Krk.Bum.View.Screens
 
         private ModelController modelController;
 
-        private IButtonListener backListener;
-
 
         protected override void Awake()
         {
             base.Awake();
             modelController = modelContext.ModelController;
-            backListener = viewContext.BackButtonListener;
         }
 
         protected override ScreenView GetScreenView()
@@ -50,8 +48,7 @@ namespace Krk.Bum.View.Screens
         protected override void OnEnable()
         {
             base.OnEnable();
-
-            backListener.Subscribe(screenView.BackButton);
+            
             Subscribe();
         }
 
@@ -61,13 +58,14 @@ namespace Krk.Bum.View.Screens
 
             if (viewContext != null && screenView != null)
             {
-                backListener.Unsubscribe(screenView.BackButton);
                 Unsubscribe();
             }
         }
 
         private void Subscribe()
         {
+            screenView.BackButton.onClick.AddListener(HandleBackClicked);
+
             foreach (var button in screenView.ItemButtons)
             {
                 button.OnButtonClicked += HandleCollectionButtonClicked;
@@ -76,10 +74,17 @@ namespace Krk.Bum.View.Screens
 
         private void Unsubscribe()
         {
+            screenView.BackButton.onClick.RemoveListener(HandleBackClicked);
+
             foreach (var button in screenView.ItemButtons)
             {
                 button.OnButtonClicked -= HandleCollectionButtonClicked;
             }
+        }
+
+        private void HandleBackClicked()
+        {
+            viewStateController.BackState(ViewStateEnum.Collection);
         }
 
         private void HandleCollectionButtonClicked(ItemButton button)
