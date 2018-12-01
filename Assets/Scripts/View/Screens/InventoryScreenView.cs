@@ -11,31 +11,31 @@ namespace Krk.Bum.View.Screens
         public Button BackButton;
 
         [SerializeField]
-        private CollectionButton collectionButton = null;
+        private CollectionView collectionView = null;
 
         [SerializeField]
         private RectTransform collectionsContent = null;
-        
 
-        public List<CollectionButton> CollectionButtons { get; private set; }
-        
+
+        public List<CollectionView> CollectionViews { get; private set; }
+
 
         public InventoryScreenView()
         {
-            CollectionButtons = new List<CollectionButton>();
+            CollectionViews = new List<CollectionView>();
         }
 
 
         public void Init(CollectionData[] collections)
         {
-            CollectionButtons.Clear();
+            CollectionViews.Clear();
 
             foreach (var collection in collections)
             {
-                var gameObject = Instantiate(collectionButton, collectionsContent);
-                var button = gameObject.GetComponent<CollectionButton>();
-                button.Init(collection);
-                CollectionButtons.Add(button);
+                var gameObject = Instantiate(this.collectionView, collectionsContent);
+                var collectionView = gameObject.GetComponent<CollectionView>();
+                collectionView.Init(collection);
+                CollectionViews.Add(collectionView);
             }
         }
     }

@@ -9,10 +9,10 @@ namespace Krk.Bum.View.Screen_Canvas
     public class InventoryNotificationMediator : MonoBehaviour
     {
         [SerializeField]
-        private ModelContext modelContext;
+        private ModelContext modelContext = null;
 
         [SerializeField]
-        private NotificationView notificationView;
+        private NotificationView notificationView = null;
 
 
         private ModelController modelController;

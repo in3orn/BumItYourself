@@ -37,9 +37,7 @@ namespace Krk.Bum.View.Screens
         {
             if (shown)
             {
-                var collectionId = viewStateController.CurrentCollectionId;
-                var itemId = viewStateController.CurrentItemId;
-                var item = modelController.GetItem(collectionId, itemId);
+                var item = modelController.GetItem(viewStateController.CurrentItemId);
 
                 InitView(item);
             }
@@ -72,9 +70,7 @@ namespace Krk.Bum.View.Screens
 
         private void HandleCreateButtonClicked()
         {
-            var collectionId = viewStateController.CurrentCollectionId;
-            var itemId = viewStateController.CurrentItemId;
-            var item = modelController.GetItem(collectionId, itemId);
+            var item = modelController.GetItem(viewStateController.CurrentItemId);
 
             if (modelController.CanCreateItem(item))
             {

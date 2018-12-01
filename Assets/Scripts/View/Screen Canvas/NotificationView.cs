@@ -7,10 +7,10 @@ namespace Krk.Bum.View.Screen_Canvas
     public class NotificationView : MonoBehaviour
     {
         [SerializeField]
-        private RectTransform mainTransform;
+        private RectTransform mainTransform = null;
 
         [SerializeField]
-        private RectTransform iconTransform;
+        private RectTransform iconTransform = null;
 
 
         public bool Shown { get; private set; }

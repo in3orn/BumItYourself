@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb5c21af9f89124ab4ac58f0a1d0e96, type: 3}
   m_Name: Inventory Screen Mediator
   m_EditorClassIdentifier: 
-  ShowScreenStates: 03000000
+  ShowScreenStates: 0300000005000000

@@ -3,6 +3,8 @@ using Krk.Bum.View.Model;
 using Krk.Bum.Common;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
+using Krk.Bum.View.Buttons;
+using System;
 
 namespace Krk.Bum.View.Screens
 {
@@ -17,14 +19,11 @@ namespace Krk.Bum.View.Screens
 
         private ModelController modelController;
 
-        private IButtonListener backListener;
-
 
         protected override void Awake()
         {
             base.Awake();
             modelController = modelContext.ModelController;
-            backListener = viewContext.BackButtonListener;
         }
 
         protected override ScreenView GetScreenView()
@@ -35,8 +34,9 @@ namespace Krk.Bum.View.Screens
         protected override void OnEnable()
         {
             base.OnEnable();
-            
-            backListener.Subscribe(screenView.BackButton);
+
+            screenView.BackButton.onClick.AddListener(HandleBackClicked);
+
             Subscribe();
         }
 
@@ -46,7 +46,8 @@ namespace Krk.Bum.View.Screens
 
             if (viewContext != null && screenView != null)
             {
-                backListener.Unsubscribe(screenView.BackButton);
+                screenView.BackButton.onClick.RemoveListener(HandleBackClicked);
+
                 Unsubscribe();
             }
         }
@@ -54,30 +55,52 @@ namespace Krk.Bum.View.Screens
         protected override void Start()
         {
             screenView.Init(modelController.GetAllCollections());
+
             Subscribe();
             base.Start();
         }
 
         private void Subscribe()
         {
-            foreach(var button in screenView.CollectionButtons)
+            foreach (var collectionView in screenView.CollectionViews)
             {
-                button.OnButtonClicked += HandleCollectionButtonClicked;
+                Subscribe(collectionView);
+            }
+        }
+
+        private void Subscribe(CollectionView collectionView)
+        {
+            foreach (var itemButton in collectionView.ItemButtons)
+            {
+                itemButton.OnButtonClicked += HandleItemButtonClicked;
             }
         }
 
         private void Unsubscribe()
         {
-            foreach (var button in screenView.CollectionButtons)
+            foreach (var collectionView in screenView.CollectionViews)
             {
-                button.OnButtonClicked -= HandleCollectionButtonClicked;
+                Unsubscribe(collectionView);
             }
         }
 
-        private void HandleCollectionButtonClicked(string id)
+        private void Unsubscribe(CollectionView collectionView)
         {
-            viewStateController.CurrentCollectionId = id;
-            viewStateController.SetState(ViewStateEnum.Collection);
+            foreach (var itemButton in collectionView.ItemButtons)
+            {
+                itemButton.OnButtonClicked -= HandleItemButtonClicked;
+            }
+        }
+
+        private void HandleBackClicked()
+        {
+            viewStateController.BackState(ViewStateEnum.Inventory);
+        }
+
+        private void HandleItemButtonClicked(ItemButton button)
+        {
+            viewStateController.CurrentItemId = button.Item.Id;
+            viewStateController.SetState(ViewStateEnum.Item);
         }
     }
 }

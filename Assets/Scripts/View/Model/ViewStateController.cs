@@ -29,8 +29,7 @@ namespace Krk.Bum.View.Model
             get { return states.Peek(); }
         }
 
-
-        public string CurrentCollectionId { get; set; }
+        
         public string CurrentItemId { get; set; }
 
 
