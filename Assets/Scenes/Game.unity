@@ -560,6 +560,7 @@ MonoBehaviour:
   inputController: {fileID: 293180893}
   gameContext: {fileID: 998196326}
   trashMediator: {fileID: 1336157321}
+  storeMediator: {fileID: 1248783977}
 --- !u!1 &305637895
 GameObject:
   m_ObjectHideFlags: 0
@@ -4313,6 +4314,69 @@ MonoBehaviour:
   m_Spacing: {x: 20, y: 20}
   m_Constraint: 1
   m_ConstraintCount: 3
+--- !u!1 &1248783976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1248783981}
+  - component: {fileID: 1248783978}
+  - component: {fileID: 1248783977}
+  m_Layer: 0
+  m_Name: Stores
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1248783977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248783976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae074aac9de8b0c449fc83a4141f531d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelContext: {fileID: 346672202}
+  viewContext: {fileID: 1474845635}
+--- !u!114 &1248783978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248783976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3178f181dd2e7d04bbe32a4cb8bb3623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1248783981}
+  templates:
+  - {fileID: 4472899877561011751, guid: 7ab63ff8b5292704ab10f983945d5d95, type: 3}
+  viewContext: {fileID: 1474845635}
+  gameContext: {fileID: 998196326}
+--- !u!4 &1248783981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248783976}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1430287, y: 0.9020987, z: -0.38710037}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1267673216
 GameObject:
   m_ObjectHideFlags: 0
@@ -4769,7 +4833,7 @@ Transform:
   m_Children:
   - {fileID: 421092163}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1301454275
 MonoBehaviour:
@@ -6087,6 +6151,8 @@ MonoBehaviour:
   BlocksControllerConfig: {fileID: 11400000, guid: 1226bb7383ffcf94c9c4aaec73ad6a16,
     type: 2}
   TrashBlocksControllerConfig: {fileID: 11400000, guid: cfea6c5466a0548498f8bf2d6b2e0832,
+    type: 2}
+  StoreBlocksControllerConfig: {fileID: 11400000, guid: 7beb6aed096b9d34b9622199a0ab7f0f,
     type: 2}
 --- !u!1 &1475252268
 GameObject:

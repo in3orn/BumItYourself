@@ -1,13 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Krk.Bum.Game.Items;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using Krk.Bum.View.Context;
+using Krk.Bum.View.Model;
 using UnityEngine;
 
 namespace Krk.Bum.View.Street
 {
-    public class TrashMediator : MonoBehaviour
+    public class StoreMediator : MonoBehaviour
     {
         [SerializeField]
         private ModelContext modelContext = null;
@@ -15,23 +17,22 @@ namespace Krk.Bum.View.Street
         [SerializeField]
         private ViewContext viewContext = null;
 
-        [SerializeField]
-        private TrashConfig trashConfig = null;
-
 
         private ModelController modelController;
         private BlocksController blocksController;
+        private ViewStateController viewStateController;
 
 
-        private Dictionary<TrashView, IStreetItemController> trashes;
+        private Dictionary<StoreView, IStreetItemController> trashes;
 
 
         private void Awake()
         {
-            trashes = new Dictionary<TrashView, IStreetItemController>();
+            trashes = new Dictionary<StoreView, IStreetItemController>();
 
             modelController = modelContext.ModelController;
-            blocksController = viewContext.TrashBlocksController;
+            blocksController = viewContext.StoreBlocksController;
+            viewStateController = viewContext.ViewStateController;
         }
 
         private void OnEnable()
@@ -41,16 +42,16 @@ namespace Krk.Bum.View.Street
 
         private void HandleBlockSpawned(BlockView blockView, BlockData data)
         {
-            var trashView = blockView.GetComponent<TrashView>();
-            var trashController = new TrashController(modelController, trashConfig)
+            var storeView = blockView.GetComponent<StoreView>();
+            var storeController = new StoreController()
             {
-                Position = trashView.transform.position
+                Position = storeView.transform.position
             };
 
-            trashes[trashView] = trashController;
+            trashes[storeView] = storeController;
 
-            trashController.OnEmptyHit += trashView.HitEmpty;
-            trashController.OnHit += trashView.Hit;
+            storeController.OnStoreOpened += storeView.OpenTheDoor;
+            storeController.OnStoreOpened += HandleStoreOpened;
         }
 
         private void OnDisable()
@@ -58,8 +59,12 @@ namespace Krk.Bum.View.Street
             //TODO
         }
 
+        private void HandleStoreOpened()
+        {
+            viewStateController.SetState(ViewStateEnum.Store);
+        }
 
-        public IStreetItemController GetControllerFor(TrashView view)
+        public IStreetItemController GetControllerFor(StoreView view)
         {
             if(trashes.ContainsKey(view))
             {

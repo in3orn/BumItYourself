@@ -17,6 +17,9 @@ namespace Krk.Bum.View.Inputs
         [SerializeField]
         private TrashMediator trashMediator = null;
 
+        [SerializeField]
+        private StoreMediator storeMediator = null;
+
 
         private PlayerController playerController;
 
@@ -41,10 +44,10 @@ namespace Krk.Bum.View.Inputs
 
         private void HandleTapDown(Vector2 position)
         {
-            var trash = GetTrash(position);
+            var trash = GetItem(position);
             if (trash != null)
             {
-                playerController.TargetTrash = trash;
+                playerController.TargetItem = trash;
             }
             else
             {
@@ -52,18 +55,24 @@ namespace Krk.Bum.View.Inputs
             }
         }
 
-        private TrashController GetTrash(Vector2 position)
+        private IStreetItemController GetItem(Vector2 position)
         {
             var origin = new Vector3(position.x, position.y, -10f);
             var hit = Physics2D.Raycast(origin, Vector3.back, 100f);
             if (hit.collider != null)
             {
-                var view = hit.collider.GetComponent<TrashView>();
-                if(view != null)
+                var trashView = hit.collider.GetComponent<TrashView>();
+                if (trashView != null)
                 {
-                    return trashMediator.GetControllerFor(view);
+                    return trashMediator.GetControllerFor(trashView);
                 }
-                
+
+                var storeView = hit.collider.GetComponent<StoreView>();
+                if (storeView != null)
+                {
+                    return storeMediator.GetControllerFor(storeView);
+                }
+
             }
             return null;
         }

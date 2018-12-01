@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Krk.Bum.Game.Items
 {
-    public class TrashController
+    public class TrashController : IStreetItemController
     {
         public UnityAction<TrashData, PartData> OnHit;
         public UnityAction<TrashData> OnEmptyHit;
@@ -30,7 +30,7 @@ namespace Krk.Bum.Game.Items
             };
         }
 
-        public void Hit()
+        public void Use()
         {
             if (State.ItemsCount > 0)
             {

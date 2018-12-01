@@ -37,8 +37,7 @@ namespace Krk.Bum.View.Screens
 
         private void HandleSettingsButtonClicked()
         {
-            //TODO revert back viewStateController.SetState(ViewStateEnum.Settings);
-            viewStateController.SetState(ViewStateEnum.Store);
+            viewStateController.SetState(ViewStateEnum.Settings);
         }
 
         private void HandlePlayerButtonClicked()

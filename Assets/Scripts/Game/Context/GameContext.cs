@@ -1,5 +1,6 @@
 ﻿using Krk.Bum.Game.Actors;
 using Krk.Bum.Game.Core;
+using Krk.Bum.Game.Items;
 using UnityEngine;
 
 namespace Krk.Bum.Game.Context

@@ -10,7 +10,7 @@ namespace Krk.Bum.Game.Actors
 
         private Vector2 targetPosition;
 
-        private TrashController targetTrash;
+        private IStreetItemController targetItem;
 
 
         public Vector2 TargetPosition
@@ -21,24 +21,24 @@ namespace Krk.Bum.Game.Actors
                 if(targetPosition != value)
                 {
                     targetPosition = value;
-                    targetTrash = null;
+                    targetItem = null;
                 }
             }
         }
 
         public Vector2 Position { get; private set; }
 
-        public TrashController TargetTrash
+        public IStreetItemController TargetItem
         {
-            get { return targetTrash; }
+            get { return targetItem; }
             set
             {
-                if (targetTrash != value)
+                if (targetItem != value)
                 {
-                    targetTrash = value;
-                    if (targetTrash != null)
+                    targetItem = value;
+                    if (targetItem != null)
                     {
-                        targetPosition = targetTrash.Position;
+                        targetPosition = targetItem.Position;
                     }
                 }
             }
@@ -52,9 +52,9 @@ namespace Krk.Bum.Game.Actors
 
         public void Update(float deltaTime)
         {
-            if (TargetTrash != null && IsInRange(TargetTrash.Position))
+            if (TargetItem != null && IsInRange(TargetItem.Position))
             {
-                TargetTrash.Hit();
+                TargetItem.Use();
                 TargetPosition = Position;
             }
             else

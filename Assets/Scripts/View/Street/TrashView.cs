@@ -6,12 +6,8 @@ using UnityEngine.Events;
 
 namespace Krk.Bum.View.Street
 {
-    [RequireComponent(typeof(Collider2D))]
     public class TrashView : MonoBehaviour
     {
-        public UnityAction OnClicked;
-
-
         [SerializeField]
         private TrashViewConfig config = null;
 
@@ -32,11 +28,6 @@ namespace Krk.Bum.View.Street
         {
             trashDefaultColor = trashBodyRenderer.color;
             trashBodyRenderer.sprite = config.DamagedImages[damage];
-        }
-
-        private void OnMouseDown()
-        {
-            //OnClicked?.Invoke();
         }
 
         public void HitEmpty(TrashData data)

@@ -44,7 +44,8 @@ namespace Krk.Bum.View.Context
         {
             get
             {
-                return blocksController ?? (blocksController = new BlocksController(BlocksControllerConfig));
+                return blocksController ?? (blocksController =
+                    new BlocksController(BlocksControllerConfig));
             }
         }
 
@@ -57,7 +58,22 @@ namespace Krk.Bum.View.Context
         {
             get
             {
-                return trashBlocksController ?? (trashBlocksController = new BlocksController(TrashBlocksControllerConfig));
+                return trashBlocksController ?? (trashBlocksController =
+                    new BlocksController(TrashBlocksControllerConfig));
+            }
+        }
+
+
+        public BlocksControllerConfig StoreBlocksControllerConfig;
+
+        public BlocksController storeBlocksController;
+
+        public BlocksController StoreBlocksController
+        {
+            get
+            {
+                return storeBlocksController ?? (storeBlocksController =
+                    new BlocksController(StoreBlocksControllerConfig));
             }
         }
     }

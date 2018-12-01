@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f4e783fb0c413e4c8074bb4c3273d9f, type: 3}
+  m_Name: Store Blocks Controller
+  m_EditorClassIdentifier: 
+  SpawnDistance: 10
+  SpawnIntervalRange:
+    min: 100
+    max: 200
+  SpawnYRange:
+    min: 1.5
+    max: 1.5
+  InheritSpawnZFromY: 1
+  SpawnZ: 0
