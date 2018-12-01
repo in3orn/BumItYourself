@@ -137,6 +137,21 @@ namespace Krk.Bum.Model.Core
             if (OnItemSold != null) OnItemSold(item);
         }
 
+        public bool CanCreateAnyItem()
+        {
+            foreach (var collection in modelData.Collections)
+            {
+                if (collection.Unlocked)
+                {
+                    foreach (var item in collection.Items)
+                    {
+                        if (CanCreateItem(item)) return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         public bool CanCreateItem(ItemData item)
         {
             if (item.Count >= config.MaxItemCount) return false;

@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: d6b4381eccb33e6488377f61edd51647, type: 3}
-    totalSpriteSurfaceArea: 227993
+    totalSpriteSurfaceArea: 245907
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -41,11 +41,13 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 249a4b318b62f0d46a57ce002baa8d17, type: 3}
   - {fileID: 21300000, guid: 02ddf2324f195a54481613cf8062b341, type: 3}
   - {fileID: 21300000, guid: 35cd8b728c460e7438c3b698c43460a6, type: 3}
+  - {fileID: 21300000, guid: d36da553439ff844baddd0a02ebf1054, type: 3}
   - {fileID: 21300000, guid: d827daa4ffcde064c89e7f928d3f789d, type: 3}
   - {fileID: 21300000, guid: a4a557d4c0f72664397b34afe5d40758, type: 3}
   - {fileID: 21300000, guid: 5c16c0c54346e564382efbf292893ac0, type: 3}
   - {fileID: 21300000, guid: 0d8c5417ac77bb64ba98d7fb4bd6b504, type: 3}
   - {fileID: 21300000, guid: bcbec6b76cf67954789f746bfdd0028f, type: 3}
+  - {fileID: 21300000, guid: d9f02e29ebddca34ba5901568fa28c1a, type: 3}
   - {fileID: 21300000, guid: c737f21a5faeff94691aedce338d6a3b, type: 3}
   - {fileID: 21300000, guid: f16fab3a5d76f03448ca45ccd1f1e03c, type: 3}
   - {fileID: 21300000, guid: 41d5f07a7042afb43b84fd5f55937589, type: 3}
@@ -59,11 +61,13 @@ SpriteAtlas:
   - icon-resources
   - pavement-stone
   - icon-cash
+  - notification-circle
   - pavement-front
   - button-fill
   - icon-settings
   - trash-base-04
   - trash-base-02
+  - icon-inv-notification
   - icon-profile
   - trash-base-03
   - trash-base-01
