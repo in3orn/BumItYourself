@@ -32,6 +32,7 @@ namespace Krk.Bum.View.Inputs
         private void OnEnable()
         {
             inputController.OnTapDown += HandleTapDown;
+            inputController.OnHoldDown += HandleTapDown;
         }
 
         private void OnDisable()
@@ -39,6 +40,7 @@ namespace Krk.Bum.View.Inputs
             if (inputController != null)
             {
                 inputController.OnTapDown -= HandleTapDown;
+                inputController.OnHoldDown -= HandleTapDown;
             }
         }
 
