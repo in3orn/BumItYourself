@@ -3,7 +3,6 @@ using Krk.Bum.Common;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using Krk.Bum.View.Buttons;
-using System;
 
 namespace Krk.Bum.View.Screens
 {

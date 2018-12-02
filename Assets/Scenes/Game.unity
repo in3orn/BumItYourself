@@ -1167,6 +1167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1918366105}
+  config: {fileID: 11400000, guid: 176967fe3f331b948ba7dadbff0ccb7a, type: 2}
   background: {fileID: 1918366107}
   panel: {fileID: 1453985037}
 --- !u!114 &434160469
@@ -2152,6 +2153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1340959108}
+  config: {fileID: 11400000, guid: cef6a2e3590e0b645b3b833b3aef374e, type: 2}
   background: {fileID: 1340959110}
   panel: {fileID: 1695082724}
 --- !u!1 &710765976
@@ -2550,6 +2552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 822991683}
+  config: {fileID: 11400000, guid: cef6a2e3590e0b645b3b833b3aef374e, type: 2}
   background: {fileID: 486156479}
   panel: {fileID: 954584945}
 --- !u!1 &751360589
