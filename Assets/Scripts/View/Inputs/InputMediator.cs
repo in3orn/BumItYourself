@@ -46,10 +46,11 @@ namespace Krk.Bum.View.Inputs
 
         private void HandleTapDown(Vector2 position)
         {
-            var trash = GetItem(position);
-            if (trash != null)
+            var item = GetItem(position);
+            if (item != null)
             {
-                playerController.TargetItem = trash;
+                playerController.TargetItem = item;
+                inputController.Release();
             }
             else
             {

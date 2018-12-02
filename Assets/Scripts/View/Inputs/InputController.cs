@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
@@ -46,6 +47,11 @@ namespace Krk.Bum.View.Inputs
                     if (OnHoldDown != null) OnHoldDown(position);
                 }
             }
+        }
+
+        public void Release()
+        {
+            down = false;
         }
     }
 }
