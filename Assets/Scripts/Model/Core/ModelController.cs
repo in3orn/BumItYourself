@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Krk.Bum.Model.Utils;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Krk.Bum.Model.Core
@@ -159,7 +160,14 @@ namespace Krk.Bum.Model.Core
             foreach (var requiredPart in item.RequiredParts)
             {
                 var part = GetPart(requiredPart.PartId);
-                if (part.Count < requiredPart.RequiredCount) return false;
+                if (part != null)
+                {
+                    if (part.Count < requiredPart.RequiredCount) return false;
+                }
+                else
+                {
+                    Debug.LogError("Cannot find part: " + requiredPart.PartId);
+                }
             }
 
             return true;

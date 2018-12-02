@@ -10,17 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37823ef609f66374d8d2e341752438e2, type: 3}
-  m_Name: Fall Bottle Vase
+  m_Name: Fall Flower Can Cotton
   m_EditorClassIdentifier: 
-  Id: fall-bottle-vase
-  Name: Beer Bottle Vase
-  Reward: 10
+  Id: fall-flower-can-cotton
+  Name: Can cotton flower
+  Reward: 2
   Image:
-    Image: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-    Color: {r: 0.25342646, g: 0.8018868, b: 0.3622078, a: 1}
+    Image: {fileID: 21300000, guid: 77740ad32818b6248a9114ebd26e1977, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
     Rotation: 0
   RequiredParts:
-  - PartId: beer-bottle
+  - PartId: bean-can
     RequiredCount: 1
-  - PartId: part-02
+  - PartId: cat-litter
+    RequiredCount: 1
+  - PartId: cotton-ball-yellow
     RequiredCount: 1

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Wine Bottle
   m_EditorClassIdentifier: 
   Id: wine-bottle
-  Name: Wine Bottle
+  Name: Wine bottle
   Image:
-    Image: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-    Color: {r: 0.6415094, g: 0, b: 0, a: 1}
-    Rotation: 45
+    Image: {fileID: 21300000, guid: 24d703a3c697c7d4e8c02ac12bff6924, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+    Rotation: 0

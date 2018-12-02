@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: fall-wine-bottle-candlestick
   Name: Wine bottle candlestick
-  Reward: 25
+  Reward: 2
   Image:
-    Image: {fileID: 0}
-    Color: {r: 0.7735849, g: 0.39044145, b: 0.75611854, a: 1}
-    Rotation: 30
+    Image: {fileID: 21300000, guid: 75311e5dcd6559448b90a32320a67126, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+    Rotation: 0
   RequiredParts:
   - PartId: wine-bottle
     RequiredCount: 1
-  - PartId: wine-cork
-    RequiredCount: 3
+  - PartId: candle
+    RequiredCount: 1
+  - PartId: cotton-ball-blue
+    RequiredCount: 1

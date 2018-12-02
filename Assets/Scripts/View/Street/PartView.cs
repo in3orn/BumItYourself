@@ -17,7 +17,7 @@ namespace Krk.Bum.View.Street
             var sequence = DOTween.Sequence();
 
             sequence.Append(mainRenderer.transform.DOMoveY(5f, 1f));
-            sequence.Join(mainRenderer.DOColor(Color.clear, 1f));
+            sequence.Join(mainRenderer.DOColor(Color.clear, 1f).SetEase(Ease.InQuad));
             sequence.AppendCallback(() => { Destroy(gameObject); });
         }
     }

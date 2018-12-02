@@ -10,17 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37823ef609f66374d8d2e341752438e2, type: 3}
-  m_Name: Fall Bottle Sock Vase
+  m_Name: Fall Aquarium Lightbulb
   m_EditorClassIdentifier: 
-  Id: fall-bottle-sock-vase
-  Name: Bottle - Sock Base
-  Reward: 10
+  Id: fall-aquarium-lightbulb
+  Name: Lightbulb aquarium
+  Reward: 5
   Image:
-    Image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    Color: {r: 0.6886792, g: 0.5035155, b: 0.5035155, a: 1}
+    Image: {fileID: 21300000, guid: 76644c1ed3ddb47409483be2fadec181, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
     Rotation: 0
   RequiredParts:
-  - PartId: beer-bottle
+  - PartId: lightbulb
     RequiredCount: 1
-  - PartId: part-01
+  - PartId: cotton-ball-green
+    RequiredCount: 2
+  - PartId: cat-litter
     RequiredCount: 1
