@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Krk.Bum.Model.Utils;
 using UnityEngine;
 using UnityEngine.Events;
@@ -78,6 +79,7 @@ namespace Krk.Bum.Model.Core
         {
             collection.Unlocked = true;
             collectionLoader.Save(collection);
+
             if (OnCollectionUnlocked != null) OnCollectionUnlocked(collection);
         }
 
@@ -119,6 +121,31 @@ namespace Krk.Bum.Model.Core
             }
 
             return null;
+        }
+
+        public void SellAllItems()
+        {
+            foreach (var collection in modelData.Collections)
+            {
+                if (collection.Unlocked)
+                {
+                    foreach (var item in collection.Items)
+                    {
+                        if (CanSellItem(item))
+                        {
+                            modelData.Cash += item.Reward * item.Count;
+                            modelData.ItemsSold += item.Count;
+
+                            item.Count = 0;
+                            itemLoader.Save(item);
+                        }
+                    }
+                }
+            }
+
+            modelLoader.Save(modelData);
+
+            if (OnItemSold != null) OnItemSold(null);
         }
 
         public bool CanSellItem(ItemData item)

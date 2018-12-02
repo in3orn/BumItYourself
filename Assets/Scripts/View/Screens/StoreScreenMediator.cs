@@ -3,6 +3,7 @@ using Krk.Bum.Common;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using Krk.Bum.View.Buttons;
+using System;
 
 namespace Krk.Bum.View.Screens
 {
@@ -64,6 +65,8 @@ namespace Krk.Bum.View.Screens
 
         private void Subscribe()
         {
+            screenView.SellAllButton.onClick.AddListener(HandleSellAllClicked);
+
             foreach (var button in screenView.ItemButtons)
             {
                 button.OnButtonClicked += HandleCollectionButtonClicked;
@@ -72,10 +75,19 @@ namespace Krk.Bum.View.Screens
 
         private void Unsubscribe()
         {
+            screenView.SellAllButton.onClick.RemoveListener(HandleSellAllClicked);
+
             foreach (var button in screenView.ItemButtons)
             {
                 button.OnButtonClicked -= HandleCollectionButtonClicked;
             }
+        }
+
+        private void HandleSellAllClicked()
+        {
+            modelController.SellAllItems();
+
+            screenView.UpdateAppearance();
         }
 
         private void HandleCollectionButtonClicked(StoreItemButton button)

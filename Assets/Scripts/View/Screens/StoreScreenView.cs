@@ -1,5 +1,6 @@
 ﻿using Krk.Bum.Model;
 using Krk.Bum.View.Buttons;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ namespace Krk.Bum.View.Screens
     public class StoreScreenView : ScreenView
     {
         public Button BackButton;
+        public Button SellAllButton;
+
 
         [SerializeField]
         private StoreItemButton itemButton = null;
@@ -61,6 +64,14 @@ namespace Krk.Bum.View.Screens
             for (int i = size; i < itemButtons.Count; i++)
             {
                 itemButtons[i].gameObject.SetActive(false);
+            }
+        }
+
+        public void UpdateAppearance()
+        {
+            foreach(var button in ItemButtons)
+            {
+                button.UpdateAppearance();
             }
         }
     }
