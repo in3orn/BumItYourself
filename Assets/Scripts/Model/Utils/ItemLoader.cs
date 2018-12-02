@@ -3,6 +3,7 @@
     public class ItemLoader
     {
         private const string CountKey = "count";
+        private const string TotalCountKey = "total-count";
 
 
         private readonly PrefsWrapper wrapper;
@@ -35,6 +36,7 @@
 
                 Reward = config.Reward,
                 Count = wrapper.GetInt(config.Id, CountKey),
+                TotalCount = wrapper.GetInt(config.Id, TotalCountKey),
 
                 Image = config.Image,
 
@@ -46,6 +48,7 @@
         public void Save(ItemData data)
         {
             wrapper.SetInt(data.Id, CountKey, data.Count);
+            wrapper.SetInt(data.Id, TotalCountKey, data.TotalCount);
         }
     }
 }

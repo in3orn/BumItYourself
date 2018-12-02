@@ -18,8 +18,11 @@ namespace Krk.Bum.View.Screen_Canvas
 
         private void Awake()
         {
-            Deactivate();
-            mainTransform.localScale = Vector3.zero;
+            if (!Shown)
+            {
+                Deactivate();
+                mainTransform.localScale = Vector3.zero;
+            }
         }
 
         public void Init()

@@ -27,20 +27,12 @@ namespace Krk.Bum.View.Buttons
 
 
         public ItemData Item { get; private set; }
-
-
-        private Color defaultCountColor;
-
-        private void Awake()
-        {
-            defaultCountColor = count.color;
-        }
+        
 
         public void Init(ItemData data)
         {
             Item = data;
             UpdateAppearance();
-            InitImage(data.Image);
         }
 
         private void InitImage(ImageData data) //TODO make some util method??
@@ -48,7 +40,7 @@ namespace Krk.Bum.View.Buttons
             image.sprite = data.Image;
             image.color = data.Color;
             image.rectTransform.rotation = Quaternion.Euler(0f, 0f, data.Rotation);
-            image.SetNativeSize();
+            //image.SetNativeSize();
         }
 
         private void OnEnable()
@@ -71,9 +63,11 @@ namespace Krk.Bum.View.Buttons
 
         public void UpdateAppearance()
         {
-            var active = Item.Count > 0;
             count.text = Item.Count.ToString();
-            count.color = active ? defaultCountColor : Color.red;
+            if(Item.TotalCount > 0)
+            {
+                InitImage(Item.Image);
+            }
         }
 
         public void SetNotificationShown(bool shown)

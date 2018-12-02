@@ -9,6 +9,7 @@ namespace Krk.Bum.Model
         public string Name;
 
         public int Count;
+        public int TotalCount;
         public int Reward;
 
         public ImageData Image;

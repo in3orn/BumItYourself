@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Krk.Bum.Model;
-using Krk.Bum.View.Buttons;
 using UnityEngine;
 using UnityEngine.UI;
 

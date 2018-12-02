@@ -45,7 +45,7 @@ namespace Krk.Bum.View.Screens
             if (shown)
             {
                 screenView.Update();
-                UpdateNotifications();
+                UpdateButtons();
             }
         }
 
@@ -128,27 +128,28 @@ namespace Krk.Bum.View.Screens
 
         private void HandleItemCreated(ItemData item)
         {
-            UpdateNotifications();
+            UpdateButtons();
         }
 
-        private void UpdateNotifications()
+        private void UpdateButtons()
         {
             foreach (var pair in screenView.CollectionViews)
             {
                 if (pair.Key.Unlocked)
                 {
-                    UpdateNotifications(pair.Value);
+                    UpdateButtons(pair.Value);
                 }
             }
         }
 
-        private void UpdateNotifications(CollectionView collectionView)
+        private void UpdateButtons(CollectionView collectionView)
         {
             var collectionShown = false;
 
             foreach (var button in collectionView.ItemButtons)
             {
                 var shown = modelController.CanCreateItem(button.Item);
+                button.Init(button.Item);
                 button.SetNotificationShown(shown);
                 collectionShown |= shown;
             }

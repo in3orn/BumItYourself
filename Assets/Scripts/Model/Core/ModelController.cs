@@ -176,6 +176,7 @@ namespace Krk.Bum.Model.Core
         public void CreateItem(ItemData item)
         {
             item.Count++;
+            item.TotalCount++;
             itemLoader.Save(item);
 
             foreach (var requiredPart in item.RequiredParts)

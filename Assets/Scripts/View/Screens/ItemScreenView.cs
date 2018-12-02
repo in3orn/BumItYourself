@@ -41,10 +41,13 @@ namespace Krk.Bum.View.Screens
 
         public void Init(ItemData item, RequiredPartData[] parts, bool canCreate)
         {
-            itemName.text = item.Name;
-            countLabel.text = "Count: " + item.Count;
+            itemName.text = item.TotalCount > 0 ? item.Name : "???";
+            
             CreateButton.interactable = canCreate;
-            InitImage(item.Image);
+            if (item.TotalCount > 0)
+            {
+                InitImage(item.Image);
+            }
             Init(parts);
         }
 

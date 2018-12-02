@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: d6b4381eccb33e6488377f61edd51647, type: 3}
-    totalSpriteSurfaceArea: 430295
+    totalSpriteSurfaceArea: 426290
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -60,15 +60,16 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5c16c0c54346e564382efbf292893ac0, type: 3}
   - {fileID: 21300000, guid: 0d8c5417ac77bb64ba98d7fb4bd6b504, type: 3}
   - {fileID: 21300000, guid: 5d1e7a7706b1ae14bbac0cd9e6588795, type: 3}
+  - {fileID: 21300000, guid: 201bcd87a058d9046a8a001ba6b5125e, type: 3}
   - {fileID: 21300000, guid: b3b1d7a750f738245a0845d7197884b1, type: 3}
   - {fileID: 21300000, guid: bcbec6b76cf67954789f746bfdd0028f, type: 3}
   - {fileID: 21300000, guid: 8cec17e71ac27e74592ca0cbc0fcf279, type: 3}
   - {fileID: 21300000, guid: 15483248644d7ab4d80bc3f5d644fef7, type: 3}
-  - {fileID: 21300000, guid: 9c05890973315a640b9dec5fc69c7ac4, type: 3}
   - {fileID: 21300000, guid: d9f02e29ebddca34ba5901568fa28c1a, type: 3}
   - {fileID: 21300000, guid: 86abbd3953c26e8459baabe59ee7ac3c, type: 3}
   - {fileID: 21300000, guid: 9a4d7eb968f49fc4692b1b5a2aaadd6e, type: 3}
   - {fileID: 21300000, guid: c737f21a5faeff94691aedce338d6a3b, type: 3}
+  - {fileID: 21300000, guid: afc7e23aec2b8b6428ef33532117f79c, type: 3}
   - {fileID: 21300000, guid: f16fab3a5d76f03448ca45ccd1f1e03c, type: 3}
   - {fileID: 21300000, guid: 41d5f07a7042afb43b84fd5f55937589, type: 3}
   - {fileID: 21300000, guid: 017e218af19e24a47b10f451b73b1ee2, type: 3}
@@ -76,6 +77,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: b8a2866be6f3acc45953e70c4687a696, type: 3}
   - {fileID: 21300000, guid: ca4eff9bce52b45469f7fbb091f4714d, type: 3}
   - {fileID: 21300000, guid: 26e85a4c178bf954884eefd76f3609ef, type: 3}
+  - {fileID: 21300000, guid: 47bc201de7ba2c144a52be14c180daf0, type: 3}
   - {fileID: 21300000, guid: 04f9a84d63b11ea4f8f6fbd91a82c66d, type: 3}
   - {fileID: 21300000, guid: 75311e5dcd6559448b90a32320a67126, type: 3}
   - {fileID: 21300000, guid: a0dab78df3eb4ba4f84dcd33cefcbe6a, type: 3}
@@ -111,15 +113,16 @@ SpriteAtlas:
   - icon-settings
   - trash-base-04
   - part-cotton-ball
+  - item-unknown
   - item-earrings-cap-flowers
   - trash-base-02
   - item-reindeer
   - cat-litter
-  - expander
   - icon-inv-notification
   - part-button
   - part-nail
   - icon-profile
+  - icon-exit
   - trash-base-03
   - trash-base-01
   - item-light-can-purple
@@ -127,6 +130,7 @@ SpriteAtlas:
   - item-emojis
   - part-cork
   - bum
+  - icon-expander
   - item-flower-can-rainbow
   - item-candlestick-wine
   - item-aquarium-jar
