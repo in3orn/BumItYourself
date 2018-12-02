@@ -32,7 +32,7 @@ namespace Krk.Bum.View.Inputs
         private void OnEnable()
         {
             inputController.OnTapDown += HandleTapDown;
-            inputController.OnHoldDown += HandleTapDown;
+            inputController.OnHoldDown += HandleHoldDown;
         }
 
         private void OnDisable()
@@ -40,7 +40,7 @@ namespace Krk.Bum.View.Inputs
             if (inputController != null)
             {
                 inputController.OnTapDown -= HandleTapDown;
-                inputController.OnHoldDown -= HandleTapDown;
+                inputController.OnHoldDown -= HandleHoldDown;
             }
         }
 
@@ -50,6 +50,19 @@ namespace Krk.Bum.View.Inputs
             if (trash != null)
             {
                 playerController.TargetItem = trash;
+            }
+            else
+            {
+                playerController.TargetPosition = position;
+            }
+        }
+
+        private void HandleHoldDown(Vector2 position)
+        {
+            var trash = GetItem(position);
+            if (trash != null)
+            {
+                playerController.TargetPosition = trash.Position;
             }
             else
             {
