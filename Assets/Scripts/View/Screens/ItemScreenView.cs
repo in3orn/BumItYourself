@@ -14,14 +14,9 @@ namespace Krk.Bum.View.Screens
 
         public Button CreateButton;
 
-        [SerializeField]
-        private Image image = null;
 
         [SerializeField]
         private TextMeshProUGUI itemName = null;
-
-        [SerializeField]
-        private TextMeshProUGUI countLabel = null;
 
         [SerializeField]
         private RectTransform requiredPartsContent = null;
@@ -44,19 +39,7 @@ namespace Krk.Bum.View.Screens
             itemName.text = item.TotalCount > 0 ? item.Name : "???";
             
             CreateButton.interactable = canCreate;
-            if (item.TotalCount > 0)
-            {
-                InitImage(item.Image);
-            }
             Init(parts);
-        }
-
-        private void InitImage(ImageData data) //TODO make some util method??
-        {
-            image.sprite = data.Image;
-            image.color = data.Color;
-            image.rectTransform.rotation = Quaternion.Euler(0f, 0f, data.Rotation);
-            image.SetNativeSize();
         }
 
         private void Init(RequiredPartData[] items)

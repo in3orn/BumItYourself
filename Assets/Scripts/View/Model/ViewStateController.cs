@@ -29,7 +29,7 @@ namespace Krk.Bum.View.Model
             get { return states.Peek(); }
         }
 
-        
+
         public string CurrentItemId { get; set; }
 
 
@@ -41,7 +41,10 @@ namespace Krk.Bum.View.Model
 
         public void SetState(ViewStateEnum state)
         {
-            states.Push(state);
+            if (states.Peek() != state)
+            {
+                states.Push(state);
+            }
             if (OnStateChanged != null) OnStateChanged(State);
         }
 
@@ -53,7 +56,7 @@ namespace Krk.Bum.View.Model
 
         public void BackState(ViewStateEnum from)
         {
-            while (states.Count > 1 && states.Pop() != from);
+            while (states.Count > 1 && states.Pop() != from) ;
 
             if (OnStateChanged != null) OnStateChanged(State);
         }
