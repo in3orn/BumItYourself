@@ -23,15 +23,15 @@ namespace Krk.Bum.View.Street
         private ViewStateController viewStateController;
 
 
-        private Dictionary<StoreView, IStreetItemController> trashes;
+        private Dictionary<StoreView, IStreetItemController> stores;
 
 
         private void Awake()
         {
-            trashes = new Dictionary<StoreView, IStreetItemController>();
+            stores = new Dictionary<StoreView, IStreetItemController>();
 
             modelController = modelContext.ModelController;
-            blocksController = viewContext.StoreBlocksController;
+            blocksController = viewContext.BlocksController;
             viewStateController = viewContext.ViewStateController;
         }
 
@@ -42,16 +42,19 @@ namespace Krk.Bum.View.Street
 
         private void HandleBlockSpawned(BlockView blockView, BlockData data)
         {
-            var storeView = blockView.GetComponent<StoreView>();
-            var storeController = new StoreController()
+            var storeView = blockView.GetComponentInChildren<StoreView>();
+            if (storeView != null)
             {
-                Position = storeView.transform.position
-            };
+                var storeController = new StoreController()
+                {
+                    Position = storeView.transform.position
+                };
 
-            trashes[storeView] = storeController;
+                stores[storeView] = storeController;
 
-            storeController.OnStoreOpened += storeView.OpenTheDoor;
-            storeController.OnStoreOpened += HandleStoreOpened;
+                storeController.OnStoreOpened += storeView.OpenTheDoor;
+                storeController.OnStoreOpened += HandleStoreOpened;
+            }
         }
 
         private void OnDisable()
@@ -66,9 +69,9 @@ namespace Krk.Bum.View.Street
 
         public IStreetItemController GetControllerFor(StoreView view)
         {
-            if(trashes.ContainsKey(view))
+            if (stores.ContainsKey(view))
             {
-                var result = trashes[view];
+                var result = stores[view];
                 result.Position = view.transform.position; //TODO hacky :(
 
                 return result;
