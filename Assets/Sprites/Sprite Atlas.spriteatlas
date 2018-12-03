@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: d6b4381eccb33e6488377f61edd51647, type: 3}
-    totalSpriteSurfaceArea: 566934
+    totalSpriteSurfaceArea: 639548
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -44,12 +44,15 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1c824701bd035c140a62bf2b38e82762, type: 3}
   - {fileID: 21300000, guid: ea9fb211989e38346a17fc6ec4d44613, type: 3}
   - {fileID: 21300000, guid: 249a4b318b62f0d46a57ce002baa8d17, type: 3}
+  - {fileID: 21300000, guid: 680b21811c5fc1c4294e8bacf49c9d45, type: 3}
   - {fileID: 21300000, guid: a021d2a1ccc577b48b7e6605fdd7c942, type: 3}
+  - {fileID: 21300000, guid: cc7fe9b15fe5163408aa09f31c732fd8, type: 3}
   - {fileID: 21300000, guid: 04f865f1b41a5344990ffac0a0b5f2d9, type: 3}
   - {fileID: 21300000, guid: 7c337e12d0bc06140baaca9900a4ba38, type: 3}
   - {fileID: 21300000, guid: 02ddf2324f195a54481613cf8062b341, type: 3}
   - {fileID: 21300000, guid: 3b4c143211a996c4d91a45b501e46002, type: 3}
   - {fileID: 21300000, guid: 35cd8b728c460e7438c3b698c43460a6, type: 3}
+  - {fileID: 21300000, guid: 02e9d392f48cfa44d8b2912eea2ad863, type: 3}
   - {fileID: 21300000, guid: 17c9fc23c331eec4eaf4dd57cf8d2612, type: 3}
   - {fileID: 21300000, guid: d36da553439ff844baddd0a02ebf1054, type: 3}
   - {fileID: 21300000, guid: 24d703a3c697c7d4e8c02ac12bff6924, type: 3}
@@ -60,6 +63,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1ef506b41c9a96a4c83e4082dd481469, type: 3}
   - {fileID: 21300000, guid: a4a557d4c0f72664397b34afe5d40758, type: 3}
   - {fileID: 21300000, guid: 5c16c0c54346e564382efbf292893ac0, type: 3}
+  - {fileID: 21300000, guid: d00698a65e8f57e469b78c6af0bf76a9, type: 3}
   - {fileID: 21300000, guid: 0d8c5417ac77bb64ba98d7fb4bd6b504, type: 3}
   - {fileID: 21300000, guid: a616d177ede992844ac08b65f1908358, type: 3}
   - {fileID: 21300000, guid: 5d1e7a7706b1ae14bbac0cd9e6588795, type: 3}
@@ -83,6 +87,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3cf7abfa0f570914fa73b3d273bb5a84, type: 3}
   - {fileID: 21300000, guid: b8a2866be6f3acc45953e70c4687a696, type: 3}
   - {fileID: 21300000, guid: ca4eff9bce52b45469f7fbb091f4714d, type: 3}
+  - {fileID: 21300000, guid: 9778c04c596e4c34d806344b65bfe784, type: 3}
   - {fileID: 21300000, guid: 124f394c4c351af41b8edbf4ded8a492, type: 3}
   - {fileID: 21300000, guid: 26e85a4c178bf954884eefd76f3609ef, type: 3}
   - {fileID: 21300000, guid: 47bc201de7ba2c144a52be14c180daf0, type: 3}
@@ -107,12 +112,15 @@ SpriteAtlas:
   - part-leash
   - part-jar
   - icon-resources
+  - house-graffiti-01
   - common-square-tile
+  - street-lamp
   - item-earrings-cotton-bells
   - part-beer-bottle
   - pavement-stone
   - part-lightbulb
   - icon-cash
+  - house-graffiti-02
   - part-toothpick
   - notification-circle
   - part-wine-bottle
@@ -123,6 +131,7 @@ SpriteAtlas:
   - item-earrings-feathers
   - button-fill
   - icon-settings
+  - house-gutter-out
   - trash-base-04
   - house-door-rosete
   - part-cotton-ball
@@ -146,6 +155,7 @@ SpriteAtlas:
   - part-bean-can
   - item-emojis
   - part-cork
+  - house-gutter-mid
   - house-window-4
   - bum
   - icon-expander
