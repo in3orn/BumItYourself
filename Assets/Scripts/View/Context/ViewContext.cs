@@ -48,19 +48,5 @@ namespace Krk.Bum.View.Context
                     new BlocksController(BlocksControllerConfig));
             }
         }
-
-
-        public BlocksControllerConfig TrashBlocksControllerConfig;
-
-        public BlocksController trashBlocksController;
-
-        public BlocksController TrashBlocksController
-        {
-            get
-            {
-                return trashBlocksController ?? (trashBlocksController =
-                    new BlocksController(TrashBlocksControllerConfig));
-            }
-        }
     }
 }

@@ -551,6 +551,7 @@ GameObject:
   - component: {fileID: 292625229}
   - component: {fileID: 292625228}
   - component: {fileID: 292625230}
+  - component: {fileID: 292625231}
   m_Layer: 0
   m_Name: Street Blocks
   m_TagString: Untagged
@@ -573,11 +574,9 @@ MonoBehaviour:
   parent: {fileID: 292625229}
   templates:
   - {fileID: 2448169276508486584, guid: 6cd8f92cd6d941e4b81519e9add672ff, type: 3}
-  - {fileID: 7647546460925048011, guid: dcaeb609f4d38ea488424726bc88ff84, type: 3}
-  - {fileID: 3207372310158591930, guid: 417d47d10adcf7f4fb1cd52ca7804085, type: 3}
   - {fileID: 496779404639287169, guid: 9b99dc7a153454f479c6a7f4618c835b, type: 3}
-  - {fileID: 3970166084955875124, guid: 2788c655f3600c14f89573fac219859c, type: 3}
   - {fileID: 2890197517060953323, guid: 2b1df86b23c85da4ea5f42897e36bd76, type: 3}
+  - {fileID: 7647546460925048011, guid: dcaeb609f4d38ea488424726bc88ff84, type: 3}
   viewContext: {fileID: 1474845635}
   gameContext: {fileID: 998196326}
 --- !u!4 &292625229
@@ -608,6 +607,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modelContext: {fileID: 346672202}
   viewContext: {fileID: 1474845635}
+--- !u!114 &292625231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292625227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339a222716ee0ce429fbb918e6bd7acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelContext: {fileID: 346672202}
+  viewContext: {fileID: 1474845635}
+  trashConfig: {fileID: 11400000, guid: ddbafd1c352c9ec409556bb715be6dcb, type: 2}
 --- !u!1 &293180891
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 293180893}
   gameContext: {fileID: 998196326}
-  trashMediator: {fileID: 1336157321}
+  trashMediator: {fileID: 292625231}
   storeMediator: {fileID: 292625230}
 --- !u!1 &305637895
 GameObject:
@@ -2226,7 +2240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 360, y: -478.3023}
+  m_AnchoredPosition: {x: 360, y: -478.30273}
   m_SizeDelta: {x: 240, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &564499355
@@ -2508,7 +2522,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 360, y: -185.4723}
+  m_AnchoredPosition: {x: 360, y: -185.47266}
   m_SizeDelta: {x: 500, y: 95.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &665267972
@@ -2994,7 +3008,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 360, y: -63.931152}
+  m_AnchoredPosition: {x: 360, y: -63.93164}
   m_SizeDelta: {x: 100, y: 127.862305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &741689589
@@ -5332,7 +5346,7 @@ Transform:
   m_Children:
   - {fileID: 421092163}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1301454275
 MonoBehaviour:
@@ -5557,70 +5571,6 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
---- !u!1 &1336157319
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1336157320}
-  - component: {fileID: 1336157322}
-  - component: {fileID: 1336157321}
-  m_Layer: 0
-  m_Name: Trashes
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1336157320
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336157319}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1430287, y: 0.9020987, z: -0.38710037}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1336157321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336157319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 339a222716ee0ce429fbb918e6bd7acd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  modelContext: {fileID: 346672202}
-  viewContext: {fileID: 1474845635}
-  trashConfig: {fileID: 11400000, guid: ddbafd1c352c9ec409556bb715be6dcb, type: 2}
---- !u!114 &1336157322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336157319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e112602d5c1376f41bcfb6eafbbd895f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 1336157320}
-  templates:
-  - {fileID: 1112251898421759502, guid: d9f5211ce4f1642448e1bd1374858a97, type: 3}
-  viewContext: {fileID: 1474845635}
-  gameContext: {fileID: 998196326}
 --- !u!1 &1340959108
 GameObject:
   m_ObjectHideFlags: 0
@@ -5656,7 +5606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1340959110
@@ -7108,10 +7058,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlocksControllerConfig: {fileID: 11400000, guid: 1226bb7383ffcf94c9c4aaec73ad6a16,
-    type: 2}
-  TrashBlocksControllerConfig: {fileID: 11400000, guid: cfea6c5466a0548498f8bf2d6b2e0832,
-    type: 2}
-  StoreBlocksControllerConfig: {fileID: 11400000, guid: 7beb6aed096b9d34b9622199a0ab7f0f,
     type: 2}
 --- !u!1 &1475252268
 GameObject:

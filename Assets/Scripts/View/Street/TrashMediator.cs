@@ -31,7 +31,7 @@ namespace Krk.Bum.View.Street
             trashes = new Dictionary<TrashView, IStreetItemController>();
 
             modelController = modelContext.ModelController;
-            blocksController = viewContext.TrashBlocksController;
+            blocksController = viewContext.BlocksController;
         }
 
         private void OnEnable()
@@ -41,16 +41,19 @@ namespace Krk.Bum.View.Street
 
         private void HandleBlockSpawned(BlockView blockView, BlockData data)
         {
-            var trashView = blockView.GetComponent<TrashView>();
-            var trashController = new TrashController(modelController, trashConfig)
+            var trashViews = blockView.GetComponentsInChildren<TrashView>();
+            foreach(var trashView in trashViews)
             {
-                Position = trashView.transform.position
-            };
+                var trashController = new TrashController(modelController, trashConfig)
+                {
+                    Position = trashView.transform.position
+                };
 
-            trashes[trashView] = trashController;
+                trashes[trashView] = trashController;
 
-            trashController.OnEmptyHit += trashView.HitEmpty;
-            trashController.OnHit += trashView.Hit;
+                trashController.OnEmptyHit += trashView.HitEmpty;
+                trashController.OnHit += trashView.Hit;
+            }
         }
 
         private void OnDisable()
@@ -61,7 +64,7 @@ namespace Krk.Bum.View.Street
 
         public IStreetItemController GetControllerFor(TrashView view)
         {
-            if(trashes.ContainsKey(view))
+            if (trashes.ContainsKey(view))
             {
                 var result = trashes[view];
                 result.Position = view.transform.position; //TODO hacky :(
