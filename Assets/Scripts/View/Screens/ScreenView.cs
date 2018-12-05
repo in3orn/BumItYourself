@@ -9,7 +9,7 @@ namespace Krk.Bum.View.Screens
         protected GameObject screen = null;
 
         [SerializeField]
-        protected Showable showable = null;
+        protected Showable[] showables = null;
 
 
         private bool shown;
@@ -26,8 +26,14 @@ namespace Krk.Bum.View.Screens
             if (shown != value)
             {
                 shown = value;
-                if (shown) showable.Show();
-                else showable.Hide();
+                if (shown)
+                {
+                    foreach (var showable in showables) showable.Show();
+                }
+                else
+                {
+                    foreach (var showable in showables) showable.Hide();
+                }
             }
         }
     }

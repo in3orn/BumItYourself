@@ -21,12 +21,12 @@ namespace Krk.Bum.View.Animations
 
         protected void Activate()
         {
-            parent.SetActive(true);
+            if (parent != null) parent.SetActive(true);
         }
 
         protected void Deactivate()
         {
-            parent.SetActive(false);
+            if (parent != null) parent.SetActive(false);
         }
     }
 }
