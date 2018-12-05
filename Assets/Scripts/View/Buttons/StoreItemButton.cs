@@ -1,8 +1,10 @@
-﻿using Krk.Bum.Model;
+﻿using DG.Tweening;
+using Krk.Bum.Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.UI.Extensions;
 
 namespace Krk.Bum.View.Buttons
 {
@@ -23,9 +25,17 @@ namespace Krk.Bum.View.Buttons
         [SerializeField]
         private TextMeshProUGUI count = null;
 
+        [SerializeField]
+        private ParticleSystem particles = null;
+
 
         public ItemData Item { get; private set; }
 
+
+        private void Start()
+        {
+            particles.Stop();
+        }
 
         public void Init(ItemData data)
         {
@@ -57,6 +67,9 @@ namespace Krk.Bum.View.Buttons
 
         private void HandleButtonClicked()
         {
+            particles.Stop();
+            particles.Play();
+
             OnButtonClicked?.Invoke(this);
         }
 
