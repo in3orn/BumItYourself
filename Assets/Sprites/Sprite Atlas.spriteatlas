@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: d6b4381eccb33e6488377f61edd51647, type: 3}
-    totalSpriteSurfaceArea: 639548
+    totalSpriteSurfaceArea: 1561148
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -72,6 +72,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: bcbec6b76cf67954789f746bfdd0028f, type: 3}
   - {fileID: 21300000, guid: f66f4bc7761be8e44978b8024f557fbe, type: 3}
   - {fileID: 21300000, guid: 8cec17e71ac27e74592ca0cbc0fcf279, type: 3}
+  - {fileID: 21300000, guid: eb2d02184b018ff48875a7fa818d907a, type: 3}
   - {fileID: 21300000, guid: 15483248644d7ab4d80bc3f5d644fef7, type: 3}
   - {fileID: 21300000, guid: 7d64f2488d3e5d64c84df4317e68ee2b, type: 3}
   - {fileID: 21300000, guid: 5afe5dd8b9b485f419b0c50f6f7b5351, type: 3}
@@ -140,6 +141,7 @@ SpriteAtlas:
   - trash-base-02
   - house-door-cat-entry
   - item-reindeer
+  - pawn-interior
   - cat-litter
   - house-door
   - house-windowsill
