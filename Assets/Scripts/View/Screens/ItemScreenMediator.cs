@@ -44,6 +44,15 @@ namespace Krk.Bum.View.Screens
             base.SetShown(shown);
         }
 
+        private void InitView(ItemData item)
+        {
+            var parts = modelController.GetRequiredParts(item);
+            var canCreate = modelController.CanCreateItem(item);
+            var hasPrev = modelController.HasPrevItem(item.Id);
+            var hasNext = modelController.HasNextItem(item.Id);
+            screenView.InitItem(item, parts, canCreate, hasPrev, hasNext);
+        }
+
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -51,6 +60,8 @@ namespace Krk.Bum.View.Screens
             backListener.Subscribe(screenView.BackButton);
 
             screenView.CreateButton.onClick.AddListener(HandleCreateButtonClicked);
+            screenView.PrevItemButton.onClick.AddListener(HandlePrevItemButtonClicked);
+            screenView.NextItemButton.onClick.AddListener(HandleNextItemButtonClicked);
         }
 
         protected override void OnDisable()
@@ -79,11 +90,38 @@ namespace Krk.Bum.View.Screens
             }
         }
 
-        private void InitView(ItemData item)
+        private void HandlePrevItemButtonClicked()
+        {
+            var item = modelController.GetPrevItem(viewStateController.CurrentItemId);
+            if (item != null)
+            {
+                viewStateController.CurrentItemId = item.Id;
+                SwitchView(item);
+            }
+        }
+
+        private void HandleNextItemButtonClicked()
+        {
+            var item = modelController.GetNextItem(viewStateController.CurrentItemId);
+            if (item != null)
+            {
+                viewStateController.CurrentItemId = item.Id;
+                SwitchView(item);
+            }
+        }
+
+        private void UpdateView(ItemData item)
+        {
+            screenView.UpdateItem(item);
+        }
+
+        private void SwitchView(ItemData item)
         {
             var parts = modelController.GetRequiredParts(item);
             var canCreate = modelController.CanCreateItem(item);
-            screenView.Init(item, parts, canCreate);
+            var hasPrev = modelController.HasPrevItem(item.Id);
+            var hasNext = modelController.HasNextItem(item.Id);
+            screenView.SwitchItem(item, parts, canCreate, hasPrev, hasNext);
         }
     }
 }

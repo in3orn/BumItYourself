@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Krk.Bum.Model.Utils;
 using UnityEngine;
 using UnityEngine.Events;
@@ -96,6 +95,53 @@ namespace Krk.Bum.Model.Core
             }
 
             return result;
+        }
+
+
+        public bool HasPrevItem(string itemId)
+        {
+            return GetPrevItem(itemId) != null;
+        }
+
+        public ItemData GetPrevItem(string itemId)
+        {
+            foreach (var collection in GetAllCollections())
+            {
+                for (var i = 0; i < collection.Items.Length; i++)
+                {
+                    var item = collection.Items[i];
+                    if (item.Id.Equals(itemId))
+                    {
+                        if (i <= 0) return null;
+                        return collection.Items[i - 1];
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        public bool HasNextItem(string itemId)
+        {
+            return GetNextItem(itemId) != null;
+        }
+
+        public ItemData GetNextItem(string itemId)
+        {
+            foreach (var collection in GetAllCollections())
+            {
+                for (var i = 0; i < collection.Items.Length; i++)
+                {
+                    var item = collection.Items[i];
+                    if (item.Id.Equals(itemId))
+                    {
+                        if (i >= collection.Items.Length - 1) return null;
+                        return collection.Items[i + 1];
+                    }
+                }
+            }
+
+            return null;
         }
 
         public ItemData GetItem(string collectionId, string itemId)
