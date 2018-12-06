@@ -59,8 +59,8 @@ namespace Krk.Bum.Game.Actors
             }
             else
             {
-                TargetPosition = new Vector2(TargetPosition.x, config.WalkRange.Clamp(TargetPosition.y));
-                var diff = TargetPosition - Position;
+                var position = new Vector2(TargetPosition.x, config.WalkRange.Clamp(TargetPosition.y));
+                var diff = position - Position;
                 if (diff.magnitude > config.MinTargetDistance)
                 {
                     Position += diff.normalized * config.WalkSpeed * deltaTime;

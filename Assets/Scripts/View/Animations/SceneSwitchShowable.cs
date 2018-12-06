@@ -25,6 +25,8 @@ namespace Krk.Bum.View.Animations
 
             foreground.color = Color.clear;
             foreground.gameObject.SetActive(true);
+
+            scene.SetActive(false);
         }
 
         public override void Show()
