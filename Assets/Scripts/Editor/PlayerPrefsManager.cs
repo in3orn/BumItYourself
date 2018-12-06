@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Krk.Bum.View.Common
+namespace Krk.Bum.Editor
 {
     public class PlayerPrefsManager : MonoBehaviour
     {
