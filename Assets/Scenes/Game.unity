@@ -3132,6 +3132,8 @@ MonoBehaviour:
   itemImage: {fileID: 3728772410061082990}
   itemCount: {fileID: 4557098805188704307}
   canvasGroup: {fileID: 1333709642}
+  particleSystems:
+  - {fileID: 1327516544}
 --- !u!114 &748570116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5321,6 +5323,12 @@ MonoBehaviour:
   parent: {fileID: 284968636}
   config: {fileID: 11400000, guid: a64d8e12a73296940b7acd6d0f6b472f, type: 2}
   panel: {fileID: 1756363337}
+--- !u!198 &1327516544 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8654642644301090559, guid: 9a0a00acb1ecdc0498095f9f800792ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 3529655815756254103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1333709639
 GameObject:
   m_ObjectHideFlags: 0

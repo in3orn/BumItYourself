@@ -86,7 +86,7 @@ namespace Krk.Bum.View.Screens
             if (modelController.CanCreateItem(item))
             {
                 modelController.CreateItem(item);
-                InitView(item);
+                UpdateView(item);
             }
         }
 
@@ -112,7 +112,9 @@ namespace Krk.Bum.View.Screens
 
         private void UpdateView(ItemData item)
         {
-            screenView.UpdateItem(item);
+            var parts = modelController.GetRequiredParts(item);
+            var canCreate = modelController.CanCreateItem(item);
+            screenView.UpdateItem(item, parts, canCreate);
         }
 
         private void SwitchView(ItemData item)

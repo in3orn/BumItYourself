@@ -171,6 +171,7 @@ namespace Krk.Bum.Model.Core
 
         public void SellAllItems()
         {
+            var sold = false;
             foreach (var collection in modelData.Collections)
             {
                 if (collection.Unlocked)
@@ -184,14 +185,19 @@ namespace Krk.Bum.Model.Core
 
                             item.Count = 0;
                             itemLoader.Save(item);
+
+                            sold = true;
                         }
                     }
                 }
             }
 
-            modelLoader.Save(modelData);
+            if (sold)
+            {
+                modelLoader.Save(modelData);
 
-            if (OnItemSold != null) OnItemSold(null);
+                if (OnItemSold != null) OnItemSold(null);
+            }
         }
 
         public bool CanSellItem(ItemData item)

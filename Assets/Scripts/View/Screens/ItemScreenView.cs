@@ -35,6 +35,9 @@ namespace Krk.Bum.View.Screens
         [SerializeField]
         private CanvasGroup canvasGroup = null;
 
+        [SerializeField]
+        private ParticleSystem[] particleSystems = null;
+
 
         private readonly List<RequiredPartRow> rows;
 
@@ -43,15 +46,26 @@ namespace Krk.Bum.View.Screens
         private Color defaultItemColor;
 
 
+        public ItemScreenView()
+        {
+            rows = new List<RequiredPartRow>();
+        }
+
+
         private void Awake()
         {
             defaultItemSprite = itemImage.sprite;
             defaultItemColor = itemImage.color;
+
+            InitParticles();
         }
 
-        public ItemScreenView()
+        private void InitParticles()
         {
-            rows = new List<RequiredPartRow>();
+            foreach (var particleSystem in particleSystems)
+            {
+                particleSystem.Stop();
+            }
         }
 
 
@@ -67,13 +81,41 @@ namespace Krk.Bum.View.Screens
             NextItemButton.interactable = hasNext;
         }
 
-        public void UpdateItem(ItemData item)
+        public void UpdateItem(ItemData item, RequiredPartData[] parts, bool canCreate)
         {
-            itemImage.rectTransform.DOPunchScale(Vector3.one, 0.25f);
-            itemImage.rectTransform.DOPunchRotation(Vector3.right, 0.25f);
+            if (item.TotalCount > 1)
+            {
+                SpawnParticles();
 
-            itemCount.rectTransform.DOPunchScale(Vector3.one, 0.25f);
-            itemCount.rectTransform.DOPunchRotation(Vector3.left, 0.25f);
+                itemImage.rectTransform.DOPunchScale(Vector3.one, 0.25f);
+                itemImage.rectTransform.DOPunchRotation(Vector3.right, 0.25f);
+
+                itemCount.rectTransform.DOPunchScale(Vector3.one, 0.25f);
+                itemCount.rectTransform.DOPunchRotation(Vector3.left, 0.25f);
+            }
+            else
+            {
+                var sequence = DOTween.Sequence();
+
+                sequence.Append(itemImage.rectTransform.DOScale(new Vector2(0f, 0.25f), 0.5f).SetEase(Ease.OutQuad));
+                sequence.AppendCallback(SpawnParticles);
+                sequence.AppendCallback(() => InitItem(item, parts, canCreate,
+                    PrevItemButton.interactable, NextItemButton.interactable));
+                sequence.Append(itemImage.rectTransform.DOScale(Vector2.one, 0.25f).SetEase(Ease.OutElastic));
+                sequence.Join(itemCount.rectTransform.DOPunchScale(Vector3.one, 0.25f));
+                sequence.Join(itemCount.rectTransform.DOPunchRotation(Vector3.left, 0.25f));
+
+                sequence.Play();
+            }
+        }
+
+        public void SpawnParticles()
+        {
+            foreach (var particleSystem in particleSystems)
+            {
+                particleSystem.Stop();
+                particleSystem.Play();
+            }
         }
 
         public void SwitchItem(ItemData item, RequiredPartData[] parts, bool canCreate, bool hasPrev, bool hasNext)
