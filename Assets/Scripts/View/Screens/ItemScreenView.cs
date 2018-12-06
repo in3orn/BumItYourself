@@ -86,6 +86,7 @@ namespace Krk.Bum.View.Screens
             if (item.TotalCount > 1)
             {
                 SpawnParticles();
+                InitItem(item, parts, canCreate, PrevItemButton.interactable, NextItemButton.interactable);
 
                 itemImage.rectTransform.DOPunchScale(Vector3.one, 0.25f);
                 itemImage.rectTransform.DOPunchRotation(Vector3.right, 0.25f);
