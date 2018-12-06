@@ -20,4 +20,4 @@ MonoBehaviour:
     min: 0
     max: 0
   InheritSpawnZFromY: 0
-  SpawnZ: 5
+  SpawnZ: 0

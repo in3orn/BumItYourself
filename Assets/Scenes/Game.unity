@@ -1034,6 +1034,11 @@ MonoBehaviour:
   templates:
   - {fileID: 2448169276508486584, guid: 6cd8f92cd6d941e4b81519e9add672ff, type: 3}
   - {fileID: 7647546460925048011, guid: dcaeb609f4d38ea488424726bc88ff84, type: 3}
+  - {fileID: 1320410847979992890, guid: b748384e426f7674091d43dca5dac2c9, type: 3}
+  - {fileID: 3207372310158591930, guid: 417d47d10adcf7f4fb1cd52ca7804085, type: 3}
+  - {fileID: 496779404639287169, guid: 9b99dc7a153454f479c6a7f4618c835b, type: 3}
+  - {fileID: 2890197517060953323, guid: 2b1df86b23c85da4ea5f42897e36bd76, type: 3}
+  - {fileID: 6146001145535383778, guid: fbf14f3bedb72a242abb34e93c70dc65, type: 3}
   viewContext: {fileID: 1474845635}
   gameContext: {fileID: 998196326}
 --- !u!4 &292625229
@@ -1044,7 +1049,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292625227}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
