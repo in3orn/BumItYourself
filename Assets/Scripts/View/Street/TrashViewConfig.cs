@@ -20,7 +20,5 @@ namespace Krk.Bum.View.Street
 
         public float[] DamagedTopRotations;
         public Vector2[] DamagedTopPositions;
-
-        public PartView PartTemplate;
     }
 }

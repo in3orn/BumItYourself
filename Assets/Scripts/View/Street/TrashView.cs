@@ -8,6 +8,9 @@ namespace Krk.Bum.View.Street
 {
     public class TrashView : MonoBehaviour
     {
+        public UnityAction<TrashView, PartData> OnHit;
+
+
         [SerializeField]
         private TrashViewConfig config = null;
 
@@ -23,6 +26,10 @@ namespace Krk.Bum.View.Street
         private int damage;
 
         private Vector3 temp;
+
+
+        public int DrawOrder { get { return trashBodyRenderer.sortingOrder; } }
+
 
         private void Awake()
         {
@@ -80,12 +87,7 @@ namespace Krk.Bum.View.Street
 
             sequence.Play();
 
-            var gameObject = Instantiate(config.PartTemplate, transform);
-            gameObject.transform.position = new Vector3(transform.position.x,
-                transform.position.y, transform.position.z + .1f);
-
-            var partView = gameObject.GetComponent<PartView>();
-            partView.Show(partData);
+            if (OnHit != null) OnHit(this, partData);
         }
     }
 }

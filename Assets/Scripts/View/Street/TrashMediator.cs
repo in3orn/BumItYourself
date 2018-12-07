@@ -25,6 +25,9 @@ namespace Krk.Bum.View.Street
         [SerializeField]
         private TrashConfig trashConfig = null;
 
+        [SerializeField]
+        private PartMediator partMediator = null;
+
 
         private ModelController modelController;
         private BlocksController blocksController;
@@ -51,7 +54,7 @@ namespace Krk.Bum.View.Street
         private void HandleBlockSpawned(BlockView blockView, BlockData data)
         {
             var trashViews = blockView.GetComponentsInChildren<TrashView>();
-            foreach(var trashView in trashViews)
+            foreach (var trashView in trashViews)
             {
                 var trashController = new TrashController(modelController, trashConfig)
                 {
@@ -63,6 +66,8 @@ namespace Krk.Bum.View.Street
                 trashController.OnEmptyHit += trashView.HitEmpty;
                 trashController.OnHit += trashView.Hit;
                 trashController.OnHit += HandleTrashHit;
+
+                trashView.OnHit += HandleTrashViewHit;
             }
         }
 
@@ -74,6 +79,11 @@ namespace Krk.Bum.View.Street
         private void HandleTrashHit(TrashData trashData, PartData partData)
         {
             playerController.Hit();
+        }
+
+        private void HandleTrashViewHit(TrashView trashView, PartData partData)
+        {
+            partMediator.Spawn(trashView, partData);
         }
 
         public IStreetItemController GetControllerFor(TrashView view)

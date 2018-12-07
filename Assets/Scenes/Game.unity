@@ -932,6 +932,7 @@ GameObject:
   - component: {fileID: 292625228}
   - component: {fileID: 292625230}
   - component: {fileID: 292625231}
+  - component: {fileID: 292625232}
   m_Layer: 0
   m_Name: Street Blocks
   m_TagString: Untagged
@@ -1006,6 +1007,21 @@ MonoBehaviour:
   viewContext: {fileID: 1474845635}
   gameContext: {fileID: 998196326}
   trashConfig: {fileID: 11400000, guid: ddbafd1c352c9ec409556bb715be6dcb, type: 2}
+  partMediator: {fileID: 292625232}
+--- !u!114 &292625232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292625227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad641561b21d94548911bd5b2b165449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: a11d1afa3d6b1c1438c3eb9734f24b3d, type: 2}
+  inventoryButton: {fileID: 555035575}
 --- !u!1 &293180891
 GameObject:
   m_ObjectHideFlags: 0

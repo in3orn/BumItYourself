@@ -16,8 +16,12 @@ MonoBehaviour:
   HitDuration: 0.5
   EmptyHitColor: {r: 0.2509804, g: 0.16700768, b: 0, a: 1}
   EmptyHitDuration: 0.5
+  TrashTopHitBack: {fileID: 21300000, guid: 9ff342213edf0c249b9887a8089aef6d, type: 3}
+  TrashTopHitFront: {fileID: 21300000, guid: d30c9298a2fe3394899ff4ebd2e17bd3, type: 3}
   DamagedImages:
   - {fileID: 21300000, guid: ae32c711bce987141ac39b640ffd83e1, type: 3}
+  - {fileID: 21300000, guid: 38374f8565881db49a1ed8d7b2c1ef40, type: 3}
+  - {fileID: 21300000, guid: 3321276ad4d2ea04b803ec85558f5309, type: 3}
   - {fileID: 21300000, guid: c904d9cb1b6485f498e43e908b7bf667, type: 3}
   DamagedTopRotations:
   - 0
@@ -29,5 +33,3 @@ MonoBehaviour:
   - {x: 0.05, y: 0.73}
   - {x: 0.1, y: 0.63}
   - {x: 0.15, y: 0.53}
-  PartTemplate: {fileID: 1704947660694128152, guid: 3dbe7814a22944d4b903f09865738cf1,
-    type: 3}
