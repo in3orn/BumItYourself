@@ -250,7 +250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: af64bdd006819fa40bef796ad197e909, type: 2}
-  depthRenderer: {fileID: 7347529214390400334}
+  depthRenderers:
+  - {fileID: 7347529214390400334}
 --- !u!114 &4945528325696681253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +265,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: a3fd45df28acdac46a75f5b892f75866, type: 2}
-  depthRenderer: {fileID: 343460051348453825}
+  depthRenderers:
+  - {fileID: 343460051348453825}
 --- !u!114 &3073829074888187834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,7 +280,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: 8f55fe0de09d5c043acdb0020260149d, type: 2}
-  depthRenderer: {fileID: 4600109192074720453}
+  depthRenderers:
+  - {fileID: 4600109192074720453}
 --- !u!1 &7683692300821322805
 GameObject:
   m_ObjectHideFlags: 0

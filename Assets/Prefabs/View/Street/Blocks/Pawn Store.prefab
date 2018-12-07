@@ -1,22 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!4 &7039030758177075438 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8528734331518516782, guid: 9042ca8f8cfe9fd40925fe6237238194,
-    type: 3}
-  m_PrefabInstance: {fileID: 1725880870015307456}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &188496433688730430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7347529215452971644, guid: d9f5211ce4f1642448e1bd1374858a97,
     type: 3}
   m_PrefabInstance: {fileID: 7451775566523455810}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8102445478126892370 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7347529215452971644, guid: d9f5211ce4f1642448e1bd1374858a97,
-    type: 3}
-  m_PrefabInstance: {fileID: 1550929181789402926}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &272546750789739164
 GameObject:
@@ -176,6 +164,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &7039030758177075438 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8528734331518516782, guid: 9042ca8f8cfe9fd40925fe6237238194,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725880870015307456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &797233286510244765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,6 +1698,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &8102445478126892370 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7347529215452971644, guid: d9f5211ce4f1642448e1bd1374858a97,
+    type: 3}
+  m_PrefabInstance: {fileID: 1550929181789402926}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1550929181789402926
 PrefabInstance:
   m_ObjectHideFlags: 0

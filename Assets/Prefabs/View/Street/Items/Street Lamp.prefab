@@ -95,7 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: af64bdd006819fa40bef796ad197e909, type: 2}
-  depthRenderer: {fileID: 6941150080087540815}
+  depthRenderers:
+  - {fileID: 6941150080087540815}
 --- !u!114 &3880778105192901053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: 8f55fe0de09d5c043acdb0020260149d, type: 2}
-  depthRenderer: {fileID: 222081977812079783}
+  depthRenderers:
+  - {fileID: 222081977812079783}
 --- !u!1 &6235095926318523530
 GameObject:
   m_ObjectHideFlags: 0
