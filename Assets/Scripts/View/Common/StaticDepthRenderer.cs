@@ -5,10 +5,10 @@ namespace Krk.Bum.View.Common
     public class StaticDepthRenderer : MonoBehaviour
     {
         [SerializeField]
-        private DepthRendererConfig config;
+        private DepthRendererConfig config = null;
 
         [SerializeField]
-        private SpriteRenderer[] depthRenderers;
+        private SpriteRenderer[] depthRenderers = null;
 
 
         private void Start()

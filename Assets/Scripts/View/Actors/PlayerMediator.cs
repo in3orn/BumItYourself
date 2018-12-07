@@ -16,6 +16,9 @@ namespace Krk.Bum.View.Actors
         [SerializeField]
         private Shaker cameraShaker = null;
 
+        [SerializeField]
+        private FlashView hitFlash = null;
+
 
         private PlayerController playerController;
 
@@ -44,6 +47,7 @@ namespace Krk.Bum.View.Actors
         private void HandlePlayerHit()
         {
             playerView.Hit();
+            hitFlash.Flash();
             cameraShaker.Shake();
         }
 
