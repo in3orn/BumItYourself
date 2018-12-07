@@ -1004,6 +1004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modelContext: {fileID: 346672202}
   viewContext: {fileID: 1474845635}
+  gameContext: {fileID: 998196326}
   trashConfig: {fileID: 11400000, guid: ddbafd1c352c9ec409556bb715be6dcb, type: 2}
 --- !u!1 &293180891
 GameObject:

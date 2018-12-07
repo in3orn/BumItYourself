@@ -17,10 +17,8 @@ MonoBehaviour:
   EmptyHitColor: {r: 0.2509804, g: 0.16700768, b: 0, a: 1}
   EmptyHitDuration: 0.5
   DamagedImages:
-  - {fileID: 21300000, guid: 41d5f07a7042afb43b84fd5f55937589, type: 3}
-  - {fileID: 21300000, guid: bcbec6b76cf67954789f746bfdd0028f, type: 3}
-  - {fileID: 21300000, guid: f16fab3a5d76f03448ca45ccd1f1e03c, type: 3}
-  - {fileID: 21300000, guid: 0d8c5417ac77bb64ba98d7fb4bd6b504, type: 3}
+  - {fileID: 21300000, guid: ae32c711bce987141ac39b640ffd83e1, type: 3}
+  - {fileID: 21300000, guid: c904d9cb1b6485f498e43e908b7bf667, type: 3}
   DamagedTopRotations:
   - 0
   - -5

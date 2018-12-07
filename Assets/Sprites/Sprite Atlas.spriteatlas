@@ -31,11 +31,10 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: d6b4381eccb33e6488377f61edd51647, type: 3}
-    totalSpriteSurfaceArea: 1599513
+    totalSpriteSurfaceArea: 1521715
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 7b9c4b105da9c0442bdd6b8f91b90e63, type: 3}
   - {fileID: 21300000, guid: 5182e66049f52354aa2bc750e97d9e8d, type: 3}
   - {fileID: 21300000, guid: 93b8ec8016bf8144aa8176f76c41feec, type: 3}
   - {fileID: 21300000, guid: 08110ff0e538bc342bcf422b84535d88, type: 3}
@@ -43,6 +42,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 179ce201590657243a607d00686fb3ee, type: 3}
   - {fileID: 21300000, guid: 1c824701bd035c140a62bf2b38e82762, type: 3}
   - {fileID: 21300000, guid: ea9fb211989e38346a17fc6ec4d44613, type: 3}
+  - {fileID: 21300000, guid: ae32c711bce987141ac39b640ffd83e1, type: 3}
+  - {fileID: 21300000, guid: 9ff342213edf0c249b9887a8089aef6d, type: 3}
   - {fileID: 21300000, guid: 249a4b318b62f0d46a57ce002baa8d17, type: 3}
   - {fileID: 21300000, guid: 680b21811c5fc1c4294e8bacf49c9d45, type: 3}
   - {fileID: 21300000, guid: a021d2a1ccc577b48b7e6605fdd7c942, type: 3}
@@ -52,6 +53,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 02ddf2324f195a54481613cf8062b341, type: 3}
   - {fileID: 21300000, guid: 3b4c143211a996c4d91a45b501e46002, type: 3}
   - {fileID: 21300000, guid: e83477427d0869f45bfaf6c1d44f3465, type: 3}
+  - {fileID: 21300000, guid: da573752bc1c3384d86e55cecaf9372e, type: 3}
   - {fileID: 21300000, guid: 5b4d456225b57914aa5312c8801285ba, type: 3}
   - {fileID: 21300000, guid: 35cd8b728c460e7438c3b698c43460a6, type: 3}
   - {fileID: 21300000, guid: 02e9d392f48cfa44d8b2912eea2ad863, type: 3}
@@ -66,18 +68,18 @@ SpriteAtlas:
   - {fileID: 21300000, guid: d827daa4ffcde064c89e7f928d3f789d, type: 3}
   - {fileID: 21300000, guid: 1ef506b41c9a96a4c83e4082dd481469, type: 3}
   - {fileID: 21300000, guid: a4a557d4c0f72664397b34afe5d40758, type: 3}
+  - {fileID: 21300000, guid: 38374f8565881db49a1ed8d7b2c1ef40, type: 3}
   - {fileID: 21300000, guid: 5c16c0c54346e564382efbf292893ac0, type: 3}
+  - {fileID: 21300000, guid: 436ac966775df694d8711ff86c59876e, type: 3}
   - {fileID: 21300000, guid: 2dd44d76f8b71b443a37555511ec2376, type: 3}
   - {fileID: 21300000, guid: dd4ebc967755fec47b2d63395d178713, type: 3}
   - {fileID: 21300000, guid: d00698a65e8f57e469b78c6af0bf76a9, type: 3}
   - {fileID: 21300000, guid: 91f4c0f67b2873d47b0a9cf53a23a9fb, type: 3}
   - {fileID: 21300000, guid: be75ac07863b5964990ac4cf22b7bc51, type: 3}
-  - {fileID: 21300000, guid: 0d8c5417ac77bb64ba98d7fb4bd6b504, type: 3}
   - {fileID: 21300000, guid: a616d177ede992844ac08b65f1908358, type: 3}
   - {fileID: 21300000, guid: 5d1e7a7706b1ae14bbac0cd9e6588795, type: 3}
   - {fileID: 21300000, guid: 201bcd87a058d9046a8a001ba6b5125e, type: 3}
   - {fileID: 21300000, guid: b3b1d7a750f738245a0845d7197884b1, type: 3}
-  - {fileID: 21300000, guid: bcbec6b76cf67954789f746bfdd0028f, type: 3}
   - {fileID: 21300000, guid: f66f4bc7761be8e44978b8024f557fbe, type: 3}
   - {fileID: 21300000, guid: 8cec17e71ac27e74592ca0cbc0fcf279, type: 3}
   - {fileID: 21300000, guid: 52027f080bc46324e91ef793b6798fce, type: 3}
@@ -85,8 +87,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 15483248644d7ab4d80bc3f5d644fef7, type: 3}
   - {fileID: 21300000, guid: 7d64f2488d3e5d64c84df4317e68ee2b, type: 3}
   - {fileID: 21300000, guid: 335d7078ebe40644a9c2396937d8474c, type: 3}
+  - {fileID: 21300000, guid: dbd6b388d1daa70439015f46a6574a18, type: 3}
+  - {fileID: 21300000, guid: d30c9298a2fe3394899ff4ebd2e17bd3, type: 3}
   - {fileID: 21300000, guid: 5afe5dd8b9b485f419b0c50f6f7b5351, type: 3}
   - {fileID: 21300000, guid: d9f02e29ebddca34ba5901568fa28c1a, type: 3}
+  - {fileID: 21300000, guid: 173a353964763304181a72cbe2c5213d, type: 3}
   - {fileID: 21300000, guid: 86abbd3953c26e8459baabe59ee7ac3c, type: 3}
   - {fileID: 21300000, guid: 4607e2b97af2918409d21c8ee33f6867, type: 3}
   - {fileID: 21300000, guid: 43389bb9afa6b1d45b75e907bc816579, type: 3}
@@ -94,15 +99,14 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5fc4f5f914af2e945a6c85eea5d66044, type: 3}
   - {fileID: 21300000, guid: c737f21a5faeff94691aedce338d6a3b, type: 3}
   - {fileID: 21300000, guid: afc7e23aec2b8b6428ef33532117f79c, type: 3}
-  - {fileID: 21300000, guid: f16fab3a5d76f03448ca45ccd1f1e03c, type: 3}
-  - {fileID: 21300000, guid: 41d5f07a7042afb43b84fd5f55937589, type: 3}
+  - {fileID: 21300000, guid: 3321276ad4d2ea04b803ec85558f5309, type: 3}
   - {fileID: 21300000, guid: 017e218af19e24a47b10f451b73b1ee2, type: 3}
   - {fileID: 21300000, guid: 3cf7abfa0f570914fa73b3d273bb5a84, type: 3}
   - {fileID: 21300000, guid: b8a2866be6f3acc45953e70c4687a696, type: 3}
   - {fileID: 21300000, guid: ca4eff9bce52b45469f7fbb091f4714d, type: 3}
+  - {fileID: 21300000, guid: c904d9cb1b6485f498e43e908b7bf667, type: 3}
   - {fileID: 21300000, guid: 9778c04c596e4c34d806344b65bfe784, type: 3}
   - {fileID: 21300000, guid: 124f394c4c351af41b8edbf4ded8a492, type: 3}
-  - {fileID: 21300000, guid: 26e85a4c178bf954884eefd76f3609ef, type: 3}
   - {fileID: 21300000, guid: d036caac178b53341856a7fbc208b61c, type: 3}
   - {fileID: 21300000, guid: 5669f3fcbd671634c86a81a7d71a4797, type: 3}
   - {fileID: 21300000, guid: 47bc201de7ba2c144a52be14c180daf0, type: 3}
@@ -119,7 +123,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: d350e8fe909507b42b29961adf86303e, type: 3}
   - {fileID: 21300000, guid: be4c97afcd322f145b40e096f01f065a, type: 3}
   m_PackedSpriteNamesToIndex:
-  - trash-top
   - item-light-can-heart
   - house-bricks
   - part-capsel
@@ -127,6 +130,8 @@ SpriteAtlas:
   - part-eggbox
   - part-leash
   - part-jar
+  - trash-base
+  - trash-top-hit-back
   - icon-resources
   - house-graffiti-01
   - common-square-tile
@@ -136,6 +141,7 @@ SpriteAtlas:
   - pavement-stone
   - part-lightbulb
   - bum-beard
+  - bum-mouth-hit
   - bum-cap-hit-03
   - icon-cash
   - house-graffiti-02
@@ -150,18 +156,18 @@ SpriteAtlas:
   - pavement-front
   - item-earrings-feathers
   - button-fill
+  - trash-base-hit-01
   - icon-settings
+  - bum-stick-trail
   - bum-stick
   - bum-cap-hit-01
   - house-gutter-out
   - bum-body
   - bum-cap-hit-02
-  - trash-base-04
   - house-door-rosete
   - part-cotton-ball
   - item-unknown
   - item-earrings-cap-flowers
-  - trash-base-02
   - house-door-cat-entry
   - item-reindeer
   - bag-logo
@@ -169,8 +175,11 @@ SpriteAtlas:
   - cat-litter
   - house-door
   - eye
+  - trash-top
+  - trash-top-hit-front
   - house-windowsill
   - icon-inv-notification
+  - trash-hit-01
   - part-button
   - hand
   - leg
@@ -178,15 +187,14 @@ SpriteAtlas:
   - house-door-mail-box
   - icon-profile
   - icon-exit
-  - trash-base-03
-  - trash-base-01
+  - trash-base-hit-02
   - item-light-can-purple
   - part-bean-can
   - item-emojis
   - part-cork
+  - trash-base-hit-03
   - house-gutter-mid
   - house-window-4
-  - bum
   - bum-cap-base
   - bum-cap-top
   - icon-expander

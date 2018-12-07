@@ -23,6 +23,21 @@ namespace Krk.Bum.View.Actors
             playerController = gameContext.PlayerController;
         }
 
+
+        private void OnEnable()
+        {
+            playerController.OnHit += playerView.Hit;
+        }
+
+        private void OnDisable()
+        {
+            if (gameContext != null && playerView != null)
+            {
+                playerController.OnHit -= playerView.Hit;
+            }
+        }
+
+
         private void Update()
         {
             playerController.Update(Time.deltaTime);

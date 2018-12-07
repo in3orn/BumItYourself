@@ -12,7 +12,10 @@ namespace Krk.Bum.View.Street
         [Header("Empty Hit")]
         public Color EmptyHitColor;
         public float EmptyHitDuration;
-        
+
+        public Sprite TrashTopHitBack;
+        public Sprite TrashTopHitFront;
+
         public Sprite[] DamagedImages;
 
         public float[] DamagedTopRotations;

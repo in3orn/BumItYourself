@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Krk.Bum.Game.Actors;
+using Krk.Bum.Game.Context;
 using Krk.Bum.Game.Items;
+using Krk.Bum.Model;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using Krk.Bum.View.Context;
@@ -16,11 +20,15 @@ namespace Krk.Bum.View.Street
         private ViewContext viewContext = null;
 
         [SerializeField]
+        private GameContext gameContext = null;
+
+        [SerializeField]
         private TrashConfig trashConfig = null;
 
 
         private ModelController modelController;
         private BlocksController blocksController;
+        private PlayerController playerController;
 
 
         private Dictionary<TrashView, IStreetItemController> trashes;
@@ -32,6 +40,7 @@ namespace Krk.Bum.View.Street
 
             modelController = modelContext.ModelController;
             blocksController = viewContext.BlocksController;
+            playerController = gameContext.PlayerController;
         }
 
         private void OnEnable()
@@ -53,6 +62,7 @@ namespace Krk.Bum.View.Street
 
                 trashController.OnEmptyHit += trashView.HitEmpty;
                 trashController.OnHit += trashView.Hit;
+                trashController.OnHit += HandleTrashHit;
             }
         }
 
@@ -61,6 +71,10 @@ namespace Krk.Bum.View.Street
             //TODO
         }
 
+        private void HandleTrashHit(TrashData trashData, PartData partData)
+        {
+            playerController.Hit();
+        }
 
         public IStreetItemController GetControllerFor(TrashView view)
         {
