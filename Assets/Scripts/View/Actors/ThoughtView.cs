@@ -41,6 +41,7 @@ namespace Krk.Bum.View.Actors
 
             var sequence = DOTween.Sequence();
 
+            sequence.SetDelay(thinkData.Delay);
             sequence.Append(thoughtCloud.DOColor(thoughtCloudDefaultColor, config.FadeInDuration));
             sequence.Join(thoughtText.DOColor(thoughtTextDefaultColor, config.FadeInDuration));
             sequence.AppendInterval(thinkData.Duration);

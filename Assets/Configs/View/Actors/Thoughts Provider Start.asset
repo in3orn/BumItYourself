@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: Thoughts Provider Start
   m_EditorClassIdentifier: 
   Thoughts:
-  - Duration: 1
+  - Delay: 3
+    Duration: 1.5
     Text: I'm so hungry.
-  - Duration: 2
-    Text: I haven't eaten in 2days!
-  - Duration: 1
+  - Delay: 0
+    Duration: 2
+    Text: I haven't eaten in 2 days!
+  - Delay: 3
+    Duration: 1.5
     Text: Maybe I can find something...
-  - Duration: 2
-    Text: '...in nearby <b>trash</b>.'
+  - Delay: 0
+    Duration: 1.5
+    Text: '...in a nearby <b>trash</b>.'
