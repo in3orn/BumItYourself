@@ -44,9 +44,9 @@ namespace Krk.Bum.View.Actors
             }
         }
 
-        private void HandlePlayerHit()
+        private void HandlePlayerHit(Vector2 target)
         {
-            playerView.Hit();
+            playerView.Hit(target);
             hitFlash.Flash();
             cameraShaker.Shake();
         }

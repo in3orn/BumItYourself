@@ -76,9 +76,9 @@ namespace Krk.Bum.View.Street
             //TODO
         }
 
-        private void HandleTrashHit(TrashData trashData, PartData partData)
+        private void HandleTrashHit(TrashController trashController, PartData partData)
         {
-            playerController.Hit();
+            playerController.Hit(trashController.Position);
         }
 
         private void HandleTrashViewHit(TrashView trashView, PartData partData)

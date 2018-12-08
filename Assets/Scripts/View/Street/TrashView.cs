@@ -37,7 +37,7 @@ namespace Krk.Bum.View.Street
             trashBodyRenderer.sprite = config.DamagedImages[damage];
         }
 
-        public void HitEmpty(TrashData data)
+        public void HitEmpty(TrashController trashController)
         {
             var sequence = DOTween.Sequence();
 
@@ -49,7 +49,7 @@ namespace Krk.Bum.View.Street
             sequence.Play();
         }
 
-        public void Hit(TrashData trashData, PartData partData)
+        public void Hit(TrashController trashController, PartData partData)
         {
             damage++;
 

@@ -1,5 +1,4 @@
-﻿using System;
-using Krk.Bum.Game.Items;
+﻿using Krk.Bum.Game.Items;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,7 +6,7 @@ namespace Krk.Bum.Game.Actors
 {
     public class PlayerController
     {
-        public UnityAction OnHit;
+        public UnityAction<Vector2> OnHit;
 
 
         private readonly PlayerConfig config;
@@ -79,9 +78,9 @@ namespace Krk.Bum.Game.Actors
             return diff.magnitude <= config.ReachRange;
         }
 
-        public void Hit()
+        public void Hit(Vector2 target)
         {
-            if (OnHit != null) OnHit();
+            if (OnHit != null) OnHit(target);
         }
     }
 }

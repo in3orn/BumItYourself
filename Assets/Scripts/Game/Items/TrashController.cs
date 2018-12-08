@@ -7,8 +7,8 @@ namespace Krk.Bum.Game.Items
 {
     public class TrashController : IStreetItemController
     {
-        public UnityAction<TrashData, PartData> OnHit;
-        public UnityAction<TrashData> OnEmptyHit;
+        public UnityAction<TrashController, PartData> OnHit;
+        public UnityAction<TrashController> OnEmptyHit;
 
 
         private readonly ModelController modelController;
@@ -42,7 +42,7 @@ namespace Krk.Bum.Game.Items
                 };
 
                 State.ItemsCount = 0;
-                OnHit?.Invoke(State, part);
+                OnHit?.Invoke(this, part);
 
                 return;
             }
@@ -51,11 +51,11 @@ namespace Krk.Bum.Game.Items
             {
                 State.ItemsCount--;
                 var part = CollectRandomPart();
-                OnHit?.Invoke(State, part);
+                OnHit?.Invoke(this, part);
             }
             else
             {
-                OnEmptyHit?.Invoke(State);
+                OnEmptyHit?.Invoke(this);
             }
         }
 
