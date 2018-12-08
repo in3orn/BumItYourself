@@ -13,7 +13,8 @@ namespace Krk.Bum.View.Model
         Item,
         Game,
         Summary,
-        Store
+        Store,
+        Intro
     }
 
     public class ViewStateController
@@ -36,7 +37,7 @@ namespace Krk.Bum.View.Model
         public ViewStateController()
         {
             states = new Stack<ViewStateEnum>();
-            states.Push(ViewStateEnum.Street);
+            states.Push(ViewStateEnum.Intro);
         }
 
         public void SetState(ViewStateEnum state)

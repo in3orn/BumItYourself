@@ -3,6 +3,7 @@ using Krk.Bum.Model;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using Krk.Bum.View.Context;
+using Krk.Bum.View.Model;
 using Krk.Bum.View.Street;
 using UnityEngine;
 
@@ -19,12 +20,15 @@ namespace Krk.Bum.View.Actors
         [SerializeField]
         private ViewContext viewContext = null;
 
-
-        private ModelController modelController;
-
+        
         private ThoughtsProvider startThoughtsProvider;
 
         private ThoughtsProvider collectionThoughtsProvider;
+
+        private ViewStateController viewStateController;
+
+
+        private ModelController modelController;
 
         private CollectionController collectionController;
 
@@ -34,22 +38,19 @@ namespace Krk.Bum.View.Actors
 
         private void Awake()
         {
-            modelController = modelContext.ModelController;
             startThoughtsProvider = viewContext.StartThoughtsProvider;
             collectionThoughtsProvider = viewContext.CollectionThoughtsProvider;
+            viewStateController = viewContext.ViewStateController;
 
+            modelController = modelContext.ModelController;
             collectionController = modelContext.CollectionController;
-        }
-
-        private void Start()
-        {
-            TryShowStartThought();
         }
 
         private void OnEnable()
         {
             thoughtView.OnThoughtEnded += HandleThoughtEnded;
 
+            viewStateController.OnStateChanged += HandleViewStateChanged;
             collectionController.OnSpawned += HandleCollectionSpawned;
         }
 
@@ -65,11 +66,20 @@ namespace Krk.Bum.View.Actors
                 collectionController.OnSpawned -= HandleCollectionSpawned;
             }
         }
-
+        
         private void HandleThoughtEnded()
         {
             TryShowStartThought();
             TryShowCollectionThought();
+        }
+        
+
+        private void HandleViewStateChanged(ViewStateEnum state)
+        {
+            if (state == ViewStateEnum.Street)
+            {
+                TryShowStartThought();
+            }
         }
 
         private void TryShowStartThought()
@@ -80,6 +90,7 @@ namespace Krk.Bum.View.Actors
                 if (thought != null) thoughtView.Show(thought);
             }
         }
+
 
         private void HandleCollectionSpawned()
         {
