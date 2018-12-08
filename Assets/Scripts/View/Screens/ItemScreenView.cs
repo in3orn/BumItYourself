@@ -90,6 +90,9 @@ namespace Krk.Bum.View.Screens
         {
             if (item.TotalCount > 1)
             {
+                itemImage.rectTransform.localScale = Vector3.one;
+                itemImage.rectTransform.rotation = Quaternion.Euler(Vector3.zero);
+
                 SpawnParticles();
                 InitItem(item, parts, canCreate, PrevItemButton.interactable, NextItemButton.interactable);
 
@@ -101,6 +104,9 @@ namespace Krk.Bum.View.Screens
             }
             else
             {
+                itemImage.rectTransform.localScale = Vector3.one;
+                itemImage.rectTransform.rotation = Quaternion.Euler(Vector3.zero);
+
                 var sequence = DOTween.Sequence();
 
                 sequence.Append(itemImage.rectTransform.DOScale(new Vector2(0f, 0.25f), 0.5f).SetEase(Ease.OutQuad));
