@@ -11,5 +11,7 @@ namespace Krk.Bum.Model
         public ImageData Image;
 
         public int Count;
+
+        public bool IsCollection;
     }
 }

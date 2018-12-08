@@ -2,11 +2,15 @@
 using Krk.Bum.Model;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Krk.Bum.View.Street
 {
     public class PartView : MonoBehaviour
     {
+        public UnityAction<PartView> OnCollected;
+
+
         [SerializeField]
         private PartViewConfig config = null;
 
@@ -16,6 +20,8 @@ namespace Krk.Bum.View.Street
 
         public RectTransform TargetTransform { get; set; }
 
+        public PartData Data { get; private set; }
+
 
         public int DrawOrder
         {
@@ -23,8 +29,10 @@ namespace Krk.Bum.View.Street
         }
 
 
-        public void Show(PartData partData)
+        public void Spawn(PartData partData)
         {
+            Data = partData;
+
             mainRenderer.sprite = partData.Image.Image;
             mainRenderer.color = partData.Image.Color;
 
@@ -41,23 +49,41 @@ namespace Krk.Bum.View.Street
             sequence.Append(mainRenderer.transform.DOMoveY(layY, config.FlyDownDuration).SetEase(Ease.OutBounce));
             sequence.Insert(0f, mainRenderer.transform.DOMoveX(layX, config.FlyDuration));
             sequence.Insert(0f, mainRenderer.transform.DOScale(Vector3.one, config.FlyDuration));
-            sequence.AppendInterval(config.LayDownDuration);
-            sequence.AppendCallback(() => StartCoroutine(Drag(mainRenderer.transform.position)));
+
+            if (!partData.IsCollection)
+            {
+                sequence.AppendInterval(config.LayDownDuration);
+                sequence.AppendCallback(Collect);
+            }
 
             sequence.Play();
         }
 
-        private IEnumerator Drag(Vector3 position)
+        public void Collect()
         {
+            StartCoroutine(Collect(mainRenderer.transform.position));
+        }
+
+        private IEnumerator Collect(Vector3 position)
+        {
+            var color = mainRenderer.color;
             var time = 0f;
 
             while (time < config.DragDuration)
             {
+                var lerp = time / config.DragDuration;
+
                 var targetPosition = Camera.main.ScreenToWorldPoint(TargetTransform.position);
-                mainRenderer.transform.position = Vector3.Lerp(position, targetPosition, time / config.DragDuration);
+                mainRenderer.transform.position = Vector3.Lerp(position, targetPosition, lerp);
+
+                color.a = Mathf.Lerp(1f, 0f, lerp);
+                mainRenderer.color = color;
+
                 time += Time.deltaTime;
                 yield return null;
             }
+
+            if (OnCollected != null) OnCollected(this);
 
             Destroy(gameObject);
         }

@@ -15,8 +15,8 @@ MonoBehaviour:
   Id: fall
   Name: Fall collection
   Image:
-    Image: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-    Color: {r: 0.7169812, g: 0.3009968, b: 0.3009968, a: 1}
+    Image: {fileID: 21300000, guid: 1421184726f9cfb498edd24aedb92990, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
     Rotation: 0
   Items:
   - {fileID: 11400000, guid: 5c83d3446d2901f4eb92934079a062af, type: 2}

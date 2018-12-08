@@ -1,5 +1,6 @@
 ﻿using Krk.Bum.Model.Core;
 using Krk.Bum.Model.Utils;
+using Krk.Bum.View.Street;
 using UnityEngine;
 
 namespace Krk.Bum.Model.Context
@@ -63,6 +64,17 @@ namespace Krk.Bum.Model.Context
         public PrefsWrapper PrefsWrapper
         {
             get { return prefsWrapper ?? (prefsWrapper = new PrefsWrapper()); }
+        }
+
+
+        private CollectionController collectionController;
+
+        public CollectionController CollectionController
+        {
+            get
+            {
+                return collectionController ?? (collectionController = new CollectionController(ModelController));
+            }
         }
     }
 }

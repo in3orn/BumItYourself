@@ -3,6 +3,7 @@ using Krk.Bum.Model;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using Krk.Bum.View.Context;
+using Krk.Bum.View.Street;
 using UnityEngine;
 
 namespace Krk.Bum.View.Actors
@@ -25,8 +26,10 @@ namespace Krk.Bum.View.Actors
 
         private ThoughtsProvider collectionThoughtsProvider;
 
+        private CollectionController collectionController;
 
-        private string collectionId;
+
+        private bool collectionSpawned;
 
 
         private void Awake()
@@ -34,6 +37,8 @@ namespace Krk.Bum.View.Actors
             modelController = modelContext.ModelController;
             startThoughtsProvider = viewContext.StartThoughtsProvider;
             collectionThoughtsProvider = viewContext.CollectionThoughtsProvider;
+
+            collectionController = modelContext.CollectionController;
         }
 
         private void Start()
@@ -45,7 +50,7 @@ namespace Krk.Bum.View.Actors
         {
             thoughtView.OnThoughtEnded += HandleThoughtEnded;
 
-            modelController.OnCollectionUnlocked += HandleCollectionUnlocked;
+            collectionController.OnSpawned += HandleCollectionSpawned;
         }
 
         private void OnDisable()
@@ -57,14 +62,14 @@ namespace Krk.Bum.View.Actors
 
             if (modelContext != null)
             {
-                modelController.OnCollectionUnlocked -= HandleCollectionUnlocked;
+                collectionController.OnSpawned -= HandleCollectionSpawned;
             }
         }
 
         private void HandleThoughtEnded()
         {
             TryShowStartThought();
-            TryShowCollectionthought();
+            TryShowCollectionThought();
         }
 
         private void TryShowStartThought()
@@ -76,15 +81,15 @@ namespace Krk.Bum.View.Actors
             }
         }
 
-        private void HandleCollectionUnlocked(CollectionData collectionData)
+        private void HandleCollectionSpawned()
         {
-            collectionId = collectionData.Id;
-            TryShowCollectionthought();
+            collectionSpawned = true;
+            TryShowCollectionThought();
         }
 
-        private void TryShowCollectionthought()
+        private void TryShowCollectionThought()
         {
-            if (collectionId == modelController.GetAllCollections()[0].Id)
+            if (collectionSpawned && !modelController.IsAnyCollectionUnlocked())
             {
                 var thought = collectionThoughtsProvider.GetNextThought();
                 if (thought != null) thoughtView.Show(thought);

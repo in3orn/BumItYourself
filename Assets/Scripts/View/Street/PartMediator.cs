@@ -20,7 +20,7 @@ namespace Krk.Bum.View.Street
             var partView = gameObject.GetComponent<PartView>();
             partView.TargetTransform = inventoryButton;
             partView.DrawOrder = trash.DrawOrder + 9;
-            partView.Show(partData);
+            partView.Spawn(partData);
         }
     }
 }

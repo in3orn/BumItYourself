@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Thoughts:
   - Delay: 0
-    Duration: 1
+    Duration: 0.5
     Text: Hey!
   - Delay: 0
     Duration: 1

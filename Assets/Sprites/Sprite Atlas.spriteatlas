@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: d6b4381eccb33e6488377f61edd51647, type: 3}
-    totalSpriteSurfaceArea: 1555904
+    totalSpriteSurfaceArea: 1559438
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -76,6 +76,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: d00698a65e8f57e469b78c6af0bf76a9, type: 3}
   - {fileID: 21300000, guid: 91f4c0f67b2873d47b0a9cf53a23a9fb, type: 3}
   - {fileID: 21300000, guid: be75ac07863b5964990ac4cf22b7bc51, type: 3}
+  - {fileID: 21300000, guid: 1421184726f9cfb498edd24aedb92990, type: 3}
   - {fileID: 21300000, guid: a616d177ede992844ac08b65f1908358, type: 3}
   - {fileID: 21300000, guid: 5d1e7a7706b1ae14bbac0cd9e6588795, type: 3}
   - {fileID: 21300000, guid: 201bcd87a058d9046a8a001ba6b5125e, type: 3}
@@ -165,6 +166,7 @@ SpriteAtlas:
   - house-gutter-out
   - bum-body
   - bum-cap-hit-02
+  - part-collection-default
   - house-door-rosete
   - part-cotton-ball
   - item-unknown

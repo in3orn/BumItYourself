@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Krk.Bum.Game.Actors;
 using Krk.Bum.Game.Context;
 using Krk.Bum.Game.Items;
@@ -32,6 +31,7 @@ namespace Krk.Bum.View.Street
         private ModelController modelController;
         private BlocksController blocksController;
         private PlayerController playerController;
+        private CollectionController collectionController;
 
 
         private Dictionary<TrashView, IStreetItemController> trashes;
@@ -44,6 +44,7 @@ namespace Krk.Bum.View.Street
             modelController = modelContext.ModelController;
             blocksController = viewContext.BlocksController;
             playerController = gameContext.PlayerController;
+            collectionController = modelContext.CollectionController;
         }
 
         private void OnEnable()
@@ -84,6 +85,7 @@ namespace Krk.Bum.View.Street
         private void HandleTrashViewHit(TrashView trashView, PartData partData)
         {
             partMediator.Spawn(trashView, partData);
+            collectionController.Spawn();
         }
 
         public IStreetItemController GetControllerFor(TrashView view)

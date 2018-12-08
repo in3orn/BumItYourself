@@ -35,10 +35,12 @@ namespace Krk.Bum.Game.Items
             if (!modelController.IsAnyCollectionUnlocked())
             {
                 var collection = modelController.GetAllCollections()[0];
-                modelController.UnlockCollection(collection);
                 var part = new PartData()
                 {
-                    Image = collection.Image
+                    Id = collection.Id,
+                    Name = collection.Name,
+                    Image = collection.Image,
+                    IsCollection = true
                 };
 
                 State.ItemsCount = 0;
