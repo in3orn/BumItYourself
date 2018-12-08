@@ -62,5 +62,18 @@ namespace Krk.Bum.View.Context
                     new ThoughtsProvider(StartThoughtsProviderConfig));
             }
         }
+
+        public ThoughtsProviderConfig CollectionThoughtsProviderConfig;
+
+        private ThoughtsProvider collectionThoughtsProvider;
+
+        public ThoughtsProvider CollectionThoughtsProvider
+        {
+            get
+            {
+                return collectionThoughtsProvider ?? (collectionThoughtsProvider =
+                    new ThoughtsProvider(CollectionThoughtsProviderConfig));
+            }
+        }
     }
 }

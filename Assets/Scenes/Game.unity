@@ -6842,6 +6842,8 @@ MonoBehaviour:
     type: 2}
   StartThoughtsProviderConfig: {fileID: 11400000, guid: f8382b36dd92cfc4f8547ea619dfee99,
     type: 2}
+  CollectionThoughtsProviderConfig: {fileID: 11400000, guid: 819a6097555ce0e4d8f5e8488e268dcf,
+    type: 2}
 --- !u!1 &1475252268
 GameObject:
   m_ObjectHideFlags: 0
