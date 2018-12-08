@@ -31,7 +31,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: d6b4381eccb33e6488377f61edd51647, type: 3}
-    totalSpriteSurfaceArea: 1521715
+    totalSpriteSurfaceArea: 1555904
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -114,6 +114,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 04f9a84d63b11ea4f8f6fbd91a82c66d, type: 3}
   - {fileID: 21300000, guid: 75311e5dcd6559448b90a32320a67126, type: 3}
   - {fileID: 21300000, guid: a0dab78df3eb4ba4f84dcd33cefcbe6a, type: 3}
+  - {fileID: 21300000, guid: 54aace8d032b5ea4e9d9a4ba8205c863, type: 3}
   - {fileID: 21300000, guid: 700686ad17433324f8585c1c15371878, type: 3}
   - {fileID: 21300000, guid: 148cc5fd816bd0346a2aa2fd75b9e192, type: 3}
   - {fileID: 21300000, guid: 76644c1ed3ddb47409483be2fadec181, type: 3}
@@ -202,6 +203,7 @@ SpriteAtlas:
   - item-flower-can-rainbow
   - item-candlestick-wine
   - item-aquarium-jar
+  - think-cloud
   - eyebrow
   - part-pin
   - item-aquarium-lightbulb

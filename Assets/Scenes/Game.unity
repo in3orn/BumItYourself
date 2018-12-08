@@ -4992,6 +4992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1301454273}
   - component: {fileID: 1301454275}
+  - component: {fileID: 1301454272}
   m_Layer: 0
   m_Name: Street
   m_TagString: Untagged
@@ -4999,6 +5000,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1301454272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301454271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376aebc6807659b488a1b2888ca1ef45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thoughtView: {fileID: 5335125783217322240}
+  modelContext: {fileID: 346672202}
+  viewContext: {fileID: 1474845635}
 --- !u!4 &1301454273
 Transform:
   m_ObjectHideFlags: 0
@@ -6727,6 +6743,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlocksControllerConfig: {fileID: 11400000, guid: 1226bb7383ffcf94c9c4aaec73ad6a16,
+    type: 2}
+  StartThoughtsProviderConfig: {fileID: 11400000, guid: f8382b36dd92cfc4f8547ea619dfee99,
     type: 2}
 --- !u!1 &1475252268
 GameObject:
@@ -9259,6 +9277,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86bc3808d581876449059b502b26a4c6, type: 3}
+--- !u!114 &5335125783217322240 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7333534740702191569, guid: 86bc3808d581876449059b502b26a4c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5335125783217322239}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aac76ecc3b58dc47a18f607de75314c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8518404958870944057 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5101645365151969966, guid: 9a0a00acb1ecdc0498095f9f800792ff,
