@@ -8,7 +8,7 @@ namespace Krk.Bum.View.Common
         private Transform target = null;
 
         [SerializeField]
-        private HorizontalFollowerConfig config = null;
+        private FollowerConfig config = null;
 
 
         private void Update()
