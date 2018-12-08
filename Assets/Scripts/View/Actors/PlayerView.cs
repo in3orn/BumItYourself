@@ -21,8 +21,8 @@ namespace Krk.Bum.View.Actors
         private void Update()
         {
             var diff = transform.position - prevPosition;
-            if (diff.x < -.1f) left = true;
-            if (diff.x > .1f) left = false;
+            if (diff.x < -.01f) left = true;
+            if (diff.x > .01f) left = false;
 
             animator.SetBool("left", left);
             animator.SetFloat("speed", diff.magnitude);
