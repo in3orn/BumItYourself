@@ -1,7 +1,6 @@
 ﻿using DG.Tweening;
 using Krk.Bum.Model;
 using Krk.Bum.View.Elements;
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -16,6 +15,9 @@ namespace Krk.Bum.View.Screens
         public Button PrevItemButton;
         public Button NextItemButton;
 
+
+        [SerializeField]
+        private ItemScreenConfig config = null;
 
         [SerializeField]
         private TextMeshProUGUI itemName = null;
@@ -74,6 +76,9 @@ namespace Krk.Bum.View.Screens
             itemName.text = item.TotalCount > 0 ? item.Name : "???";
 
             CreateButton.interactable = canCreate;
+            CreateButton.GetComponent<Image>().color =
+                canCreate ? config.CreateButtonActive : config.CreateButtonLocked;
+
             InitImage(item);
             Init(parts);
 

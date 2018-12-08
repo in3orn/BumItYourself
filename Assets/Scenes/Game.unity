@@ -3055,6 +3055,7 @@ MonoBehaviour:
   CreateButton: {fileID: 511003234}
   PrevItemButton: {fileID: 1351897859}
   NextItemButton: {fileID: 254734135}
+  config: {fileID: 11400000, guid: 750804ab232d25d42b6e00fb1df00989, type: 2}
   itemName: {fileID: 723438883}
   requiredPartsContent: {fileID: 1289130144}
   requiredPartRow: {fileID: 3511386318673143279, guid: f26d60dce9b07b6479c67037e2ea5722,
