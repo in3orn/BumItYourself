@@ -24,7 +24,24 @@ namespace Krk.Bum.View.Street
             leftBlocks = new List<BlockData>();
             rightBlocks = new List<BlockData>();
         }
+        
+        public BlockData SpawnFirstBlock(BlockView blockView)
+        {
+            var halfWidth = blockView.Width / 2f;
 
+            var y = config.SpawnYRange.GetRandom();
+            var z = config.InheritSpawnZFromY ? y : config.SpawnZ;
+
+            var data = new BlockData
+            {
+                HalfWidth = halfWidth,
+                Center = new Vector3(0f, y, z)
+            };
+            leftBlocks.Add(data);
+            rightBlocks.Add(data);
+            if (OnBlockSpawned != null) OnBlockSpawned(blockView, data);
+            return data;
+        }
 
         public void UpdatePosition(float x)
         {
