@@ -36,6 +36,8 @@ namespace Krk.Bum.Model.Core
             get { return modelData.ItemsSold; }
         }
 
+        public bool IsAnyCollectionSpawned { get; set; }
+
 
         public ModelController(ModelControllerConfig config, ModelData modelData,
             ModelLoader modelLoader, CollectionLoader collectionLoader,

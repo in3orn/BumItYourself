@@ -34,7 +34,15 @@ namespace Krk.Bum.Game.Items
         {
             if (!modelController.IsAnyCollectionUnlocked())
             {
+                if(modelController.IsAnyCollectionSpawned)
+                {
+                    OnEmptyHit?.Invoke(this);
+                    return;
+                }
+                
                 var collection = modelController.GetAllCollections()[0];
+                modelController.IsAnyCollectionSpawned = true;
+
                 var part = new PartData()
                 {
                     Id = collection.Id,
@@ -43,7 +51,7 @@ namespace Krk.Bum.Game.Items
                     IsCollection = true
                 };
 
-                State.ItemsCount = 0;
+                State.ItemsCount--;
                 OnHit?.Invoke(this, part);
 
                 return;
