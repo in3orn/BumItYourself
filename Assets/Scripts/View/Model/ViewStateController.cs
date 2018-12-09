@@ -37,7 +37,11 @@ namespace Krk.Bum.View.Model
         public ViewStateController()
         {
             states = new Stack<ViewStateEnum>();
-            states.Push(ViewStateEnum.Intro);
+        }
+
+        public void InitState(ViewStateEnum state)
+        {
+            states.Push(state);
         }
 
         public void SetState(ViewStateEnum state)

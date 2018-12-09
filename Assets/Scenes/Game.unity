@@ -2616,7 +2616,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50.00006, y: -50.00006}
+  m_AnchoredPosition: {x: -50.00006, y: -50.000122}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626061485
@@ -7114,6 +7114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1474845634}
   - component: {fileID: 1474845635}
+  - component: {fileID: 1474845636}
   m_Layer: 0
   m_Name: View Context
   m_TagString: Untagged
@@ -7154,6 +7155,20 @@ MonoBehaviour:
     type: 2}
   CollectionThoughtsProviderConfig: {fileID: 11400000, guid: 819a6097555ce0e4d8f5e8488e268dcf,
     type: 2}
+--- !u!114 &1474845636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474845633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7b582a628236d428196d4386acb966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewContext: {fileID: 1474845635}
+  modelContext: {fileID: 346672202}
 --- !u!1 &1475252268
 GameObject:
   m_ObjectHideFlags: 0
