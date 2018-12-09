@@ -11,5 +11,6 @@ namespace Krk.Bum.Model
 
         public int Cash;
         public int ItemsSold;
+        public int ItemsCreated;
     }
 }

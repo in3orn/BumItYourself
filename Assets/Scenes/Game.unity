@@ -5410,6 +5410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thoughtView: {fileID: 3533954513630288418}
+  notificationView: {fileID: 1049379780194535358}
   modelContext: {fileID: 346672202}
   viewContext: {fileID: 1474845635}
 --- !u!4 &1301454273
@@ -7147,6 +7148,8 @@ MonoBehaviour:
   StartThoughtsProviderConfig: {fileID: 11400000, guid: f8382b36dd92cfc4f8547ea619dfee99,
     type: 2}
   CollectionThoughtsProviderConfig: {fileID: 11400000, guid: 819a6097555ce0e4d8f5e8488e268dcf,
+    type: 2}
+  NotificationThoughtsProviderConfig: {fileID: 11400000, guid: 12d8aff5652d53345b29cedbbe1833ec,
     type: 2}
 --- !u!114 &1474845636
 MonoBehaviour:

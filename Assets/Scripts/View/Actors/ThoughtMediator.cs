@@ -4,6 +4,7 @@ using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using Krk.Bum.View.Context;
 using Krk.Bum.View.Model;
+using Krk.Bum.View.Screen_Canvas;
 using Krk.Bum.View.Street;
 using UnityEngine;
 
@@ -15,6 +16,9 @@ namespace Krk.Bum.View.Actors
         private ThoughtView thoughtView = null;
 
         [SerializeField]
+        private NotificationView notificationView = null;
+
+        [SerializeField]
         private ModelContext modelContext = null;
 
         [SerializeField]
@@ -24,6 +28,8 @@ namespace Krk.Bum.View.Actors
         private ThoughtsProvider startThoughtsProvider;
 
         private ThoughtsProvider collectionThoughtsProvider;
+
+        private ThoughtsProvider notificationThoughtsProvider;
 
         private ViewStateController viewStateController;
 
@@ -40,6 +46,8 @@ namespace Krk.Bum.View.Actors
         {
             startThoughtsProvider = viewContext.StartThoughtsProvider;
             collectionThoughtsProvider = viewContext.CollectionThoughtsProvider;
+            notificationThoughtsProvider = viewContext.NotificationThoughtsProvider;
+
             viewStateController = viewContext.ViewStateController;
 
             modelController = modelContext.ModelController;
@@ -49,6 +57,8 @@ namespace Krk.Bum.View.Actors
         private void OnEnable()
         {
             thoughtView.OnThoughtEnded += HandleThoughtEnded;
+
+            notificationView.OnShown += HandleNotificationShown;
 
             viewStateController.OnStateChanged += HandleViewStateChanged;
             collectionController.OnSpawned += HandleCollectionSpawned;
@@ -61,18 +71,39 @@ namespace Krk.Bum.View.Actors
                 thoughtView.OnThoughtEnded -= HandleThoughtEnded;
             }
 
+            if (notificationView != null)
+            {
+                notificationView.OnShown -= HandleNotificationShown;
+            }
+
             if (modelContext != null)
             {
                 collectionController.OnSpawned -= HandleCollectionSpawned;
             }
         }
-        
+
         private void HandleThoughtEnded()
         {
             TryShowStartThought();
             TryShowCollectionThought();
+            TryShowNotificationThought();
         }
-        
+
+
+        private void HandleNotificationShown()
+        {
+            TryShowNotificationThought();
+        }
+
+        private void TryShowNotificationThought()
+        {
+            if(modelController.ItemsCreated <= 0 && modelController.CanCreateAnyItem())
+            {
+                var thought = notificationThoughtsProvider.GetNextThought();
+                if (thought != null) thoughtView.Show(thought);
+            }
+        }
+
 
         private void HandleViewStateChanged(ViewStateEnum state)
         {
@@ -84,7 +115,7 @@ namespace Krk.Bum.View.Actors
 
         private void TryShowStartThought()
         {
-            if (!modelController.IsAnyCollectionUnlocked())
+            if (!modelController.IsAnyCollectionSpawned && !modelController.IsAnyCollectionUnlocked())
             {
                 var thought = startThoughtsProvider.GetNextThought();
                 if (thought != null) thoughtView.Show(thought);

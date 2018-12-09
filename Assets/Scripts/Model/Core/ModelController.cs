@@ -36,6 +36,11 @@ namespace Krk.Bum.Model.Core
             get { return modelData.ItemsSold; }
         }
 
+        public int ItemsCreated
+        {
+            get { return modelData.ItemsCreated; }
+        }
+
         public bool IsAnyCollectionSpawned { get; set; }
 
 
@@ -259,6 +264,9 @@ namespace Krk.Bum.Model.Core
             item.Count++;
             item.TotalCount++;
             itemLoader.Save(item);
+
+            modelData.ItemsCreated++;
+            modelLoader.Save(modelData);
 
             foreach (var requiredPart in item.RequiredParts)
             {
