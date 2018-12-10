@@ -147,6 +147,7 @@ namespace Krk.Bum.View.Screens
             else
             {
                 itemFade.gameObject.SetActive(true);
+                itemFade.raycastTarget = true;
 
                 itemImage.rectTransform.localScale = Vector3.one;
                 itemImage.rectTransform.rotation = Quaternion.Euler(Vector3.zero);
@@ -182,7 +183,8 @@ namespace Krk.Bum.View.Screens
                 sequence.Join(itemFade.DOColor(itemFadeColors.ClearColor, config.FirstBackHideDuration));
                 sequence.Join(itemFadeText.rectTransform.DOScale(
                     Vector2.zero, config.FirstBackHideDuration).SetEase(Ease.InOutElastic));
-
+                
+                sequence.AppendCallback(() => itemFade.raycastTarget = false);
                 sequence.AppendCallback(() => itemFade.gameObject.SetActive(false));
                 sequence.AppendCallback(() => itemFadeText.gameObject.SetActive(false));
 
