@@ -138,8 +138,6 @@ namespace Krk.Bum.View.Screens
             {
                 InitItem(item, parts, canCreate);
 
-                PreUpdate();
-
                 itemImage.rectTransform.DOPunchScale(config.ItemScale, commonScaleData);
                 itemImage.rectTransform.DOPunchRotation(config.ItemRoatation, commonRotationData);
 
@@ -153,8 +151,6 @@ namespace Krk.Bum.View.Screens
                 SpawnParticles();
                 
                 updateFadeSequence.Restart();
-
-                DOVirtual.DelayedCall(1.5f, PostUpdate);
             }
             else
             {
@@ -198,7 +194,6 @@ namespace Krk.Bum.View.Screens
         private void PreFirstShow()
         {
             itemFade.gameObject.SetActive(true);
-            itemFade.raycastTarget = true;
 
             itemImage.rectTransform.localScale = Vector3.one;
             itemImage.rectTransform.rotation = Quaternion.Euler(Vector3.zero);
@@ -206,30 +201,15 @@ namespace Krk.Bum.View.Screens
             itemFadeText.rectTransform.localScale = Vector3.zero;
             itemFadeText.gameObject.SetActive(true);
 
-            PrevItemButton.interactable = false;
-            NextItemButton.interactable = false;
+            CreateButton.GetComponent<Canvas>().overrideSorting = false;
         }
 
         private void PostFirstShow()
         {
-            itemFade.raycastTarget = false;
             itemFade.gameObject.SetActive(false);
             itemFadeText.gameObject.SetActive(false);
 
-            PrevItemButton.interactable = hasPrev;
-            NextItemButton.interactable = hasNext;
-        }
-
-        private void PreUpdate()
-        {
-            PrevItemButton.interactable = false;
-            NextItemButton.interactable = false;
-        }
-
-        private void PostUpdate()
-        {
-            PrevItemButton.interactable = hasPrev;
-            NextItemButton.interactable = hasNext;
+            CreateButton.GetComponent<Canvas>().overrideSorting = true;
         }
 
         private void SpawnFadeLabel()
