@@ -70,6 +70,9 @@ namespace Krk.Bum.View.Screens
 
         private Sequence updateFadeSequence;
 
+        private bool hasPrev;
+        private bool hasNext;
+
 
         public ItemScreenView()
         {
@@ -119,18 +122,23 @@ namespace Krk.Bum.View.Screens
 
             InitImage(item);
             Init(parts);
+            
+            PrevItemButton.interactable = this.hasPrev = hasPrev;
+            NextItemButton.interactable = this.hasNext = hasNext;
+        }
 
-            PrevItemButton.interactable = hasPrev;
-            NextItemButton.interactable = hasNext;
+        private void InitItem(ItemData item, RequiredPartData[] parts, bool canCreate)
+        {
+            InitItem(item, parts, canCreate, hasPrev, hasNext);
         }
 
         public void UpdateItem(ItemData item, RequiredPartData[] parts, bool canCreate)
         {
             if (item.TotalCount > 1)
             {
-                InitItem(item, parts, canCreate, PrevItemButton.interactable, NextItemButton.interactable);
-                
-                updateFadeSequence.Restart();
+                InitItem(item, parts, canCreate);
+
+                PreUpdate();
 
                 itemImage.rectTransform.DOPunchScale(config.ItemScale, commonScaleData);
                 itemImage.rectTransform.DOPunchRotation(config.ItemRoatation, commonRotationData);
@@ -143,17 +151,14 @@ namespace Krk.Bum.View.Screens
 
                 SpawnFadeLabel();
                 SpawnParticles();
+                
+                updateFadeSequence.Restart();
+
+                DOVirtual.DelayedCall(1.5f, PostUpdate);
             }
             else
             {
-                itemFade.gameObject.SetActive(true);
-                itemFade.raycastTarget = true;
-
-                itemImage.rectTransform.localScale = Vector3.one;
-                itemImage.rectTransform.rotation = Quaternion.Euler(Vector3.zero);
-
-                itemFadeText.rectTransform.localScale = Vector3.zero;
-                itemFadeText.gameObject.SetActive(true);
+                PreFirstShow();
 
                 var sequence = DOTween.Sequence();
 
@@ -184,12 +189,47 @@ namespace Krk.Bum.View.Screens
                 sequence.Join(itemFadeText.rectTransform.DOScale(
                     Vector2.zero, config.FirstBackHideDuration).SetEase(Ease.InOutElastic));
                 
-                sequence.AppendCallback(() => itemFade.raycastTarget = false);
-                sequence.AppendCallback(() => itemFade.gameObject.SetActive(false));
-                sequence.AppendCallback(() => itemFadeText.gameObject.SetActive(false));
+                sequence.AppendCallback(PostFirstShow);
 
                 sequence.Play();
             }
+        }
+
+        private void PreFirstShow()
+        {
+            itemFade.gameObject.SetActive(true);
+            itemFade.raycastTarget = true;
+
+            itemImage.rectTransform.localScale = Vector3.one;
+            itemImage.rectTransform.rotation = Quaternion.Euler(Vector3.zero);
+
+            itemFadeText.rectTransform.localScale = Vector3.zero;
+            itemFadeText.gameObject.SetActive(true);
+
+            PrevItemButton.interactable = false;
+            NextItemButton.interactable = false;
+        }
+
+        private void PostFirstShow()
+        {
+            itemFade.raycastTarget = false;
+            itemFade.gameObject.SetActive(false);
+            itemFadeText.gameObject.SetActive(false);
+
+            PrevItemButton.interactable = hasPrev;
+            NextItemButton.interactable = hasNext;
+        }
+
+        private void PreUpdate()
+        {
+            PrevItemButton.interactable = false;
+            NextItemButton.interactable = false;
+        }
+
+        private void PostUpdate()
+        {
+            PrevItemButton.interactable = hasPrev;
+            NextItemButton.interactable = hasNext;
         }
 
         private void SpawnFadeLabel()
