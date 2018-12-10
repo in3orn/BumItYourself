@@ -2,7 +2,7 @@
 {
     public class DynamicDepthRenderer : StaticDepthRenderer
     {
-        private void Update()
+        private void LateUpdate()
         {
             UpdateDepth();
         }

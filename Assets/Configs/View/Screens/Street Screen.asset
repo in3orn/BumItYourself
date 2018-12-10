@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InventoryButtonPunchAnimation:
     Duration: 0.5
-    Strength: {x: 2, y: 2, z: 0}
-    Vibrato: 10
+    Strength: {x: 0.1, y: 0.1, z: 0}
+    Vibrato: 15

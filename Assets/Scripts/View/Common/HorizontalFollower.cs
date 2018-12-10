@@ -11,7 +11,7 @@ namespace Krk.Bum.View.Common
         private FollowerConfig config = null;
 
 
-        private void Update()
+        private void LateUpdate()
         {
             var targetX = target.position.x;
             var currentX = transform.position.x;

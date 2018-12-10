@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 4f9c0a4034a87d144a9a93e5f90a9634, type: 3}
   m_Name: Stiff Follower
   m_EditorClassIdentifier: Assembly-CSharp:Krk.Bum.View.Common:FollowerConfig
   MinFollowDistance: 0.01
-  FollowStrength: 60
+  FollowStrength: 0.9
