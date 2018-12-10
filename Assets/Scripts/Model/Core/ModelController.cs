@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Krk.Bum.Model.Utils;
 using UnityEngine;
 using UnityEngine.Events;
@@ -340,6 +341,15 @@ namespace Krk.Bum.Model.Core
                 count += part.Count;
             }
             return count;
+        }
+
+
+        public void CollectAllParts(int value)
+        {
+            foreach (var part in modelData.Parts)
+            {
+                part.Count += value;
+            }
         }
     }
 }

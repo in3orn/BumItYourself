@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using Krk.Bum.Model;
+using Krk.Bum.View.Animations;
 using Krk.Bum.View.Elements;
 using System.Collections.Generic;
 using TMPro;
@@ -38,6 +39,9 @@ namespace Krk.Bum.View.Screens
         private TextMeshProUGUI itemCount = null;
 
         [SerializeField]
+        private RectTransform itemFadeContent = null;
+
+        [SerializeField]
         private Image itemFade = null;
 
         [SerializeField]
@@ -45,6 +49,9 @@ namespace Krk.Bum.View.Screens
 
         [SerializeField]
         private CanvasGroup canvasGroup = null;
+
+        [SerializeField]
+        private FadeLabelView fadeLabelTemplate = null;
 
         [SerializeField]
         private ParticleSystem[] particleSystems = null;
@@ -55,12 +62,22 @@ namespace Krk.Bum.View.Screens
 
         private Sprite defaultItemSprite;
         private Color defaultItemColor;
-        private Color defaultItemFadeColor;
+
+        private FadeColorData itemFadeColors;
+        private PunchAnimationData commonScaleData;
+        private PunchAnimationData commonRotationData;
+
+
+        private Sequence updateFadeSequence;
 
 
         public ItemScreenView()
         {
             rows = new List<RequiredPartRow>();
+
+            itemFadeColors = new FadeColorData();
+            commonScaleData = new PunchAnimationData() { StartValue = Vector3.one };
+            commonRotationData = new PunchAnimationData();
         }
 
 
@@ -69,12 +86,15 @@ namespace Krk.Bum.View.Screens
             defaultItemSprite = itemImage.sprite;
             defaultItemColor = itemImage.color;
 
-            defaultItemFadeColor = itemFade.color;
-            itemFade.color = Color.clear;
+            itemFadeColors.TargetColor = itemFade.color;
+            itemFade.color = itemFadeColors.ClearColor;
             itemFade.gameObject.SetActive(false);
 
             itemFadeText.rectTransform.localScale = Vector3.zero;
             itemFadeText.gameObject.SetActive(false);
+
+            updateFadeSequence = itemFade.DOFade(config.UpdateFade, itemFadeColors);
+            updateFadeSequence.SetAutoKill(false);
 
             InitParticles();
         }
@@ -108,17 +128,21 @@ namespace Krk.Bum.View.Screens
         {
             if (item.TotalCount > 1)
             {
-                itemImage.rectTransform.localScale = Vector3.one;
-                itemImage.rectTransform.rotation = Quaternion.Euler(Vector3.zero);
-
-                SpawnParticles();
                 InitItem(item, parts, canCreate, PrevItemButton.interactable, NextItemButton.interactable);
+                
+                updateFadeSequence.Restart();
 
-                itemImage.rectTransform.DOPunchScale(Vector3.one, 0.25f);
-                itemImage.rectTransform.DOPunchRotation(Vector3.right, 0.25f);
+                itemImage.rectTransform.DOPunchScale(config.ItemScale, commonScaleData);
+                itemImage.rectTransform.DOPunchRotation(config.ItemRoatation, commonRotationData);
 
-                itemCount.rectTransform.DOPunchScale(Vector3.one, 0.25f);
-                itemCount.rectTransform.DOPunchRotation(Vector3.left, 0.25f);
+                itemCount.rectTransform.DOPunchScale(config.CountScale, commonScaleData);
+                itemCount.rectTransform.DOPunchRotation(config.CountRotation, commonRotationData);
+
+                itemBackground.rectTransform.DOPunchScale(config.BackScale, commonScaleData);
+                itemBackground.rectTransform.DOPunchRotation(config.BackRotation, commonRotationData);
+
+                SpawnFadeLabel();
+                SpawnParticles();
             }
             else
             {
@@ -136,7 +160,7 @@ namespace Krk.Bum.View.Screens
                     config.FirstBackShowDuration));
                 sequence.Join(itemImage.rectTransform.DOScale(config.FirstItemShowScale,
                     config.FirstItemShowDuration).SetEase(Ease.OutQuad));
-                sequence.Join(itemFade.DOColor(defaultItemFadeColor,
+                sequence.Join(itemFade.DOColor(itemFadeColors.TargetColor,
                     config.FirstBackShowDuration));
 
                 sequence.AppendCallback(SpawnParticles);
@@ -155,7 +179,7 @@ namespace Krk.Bum.View.Screens
 
                 sequence.Append(itemBackground.rectTransform.DOScale(
                     Vector2.one, config.FirstBackHideDuration).SetEase(Ease.InOutElastic));
-                sequence.Join(itemFade.DOColor(Color.clear, config.FirstBackHideDuration));
+                sequence.Join(itemFade.DOColor(itemFadeColors.ClearColor, config.FirstBackHideDuration));
                 sequence.Join(itemFadeText.rectTransform.DOScale(
                     Vector2.zero, config.FirstBackHideDuration).SetEase(Ease.InOutElastic));
 
@@ -164,6 +188,14 @@ namespace Krk.Bum.View.Screens
 
                 sequence.Play();
             }
+        }
+
+        private void SpawnFadeLabel()
+        {
+            var gameObject = Instantiate(fadeLabelTemplate, itemFadeContent);
+            var fadeLabel = gameObject.GetComponent<FadeLabelView>();
+            fadeLabel.Show(itemImage.rectTransform);
+            DOVirtual.DelayedCall(5f, () => Destroy(fadeLabel.gameObject));  //TODO return to pool :)
         }
 
         public void SpawnParticles()

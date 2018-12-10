@@ -25,3 +25,31 @@ MonoBehaviour:
   FirstHideDelay: 0.5
   FirstBackHideDuration: 0.5
   FirstItemHideDuration: 0.5
+  ItemScale:
+    Duration: 0.5
+    Strength: {x: 1, y: 1, z: 0}
+    Vibrato: 10
+  ItemRoatation:
+    Duration: 0.5
+    Strength: {x: 0, y: 0, z: -5}
+    Vibrato: 25
+  CountScale:
+    Duration: 0
+    Strength: {x: 0, y: 0, z: 0}
+    Vibrato: 0
+  CountRotation:
+    Duration: 0
+    Strength: {x: 0, y: 0, z: 0}
+    Vibrato: 0
+  BackScale:
+    Duration: 0.5
+    Strength: {x: 0.2, y: 0.2, z: 0}
+    Vibrato: 10
+  BackRotation:
+    Duration: 0.5
+    Strength: {x: 0, y: 0, z: 10}
+    Vibrato: 25
+  UpdateFade:
+    FadeInDuration: 0
+    FadeHoldDuration: 0.5
+    FadeOutDuration: 0.5

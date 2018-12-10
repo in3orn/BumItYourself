@@ -30,22 +30,27 @@ namespace Krk.Bum.View.Screens
             subtitle.color = Color.clear;
         }
 
-        private void Start()
+        public override void InitShown(bool value)
         {
-            var sequence = DOTween.Sequence();
+            base.InitShown(value);
 
-            foreach(var subtitleData in config.Subtitles)
+            if (value)
             {
-                sequence.AppendInterval(subtitleData.Delay);
-                sequence.AppendCallback(() => SetSubtitle(subtitleData.Text));
-                sequence.Append(subtitle.DOColor(subtitleDefaultColor, config.FadeInDuration));
-                sequence.AppendInterval(subtitleData.Duration);
-                sequence.Append(subtitle.DOColor(Color.clear, config.FadeOutDuration));
+                var sequence = DOTween.Sequence();
+
+                foreach (var subtitleData in config.Subtitles)
+                {
+                    sequence.AppendInterval(subtitleData.Delay);
+                    sequence.AppendCallback(() => SetSubtitle(subtitleData.Text));
+                    sequence.Append(subtitle.DOColor(subtitleDefaultColor, config.FadeInDuration));
+                    sequence.AppendInterval(subtitleData.Duration);
+                    sequence.Append(subtitle.DOColor(Color.clear, config.FadeOutDuration));
+                }
+
+                sequence.AppendCallback(Exit);
+
+                sequence.Play();
             }
-
-            sequence.AppendCallback(Exit);
-
-            sequence.Play();
         }
 
         private void OnEnable()

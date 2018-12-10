@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Krk.Bum.View.Animations;
+using UnityEngine;
 
 namespace Krk.Bum.View.Screens
 {
@@ -27,5 +28,18 @@ namespace Krk.Bum.View.Screens
 
         public float FirstBackHideDuration;
         public float FirstItemHideDuration;
+
+
+        [Header("Update Animation")]
+        public PunchAnimationConfig ItemScale;
+        public PunchAnimationConfig ItemRoatation;
+
+        public PunchAnimationConfig CountScale;
+        public PunchAnimationConfig CountRotation;
+
+        public PunchAnimationConfig BackScale;
+        public PunchAnimationConfig BackRotation;
+
+        public FadeAnimationConfig UpdateFade;
     }
 }
