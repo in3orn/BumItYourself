@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using Krk.Bum.View.Animations;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -20,6 +22,17 @@ namespace Krk.Bum.View.Screens
         [SerializeField]
         private Button inventoryButton = null;
 
+        [SerializeField]
+        private StreetScreenConfig config = null;
+
+
+        private PunchAnimationData inventoryButtonPunchData = null;
+
+
+        private void Awake()
+        {
+            inventoryButtonPunchData = new PunchAnimationData { StartValue = Vector3.one };
+        }
 
         private void OnEnable()
         {
@@ -48,6 +61,12 @@ namespace Krk.Bum.View.Screens
         private void HandleItemsClicked()
         {
             if (OnInventoryButtonClicked != null) OnInventoryButtonClicked();
+        }
+
+        public void AnimateInventoryButton()
+        {
+            var rectTransform = inventoryButton.GetComponent<RectTransform>();
+            rectTransform.DOPunchScale(config.InventoryButtonPunchAnimation, inventoryButtonPunchData);
         }
     }
 }

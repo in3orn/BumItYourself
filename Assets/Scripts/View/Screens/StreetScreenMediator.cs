@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 using Krk.Bum.View.Model;
+using Krk.Bum.Model.Context;
+using Krk.Bum.Model.Core;
+using Krk.Bum.Model;
+using System;
 
 namespace Krk.Bum.View.Screens
 {
@@ -8,6 +12,18 @@ namespace Krk.Bum.View.Screens
         [SerializeField]
         private StreetScreenView screenView = null;
 
+        [SerializeField]
+        private ModelContext modelContext = null;
+
+
+        private ModelController modelController;
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            modelController = modelContext.ModelController;
+        }
 
         protected override ScreenView GetScreenView()
         {
@@ -21,6 +37,8 @@ namespace Krk.Bum.View.Screens
             screenView.OnSettingsButtonClicked += HandleSettingsButtonClicked;
             screenView.OnPlayerButtonClicked += HandlePlayerButtonClicked;
             screenView.OnInventoryButtonClicked += HandleInventoryButtonClicked;
+
+            modelController.OnPartCollected += HandlePartcollected;
         }
 
         protected override void OnDisable()
@@ -32,6 +50,11 @@ namespace Krk.Bum.View.Screens
                 screenView.OnSettingsButtonClicked -= HandleSettingsButtonClicked;
                 screenView.OnPlayerButtonClicked -= HandlePlayerButtonClicked;
                 screenView.OnInventoryButtonClicked -= HandleInventoryButtonClicked;
+            }
+
+            if (modelContext != null)
+            {
+                modelController.OnPartCollected -= HandlePartcollected;
             }
         }
 
@@ -53,6 +76,11 @@ namespace Krk.Bum.View.Screens
         private void HandleTestButtonClicked()
         {
             viewStateController.SetState(ViewStateEnum.Game);
+        }
+
+        private void HandlePartcollected(PartData partData)
+        {
+            screenView.AnimateInventoryButton();
         }
     }
 }

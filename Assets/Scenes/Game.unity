@@ -708,6 +708,7 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 70646a152000d4945a2ecde36be0a45a, type: 2}
   viewContext: {fileID: 1474845635}
   screenView: {fileID: 1868339260}
+  modelContext: {fileID: 346672202}
 --- !u!114 &710765980
 MonoBehaviour:
   m_ObjectHideFlags: 0
