@@ -84,7 +84,6 @@ namespace Krk.Bum.Game.Items
 
                 if (modelController.CanCollectPart(part))
                 {
-                    modelController.CollectPart(part, count);
                     break;
                 }
             }

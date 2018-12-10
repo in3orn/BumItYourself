@@ -319,10 +319,11 @@ namespace Krk.Bum.Model.Core
             return part.Count < config.MaxResourceCount;
         }
 
-        public void CollectPart(PartData part, int value)
+        public void CollectPart(PartData collected)
         {
+            var part = GetPart(collected.Id);
             var prevCount = part.Count;
-            part.Count += value;
+            part.Count += collected.Count;
             if (part.Count > config.MaxResourceCount) part.Count = config.MaxResourceCount;
 
             if (part.Count != prevCount)

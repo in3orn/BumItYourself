@@ -208,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: a11d1afa3d6b1c1438c3eb9734f24b3d, type: 2}
   inventoryButton: {fileID: 555035575}
+  modelContext: {fileID: 346672202}
 --- !u!114 &292625233
 MonoBehaviour:
   m_ObjectHideFlags: 0
