@@ -120,7 +120,7 @@ namespace Krk.Bum.View.Screens
             viewStateController.BackState(ViewStateEnum.Inventory);
         }
 
-        private void HandleItemButtonClicked(ItemButton button)
+        private void HandleItemButtonClicked(CollectionItemButton button)
         {
             viewStateController.CurrentItemId = button.Item.Id;
             viewStateController.SetState(ViewStateEnum.Item);

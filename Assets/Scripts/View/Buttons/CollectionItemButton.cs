@@ -1,5 +1,4 @@
-﻿using System;
-using Krk.Bum.Model;
+﻿using Krk.Bum.Model;
 using Krk.Bum.View.Screen_Canvas;
 using TMPro;
 using UnityEngine;
@@ -8,16 +7,22 @@ using UnityEngine.UI;
 
 namespace Krk.Bum.View.Buttons
 {
-    public class ItemButton : MonoBehaviour
+    public class CollectionItemButton : MonoBehaviour
     {
-        public UnityAction<ItemButton> OnButtonClicked;
+        public UnityAction<CollectionItemButton> OnButtonClicked;
 
+
+        [SerializeField]
+        private CollectionItemButtonConfig config = null;
 
         [SerializeField]
         private Button button = null;
 
         [SerializeField]
         private Image image = null;
+
+        [SerializeField]
+        private Image background = null;
 
         [SerializeField]
         private TextMeshProUGUI count = null;
@@ -40,7 +45,6 @@ namespace Krk.Bum.View.Buttons
             image.sprite = data.Image;
             image.color = data.Color;
             image.rectTransform.rotation = Quaternion.Euler(0f, 0f, data.Rotation);
-            //image.SetNativeSize();
         }
 
         private void OnEnable()
@@ -64,7 +68,7 @@ namespace Krk.Bum.View.Buttons
         public void UpdateAppearance()
         {
             count.text = Item.Count.ToString();
-            if(Item.TotalCount > 0)
+            if (Item.TotalCount > 0)
             {
                 InitImage(Item.Image);
             }
@@ -77,6 +81,8 @@ namespace Krk.Bum.View.Buttons
                 if (!notification.Shown) notification.Show();
                 else notification.Hide();
             }
+
+            background.color = shown ? config.DefaultColor : config.LockedColor;
         }
     }
 }

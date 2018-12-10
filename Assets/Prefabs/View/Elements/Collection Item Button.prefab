@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!224 &5778074227913614396 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3655622585812916446, guid: 1c2079d4004daa3418f750caeb9ddd6f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7103503422466784482}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7783508661923380060 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1049379780194535358, guid: 1c2079d4004daa3418f750caeb9ddd6f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7103503422466784482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a15cad2a2da86be4d8d5ec6b2c1034bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1116410527227610002
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,24 +253,6 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!224 &5778074227913614396 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3655622585812916446, guid: 1c2079d4004daa3418f750caeb9ddd6f,
-    type: 3}
-  m_PrefabInstance: {fileID: 7103503422466784482}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7783508661923380060 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1049379780194535358, guid: 1c2079d4004daa3418f750caeb9ddd6f,
-    type: 3}
-  m_PrefabInstance: {fileID: 7103503422466784482}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a15cad2a2da86be4d8d5ec6b2c1034bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7493685627557795335
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,8 +386,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6429c6a787befa540b93e80d15cebda2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: 28fcafbb22f3d1345a4526fcc4816254, type: 2}
   button: {fileID: 8946519743990693930}
   image: {fileID: 2947793610802728068}
+  background: {fileID: 5093506538923662799}
   count: {fileID: 2623902395067196889}
   notification: {fileID: 7783508661923380060}
 --- !u!1 &9084188302954581529
@@ -529,12 +531,12 @@ PrefabInstance:
     - target: {fileID: 3655622585812916446, guid: 1c2079d4004daa3418f750caeb9ddd6f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3655622585812916446, guid: 1c2079d4004daa3418f750caeb9ddd6f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 3655622585812916446, guid: 1c2079d4004daa3418f750caeb9ddd6f,
         type: 3}
