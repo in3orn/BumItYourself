@@ -14,3 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CreateButtonActive: {r: 0.009883161, g: 0.6226415, b: 0, a: 1}
   CreateButtonLocked: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
+  FirstBackShowDuration: 0.5
+  FirstItemShowDuration: 0.25
+  FirstBackShowScale: {x: 2, y: 2}
+  FirstItemShowScale: {x: 0, y: 1.5}
+  FirstBackActionDuration: 0.5
+  FirstItemActionDuration: 0.5
+  FirstBackRotationStrength: 10
+  FirstBackRotationVibrato: 25
+  FirstHideDelay: 0.5
+  FirstBackHideDuration: 0.5
+  FirstItemHideDuration: 0.5

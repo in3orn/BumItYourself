@@ -23,10 +23,7 @@ namespace Krk.Bum.View.Model
         {
             viewStateController = viewContext.ViewStateController;
             modelController = modelContext.ModelController;
-        }
 
-        private void Start()
-        {
             if (modelController.IsAnyCollectionUnlocked())
             {
                 viewStateController.InitState(ViewStateEnum.Street);
