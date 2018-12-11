@@ -5,13 +5,13 @@
         private const string CurrentBodyKey= "current-body";
 
 
-        private readonly PlayerBodyLoader playerBodyLoader;
+        private readonly PlayerItemLoader playerBodyLoader;
 
         private readonly PrefsWrapper wrapper;
 
 
 
-        public PlayerLookLoader(PlayerBodyLoader playerBodyLoader, PrefsWrapper wrapper)
+        public PlayerLookLoader(PlayerItemLoader playerBodyLoader, PrefsWrapper wrapper)
         {
             this.playerBodyLoader = playerBodyLoader;
             this.wrapper = wrapper;

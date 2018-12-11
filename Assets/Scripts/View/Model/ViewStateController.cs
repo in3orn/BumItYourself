@@ -12,7 +12,7 @@ namespace Krk.Bum.View.Model
         Collection,
         Item,
         Game,
-        Summary,
+        Seller,
         Store,
         Intro
     }

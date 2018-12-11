@@ -4,13 +4,11 @@ using UnityEngine;
 namespace Krk.Bum.Model
 {
     [Serializable]
-    public class PlayerBodyData
+    public class PlayerItemConfig
     {
         public string Id;
         public string Name;
         public float Price;
         public Sprite Image;
-
-        public bool Unlocked;
     }
 }

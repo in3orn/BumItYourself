@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Krk.Bum.Model.Utils;
 using UnityEngine;
 using UnityEngine.Events;
@@ -103,7 +104,6 @@ namespace Krk.Bum.Model.Core
 
             return result;
         }
-
 
         public bool HasPrevItem(string itemId)
         {
@@ -350,6 +350,12 @@ namespace Krk.Bum.Model.Core
             {
                 part.Count += value;
             }
+        }
+
+        public void DecreaseMoney(float price)
+        {
+            modelData.Cash -= Mathf.RoundToInt(price); //TODO all prices should be float??
+            modelLoader.Save(modelData);
         }
     }
 }

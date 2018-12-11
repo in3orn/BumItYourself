@@ -7,6 +7,6 @@ namespace Krk.Bum.Model
     {
         public string CurrentBodyId;
 
-        public PlayerBodyData[] Bodies;
+        public PlayerItemData[] Bodies;
     }
 }

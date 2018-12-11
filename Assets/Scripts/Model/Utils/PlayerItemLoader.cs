@@ -1,6 +1,6 @@
 ﻿namespace Krk.Bum.Model.Utils
 {
-    public class PlayerBodyLoader
+    public class PlayerItemLoader
     {
         private const string UnlockedKey = "unlocked";
 
@@ -8,15 +8,15 @@
         private readonly PrefsWrapper wrapper;
 
 
-        public PlayerBodyLoader(PrefsWrapper wrapper)
+        public PlayerItemLoader(PrefsWrapper wrapper)
         {
             this.wrapper = wrapper;
         }
 
 
-        public PlayerBodyData[] Load(PlayerBodyConfig[] configs)
+        public PlayerItemData[] Load(PlayerItemConfig[] configs)
         {
-            var result = new PlayerBodyData[configs.Length];
+            var result = new PlayerItemData[configs.Length];
 
             for (int i = 0; i < configs.Length; i++)
             {
@@ -26,9 +26,9 @@
             return result;
         }
 
-        public PlayerBodyData Load(PlayerBodyConfig config)
+        public PlayerItemData Load(PlayerItemConfig config)
         {
-            return new PlayerBodyData
+            return new PlayerItemData
             {
                 Id = config.Id,
                 Name = config.Name,
@@ -41,7 +41,7 @@
         }
 
 
-        public void Save(CollectionData data)
+        public void Save(PlayerItemData data)
         {
             wrapper.SetBool(data.Id, UnlockedKey, data.Unlocked);
         }
