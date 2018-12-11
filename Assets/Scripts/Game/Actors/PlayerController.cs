@@ -1,10 +1,14 @@
 ﻿using Krk.Bum.Game.Items;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Krk.Bum.Game.Actors
 {
     public class PlayerController
     {
+        public UnityAction<Vector2> OnHit;
+
+
         private readonly PlayerConfig config;
 
 
@@ -18,7 +22,7 @@ namespace Krk.Bum.Game.Actors
             get { return targetPosition; }
             set
             {
-                if(targetPosition != value)
+                if (targetPosition != value)
                 {
                     targetPosition = value;
                     targetItem = null;
@@ -72,6 +76,11 @@ namespace Krk.Bum.Game.Actors
         {
             var diff = position - Position;
             return diff.magnitude <= config.ReachRange;
+        }
+
+        public void Hit(Vector2 target)
+        {
+            if (OnHit != null) OnHit(target);
         }
     }
 }

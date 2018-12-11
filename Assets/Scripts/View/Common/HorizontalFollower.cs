@@ -8,10 +8,10 @@ namespace Krk.Bum.View.Common
         private Transform target = null;
 
         [SerializeField]
-        private HorizontalFollowerConfig config = null;
+        private FollowerConfig config = null;
 
 
-        private void Update()
+        private void LateUpdate()
         {
             var targetX = target.position.x;
             var currentX = transform.position.x;

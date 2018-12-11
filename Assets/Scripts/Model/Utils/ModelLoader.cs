@@ -4,6 +4,7 @@
     {
         private const string CashKey = "cash";
         private const string ItemsSoldKey = "items-sold";
+        private const string ItemsCreatedKey = "items-created";
 
 
         private readonly PrefsWrapper wrapper;
@@ -28,7 +29,8 @@
                 Collections = collectionLoader.Load(config.Collections),
                 Parts = partLoader.Load(config.Parts),
                 Cash = wrapper.GetInt(CashKey),
-                ItemsSold = wrapper.GetInt(ItemsSoldKey)
+                ItemsSold = wrapper.GetInt(ItemsSoldKey),
+                ItemsCreated = wrapper.GetInt(ItemsCreatedKey)
             };
         }
 
@@ -36,6 +38,7 @@
         {
             wrapper.SetInt(CashKey, data.Cash);
             wrapper.SetInt(ItemsSoldKey, data.ItemsSold);
+            wrapper.SetInt(ItemsCreatedKey, data.ItemsCreated);
         }
     }
 }

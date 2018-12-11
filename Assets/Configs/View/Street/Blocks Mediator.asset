@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b688cce9e9d2945a3a92f74fa9c000, type: 3}
+  m_Name: Blocks Mediator
+  m_EditorClassIdentifier: 
+  FirstTemplate: {fileID: 3207372310158591930, guid: 417d47d10adcf7f4fb1cd52ca7804085,
+    type: 3}
+  Templates:
+  - {fileID: 2448169276508486584, guid: 6cd8f92cd6d941e4b81519e9add672ff, type: 3}
+  - {fileID: 7647546460925048011, guid: dcaeb609f4d38ea488424726bc88ff84, type: 3}
+  - {fileID: 1320410847979992890, guid: b748384e426f7674091d43dca5dac2c9, type: 3}
+  - {fileID: 3207372310158591930, guid: 417d47d10adcf7f4fb1cd52ca7804085, type: 3}
+  - {fileID: 496779404639287169, guid: 9b99dc7a153454f479c6a7f4618c835b, type: 3}
+  - {fileID: 2890197517060953323, guid: 2b1df86b23c85da4ea5f42897e36bd76, type: 3}
+  - {fileID: 6146001145535383778, guid: fbf14f3bedb72a242abb34e93c70dc65, type: 3}

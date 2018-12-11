@@ -1,11 +1,14 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Krk.Bum.View.Screen_Canvas
 {
     public class NotificationView : MonoBehaviour
     {
+        public UnityAction OnShown;
+
+
         [SerializeField]
         private RectTransform mainTransform = null;
 
@@ -37,6 +40,8 @@ namespace Krk.Bum.View.Screen_Canvas
             Shown = true;
             Activate();
             mainTransform.DOScale(1f, .25f).SetEase(Ease.OutBounce);
+
+            if (OnShown != null) OnShown();
         }
 
         public void Hide()

@@ -5,10 +5,10 @@ namespace Krk.Bum.View.Common
     public class StaticDepthRenderer : MonoBehaviour
     {
         [SerializeField]
-        private DepthRendererConfig config;
+        private DepthRendererConfig config = null;
 
         [SerializeField]
-        private SpriteRenderer depthRenderer;
+        private SpriteRenderer[] depthRenderers = null;
 
 
         private void Start()
@@ -18,8 +18,11 @@ namespace Krk.Bum.View.Common
 
         protected void UpdateDepth()
         {
-            depthRenderer.sortingOrder = 10000 + config.DepthOffset +
-                10 * Mathf.RoundToInt(100f * -transform.position.y);
+            foreach (var renderer in depthRenderers)
+            {
+                renderer.sortingOrder = 10000 + config.DepthOffset +
+                     10 * Mathf.RoundToInt(100f * -transform.position.y);
+            }
         }
     }
 }

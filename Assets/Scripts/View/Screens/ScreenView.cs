@@ -15,13 +15,13 @@ namespace Krk.Bum.View.Screens
         private bool shown;
 
 
-        public void InitShown(bool value)
+        public virtual void InitShown(bool value)
         {
             shown = value;
             screen.SetActive(shown);
         }
 
-        public void SetShown(bool value)
+        public virtual void SetShown(bool value)
         {
             if (shown != value)
             {

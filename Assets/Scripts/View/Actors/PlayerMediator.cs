@@ -1,5 +1,6 @@
 ﻿using Krk.Bum.Game.Actors;
 using Krk.Bum.Game.Context;
+using Krk.Bum.View.Common;
 using UnityEngine;
 
 namespace Krk.Bum.View.Actors
@@ -12,6 +13,12 @@ namespace Krk.Bum.View.Actors
         [SerializeField]
         private GameContext gameContext = null;
 
+        [SerializeField]
+        private Shaker cameraShaker = null;
+
+        [SerializeField]
+        private FlashView hitFlash = null;
+
 
         private PlayerController playerController;
 
@@ -22,6 +29,28 @@ namespace Krk.Bum.View.Actors
         {
             playerController = gameContext.PlayerController;
         }
+
+
+        private void OnEnable()
+        {
+            playerController.OnHit += HandlePlayerHit;
+        }
+
+        private void OnDisable()
+        {
+            if (gameContext != null && playerView != null)
+            {
+                playerController.OnHit -= HandlePlayerHit;
+            }
+        }
+
+        private void HandlePlayerHit(Vector2 target)
+        {
+            playerView.Hit(target);
+            hitFlash.Flash();
+            cameraShaker.Shake();
+        }
+
 
         private void Update()
         {

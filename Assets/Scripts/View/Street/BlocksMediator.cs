@@ -11,13 +11,14 @@ namespace Krk.Bum.View.Street
         private Transform parent = null;
 
         [SerializeField]
-        private BlockView[] templates = null;
+        private BlocksMediatorConfig config = null;
 
         [SerializeField]
         protected ViewContext viewContext = null;
 
         [SerializeField]
         protected GameContext gameContext = null;
+
 
         private BlocksController blocksController;
 
@@ -30,6 +31,13 @@ namespace Krk.Bum.View.Street
             playerController = gameContext.PlayerController;
         }
 
+        private void Start()
+        {
+            var gameObject = Instantiate(config.FirstTemplate, parent);
+            var view = gameObject.GetComponent<BlockView>();
+            var data = blocksController.SpawnFirstBlock(view);
+            view.SetPosition(data.Center);
+        }
         protected virtual BlocksController GetBlocksController()
         {
             return viewContext.BlocksController;
@@ -41,9 +49,7 @@ namespace Krk.Bum.View.Street
 
             while (blocksController.ShouldSpawnLeftBlock())
             {
-                var index = Random.Range(0, templates.Length);
-                var template = templates[index];
-                var gameObject = Instantiate(template, parent);
+                var gameObject = Instantiate(GetRandomTemplate(), parent);
                 var view = gameObject.GetComponent<BlockView>();
                 var data = blocksController.SpawnLeftBlock(view);
                 view.SetPosition(data.Center);
@@ -51,13 +57,17 @@ namespace Krk.Bum.View.Street
 
             while (blocksController.ShouldSpawnRightBlock())
             {
-                var index = Random.Range(0, templates.Length);
-                var template = templates[index];
-                var gameObject = Instantiate(template, parent);
+                var gameObject = Instantiate(GetRandomTemplate(), parent);
                 var view = gameObject.GetComponent<BlockView>();
                 var data = blocksController.SpawnRightBlock(view);
                 view.SetPosition(data.Center);
             }
+        }
+
+        private BlockView GetRandomTemplate()
+        {
+            var index = Random.Range(0, config.Templates.Length);
+            return config.Templates[index];
         }
     }
 }

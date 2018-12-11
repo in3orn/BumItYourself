@@ -1,11 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!4 &5684486416118026485 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8528734331518516782, guid: 9042ca8f8cfe9fd40925fe6237238194,
-    type: 3}
-  m_PrefabInstance: {fileID: 4089124326558232283}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &274297617790732759
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,6 +613,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &5684486416118026485 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8528734331518516782, guid: 9042ca8f8cfe9fd40925fe6237238194,
+    type: 3}
+  m_PrefabInstance: {fileID: 4089124326558232283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3284170418310283085
 GameObject:
   m_ObjectHideFlags: 0

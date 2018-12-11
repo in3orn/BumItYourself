@@ -7,8 +7,8 @@ namespace Krk.Bum.Game.Items
 {
     public class TrashController : IStreetItemController
     {
-        public UnityAction<TrashData, PartData> OnHit;
-        public UnityAction<TrashData> OnEmptyHit;
+        public UnityAction<TrashController, PartData> OnHit;
+        public UnityAction<TrashController> OnEmptyHit;
 
 
         private readonly ModelController modelController;
@@ -34,15 +34,25 @@ namespace Krk.Bum.Game.Items
         {
             if (!modelController.IsAnyCollectionUnlocked())
             {
+                if(modelController.IsAnyCollectionSpawned)
+                {
+                    OnEmptyHit?.Invoke(this);
+                    return;
+                }
+                
                 var collection = modelController.GetAllCollections()[0];
-                modelController.UnlockCollection(collection);
+                modelController.IsAnyCollectionSpawned = true;
+
                 var part = new PartData()
                 {
-                    Image = collection.Image
+                    Id = collection.Id,
+                    Name = collection.Name,
+                    Image = collection.Image,
+                    IsCollection = true
                 };
 
-                State.ItemsCount = 0;
-                OnHit?.Invoke(State, part);
+                State.ItemsCount--;
+                OnHit?.Invoke(this, part);
 
                 return;
             }
@@ -51,11 +61,11 @@ namespace Krk.Bum.Game.Items
             {
                 State.ItemsCount--;
                 var part = CollectRandomPart();
-                OnHit?.Invoke(State, part);
+                OnHit?.Invoke(this, part);
             }
             else
             {
-                OnEmptyHit?.Invoke(State);
+                OnEmptyHit?.Invoke(this);
             }
         }
 
@@ -74,7 +84,6 @@ namespace Krk.Bum.Game.Items
 
                 if (modelController.CanCollectPart(part))
                 {
-                    modelController.CollectPart(part, count);
                     break;
                 }
             }

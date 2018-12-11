@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using Krk.Bum.Game.Actors;
+using Krk.Bum.Game.Context;
 using Krk.Bum.Game.Items;
+using Krk.Bum.Model;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using Krk.Bum.View.Context;
@@ -16,11 +19,19 @@ namespace Krk.Bum.View.Street
         private ViewContext viewContext = null;
 
         [SerializeField]
+        private GameContext gameContext = null;
+
+        [SerializeField]
         private TrashConfig trashConfig = null;
+
+        [SerializeField]
+        private PartMediator partMediator = null;
 
 
         private ModelController modelController;
         private BlocksController blocksController;
+        private PlayerController playerController;
+        private CollectionController collectionController;
 
 
         private Dictionary<TrashView, IStreetItemController> trashes;
@@ -32,6 +43,8 @@ namespace Krk.Bum.View.Street
 
             modelController = modelContext.ModelController;
             blocksController = viewContext.BlocksController;
+            playerController = gameContext.PlayerController;
+            collectionController = modelContext.CollectionController;
         }
 
         private void OnEnable()
@@ -42,7 +55,7 @@ namespace Krk.Bum.View.Street
         private void HandleBlockSpawned(BlockView blockView, BlockData data)
         {
             var trashViews = blockView.GetComponentsInChildren<TrashView>();
-            foreach(var trashView in trashViews)
+            foreach (var trashView in trashViews)
             {
                 var trashController = new TrashController(modelController, trashConfig)
                 {
@@ -53,6 +66,9 @@ namespace Krk.Bum.View.Street
 
                 trashController.OnEmptyHit += trashView.HitEmpty;
                 trashController.OnHit += trashView.Hit;
+                trashController.OnHit += HandleTrashHit;
+
+                trashView.OnHit += HandleTrashViewHit;
             }
         }
 
@@ -61,6 +77,16 @@ namespace Krk.Bum.View.Street
             //TODO
         }
 
+        private void HandleTrashHit(TrashController trashController, PartData partData)
+        {
+            playerController.Hit(trashController.Position);
+        }
+
+        private void HandleTrashViewHit(TrashView trashView, PartData partData)
+        {
+            partMediator.Spawn(trashView, partData);
+            collectionController.Spawn();
+        }
 
         public IStreetItemController GetControllerFor(TrashView view)
         {

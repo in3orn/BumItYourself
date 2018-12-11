@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using Krk.Bum.Model;
+using Krk.Bum.View.Animations;
 using Krk.Bum.View.Elements;
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -18,6 +18,9 @@ namespace Krk.Bum.View.Screens
 
 
         [SerializeField]
+        private ItemScreenConfig config = null;
+
+        [SerializeField]
         private TextMeshProUGUI itemName = null;
 
         [SerializeField]
@@ -30,10 +33,25 @@ namespace Krk.Bum.View.Screens
         private Image itemImage = null;
 
         [SerializeField]
+        private Image itemBackground = null;
+
+        [SerializeField]
         private TextMeshProUGUI itemCount = null;
 
         [SerializeField]
+        private RectTransform itemFadeContent = null;
+
+        [SerializeField]
+        private Image itemFade = null;
+
+        [SerializeField]
+        private TextMeshProUGUI itemFadeText = null;
+
+        [SerializeField]
         private CanvasGroup canvasGroup = null;
+
+        [SerializeField]
+        private FadeLabelView fadeLabelTemplate = null;
 
         [SerializeField]
         private ParticleSystem[] particleSystems = null;
@@ -45,10 +63,24 @@ namespace Krk.Bum.View.Screens
         private Sprite defaultItemSprite;
         private Color defaultItemColor;
 
+        private FadeColorData itemFadeColors;
+        private PunchAnimationData commonScaleData;
+        private PunchAnimationData commonRotationData;
+
+
+        private Sequence updateFadeSequence;
+
+        private bool hasPrev;
+        private bool hasNext;
+
 
         public ItemScreenView()
         {
             rows = new List<RequiredPartRow>();
+
+            itemFadeColors = new FadeColorData();
+            commonScaleData = new PunchAnimationData() { StartValue = Vector3.one };
+            commonRotationData = new PunchAnimationData();
         }
 
 
@@ -56,6 +88,16 @@ namespace Krk.Bum.View.Screens
         {
             defaultItemSprite = itemImage.sprite;
             defaultItemColor = itemImage.color;
+
+            itemFadeColors.TargetColor = itemFade.color;
+            itemFade.color = itemFadeColors.ClearColor;
+            itemFade.gameObject.SetActive(false);
+
+            itemFadeText.rectTransform.localScale = Vector3.zero;
+            itemFadeText.gameObject.SetActive(false);
+
+            updateFadeSequence = itemFade.DOFade(config.UpdateFade, itemFadeColors);
+            updateFadeSequence.SetAutoKill(false);
 
             InitParticles();
         }
@@ -72,42 +114,110 @@ namespace Krk.Bum.View.Screens
         public void InitItem(ItemData item, RequiredPartData[] parts, bool canCreate, bool hasPrev, bool hasNext)
         {
             itemName.text = item.TotalCount > 0 ? item.Name : "???";
+            itemFadeText.text = item.Name;
 
             CreateButton.interactable = canCreate;
+            CreateButton.GetComponent<Image>().color =
+                canCreate ? config.CreateButtonActive : config.CreateButtonLocked;
+
             InitImage(item);
             Init(parts);
+            
+            PrevItemButton.interactable = this.hasPrev = hasPrev;
+            NextItemButton.interactable = this.hasNext = hasNext;
+        }
 
-            PrevItemButton.interactable = hasPrev;
-            NextItemButton.interactable = hasNext;
+        private void InitItem(ItemData item, RequiredPartData[] parts, bool canCreate)
+        {
+            InitItem(item, parts, canCreate, hasPrev, hasNext);
         }
 
         public void UpdateItem(ItemData item, RequiredPartData[] parts, bool canCreate)
         {
             if (item.TotalCount > 1)
             {
+                InitItem(item, parts, canCreate);
+
+                itemImage.rectTransform.DOPunchScale(config.ItemScale, commonScaleData);
+                itemImage.rectTransform.DOPunchRotation(config.ItemRoatation, commonRotationData);
+
+                itemCount.rectTransform.DOPunchScale(config.CountScale, commonScaleData);
+                itemCount.rectTransform.DOPunchRotation(config.CountRotation, commonRotationData);
+
+                itemBackground.rectTransform.DOPunchScale(config.BackScale, commonScaleData);
+                itemBackground.rectTransform.DOPunchRotation(config.BackRotation, commonRotationData);
+
+                SpawnFadeLabel();
                 SpawnParticles();
-                InitItem(item, parts, canCreate, PrevItemButton.interactable, NextItemButton.interactable);
-
-                itemImage.rectTransform.DOPunchScale(Vector3.one, 0.25f);
-                itemImage.rectTransform.DOPunchRotation(Vector3.right, 0.25f);
-
-                itemCount.rectTransform.DOPunchScale(Vector3.one, 0.25f);
-                itemCount.rectTransform.DOPunchRotation(Vector3.left, 0.25f);
+                
+                updateFadeSequence.Restart();
             }
             else
             {
+                PreFirstShow();
+
                 var sequence = DOTween.Sequence();
 
-                sequence.Append(itemImage.rectTransform.DOScale(new Vector2(0f, 0.25f), 0.5f).SetEase(Ease.OutQuad));
+                sequence.Append(itemBackground.rectTransform.DOScale(config.FirstBackShowScale,
+                    config.FirstBackShowDuration));
+                sequence.Join(itemImage.rectTransform.DOScale(config.FirstItemShowScale,
+                    config.FirstItemShowDuration).SetEase(Ease.OutQuad));
+                sequence.Join(itemFade.DOColor(itemFadeColors.TargetColor,
+                    config.FirstBackShowDuration));
+
                 sequence.AppendCallback(SpawnParticles);
                 sequence.AppendCallback(() => InitItem(item, parts, canCreate,
                     PrevItemButton.interactable, NextItemButton.interactable));
-                sequence.Append(itemImage.rectTransform.DOScale(Vector2.one, 0.25f).SetEase(Ease.OutElastic));
-                sequence.Join(itemCount.rectTransform.DOPunchScale(Vector3.one, 0.25f));
-                sequence.Join(itemCount.rectTransform.DOPunchRotation(Vector3.left, 0.25f));
+
+                sequence.Append(itemBackground.rectTransform.DOPunchRotation(
+                    Vector3.forward * config.FirstBackRotationStrength,
+                    config.FirstBackActionDuration, config.FirstBackRotationVibrato));
+                sequence.Join(itemImage.rectTransform.DOScale(
+                    Vector2.one, config.FirstItemActionDuration).SetEase(Ease.OutElastic));
+                sequence.Join(itemFadeText.rectTransform.DOScale(
+                    Vector2.one, config.FirstBackActionDuration).SetEase(Ease.OutElastic));
+
+                sequence.AppendInterval(config.FirstHideDelay);
+
+                sequence.Append(itemBackground.rectTransform.DOScale(
+                    Vector2.one, config.FirstBackHideDuration).SetEase(Ease.InOutElastic));
+                sequence.Join(itemFade.DOColor(itemFadeColors.ClearColor, config.FirstBackHideDuration));
+                sequence.Join(itemFadeText.rectTransform.DOScale(
+                    Vector2.zero, config.FirstBackHideDuration).SetEase(Ease.InOutElastic));
+                
+                sequence.AppendCallback(PostFirstShow);
 
                 sequence.Play();
             }
+        }
+
+        private void PreFirstShow()
+        {
+            itemFade.gameObject.SetActive(true);
+
+            itemImage.rectTransform.localScale = Vector3.one;
+            itemImage.rectTransform.rotation = Quaternion.Euler(Vector3.zero);
+
+            itemFadeText.rectTransform.localScale = Vector3.zero;
+            itemFadeText.gameObject.SetActive(true);
+
+            CreateButton.GetComponent<Canvas>().overrideSorting = false;
+        }
+
+        private void PostFirstShow()
+        {
+            itemFade.gameObject.SetActive(false);
+            itemFadeText.gameObject.SetActive(false);
+
+            CreateButton.GetComponent<Canvas>().overrideSorting = true;
+        }
+
+        private void SpawnFadeLabel()
+        {
+            var gameObject = Instantiate(fadeLabelTemplate, itemFadeContent);
+            var fadeLabel = gameObject.GetComponent<FadeLabelView>();
+            fadeLabel.Show(itemImage.rectTransform);
+            DOVirtual.DelayedCall(5f, () => Destroy(fadeLabel.gameObject));  //TODO return to pool :)
         }
 
         public void SpawnParticles()

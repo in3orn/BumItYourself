@@ -1,4 +1,5 @@
-﻿using Krk.Bum.View.Buttons;
+﻿using Krk.Bum.View.Actors;
+using Krk.Bum.View.Buttons;
 using Krk.Bum.View.Model;
 using Krk.Bum.View.Street;
 using UnityEngine;
@@ -38,7 +39,7 @@ namespace Krk.Bum.View.Context
 
         public BlocksControllerConfig BlocksControllerConfig;
 
-        public BlocksController blocksController;
+        private BlocksController blocksController;
 
         public BlocksController BlocksController
         {
@@ -46,6 +47,45 @@ namespace Krk.Bum.View.Context
             {
                 return blocksController ?? (blocksController =
                     new BlocksController(BlocksControllerConfig));
+            }
+        }
+
+        public ThoughtsProviderConfig StartThoughtsProviderConfig;
+
+        private ThoughtsProvider startThoughtsProvider;
+
+        public ThoughtsProvider StartThoughtsProvider
+        {
+            get
+            {
+                return startThoughtsProvider ?? (startThoughtsProvider =
+                    new ThoughtsProvider(StartThoughtsProviderConfig));
+            }
+        }
+
+        public ThoughtsProviderConfig CollectionThoughtsProviderConfig;
+
+        private ThoughtsProvider collectionThoughtsProvider;
+
+        public ThoughtsProvider CollectionThoughtsProvider
+        {
+            get
+            {
+                return collectionThoughtsProvider ?? (collectionThoughtsProvider =
+                    new ThoughtsProvider(CollectionThoughtsProviderConfig));
+            }
+        }
+
+        public ThoughtsProviderConfig NotificationThoughtsProviderConfig;
+
+        private ThoughtsProvider notificationThoughtsProvider;
+
+        public ThoughtsProvider NotificationThoughtsProvider
+        {
+            get
+            {
+                return notificationThoughtsProvider ?? (notificationThoughtsProvider =
+                    new ThoughtsProvider(NotificationThoughtsProviderConfig));
             }
         }
     }

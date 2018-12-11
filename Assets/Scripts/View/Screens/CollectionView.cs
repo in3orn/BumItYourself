@@ -18,7 +18,7 @@ namespace Krk.Bum.View.Screens
         private TextMeshProUGUI nameLabel = null;
 
         [SerializeField]
-        private ItemButton itemButton = null;
+        private CollectionItemButton itemButton = null;
 
         [SerializeField]
         private RectTransform header = null;
@@ -39,14 +39,14 @@ namespace Krk.Bum.View.Screens
         private bool expanded;
 
 
-        private readonly List<ItemButton> itemButtons;
+        private readonly List<CollectionItemButton> itemButtons;
 
-        public List<ItemButton> ItemButtons { get { return itemButtons; } }
+        public List<CollectionItemButton> ItemButtons { get { return itemButtons; } }
 
 
         public CollectionView()
         {
-            itemButtons = new List<ItemButton>();
+            itemButtons = new List<CollectionItemButton>();
         }
 
         private void OnEnable()
@@ -80,7 +80,7 @@ namespace Krk.Bum.View.Screens
             for (int i = 0; i < items.Length; i++)
             {
                 var gameObject = Instantiate(itemButton, itemsContent);
-                var button = gameObject.GetComponent<ItemButton>();
+                var button = gameObject.GetComponent<CollectionItemButton>();
                 button.Init(items[i]);
                 itemButtons.Add(button);
             }

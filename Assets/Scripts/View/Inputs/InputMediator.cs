@@ -20,6 +20,9 @@ namespace Krk.Bum.View.Inputs
         [SerializeField]
         private StoreMediator storeMediator = null;
 
+        [SerializeField]
+        private CollectionMediator collectionMediator = null;
+
 
         private PlayerController playerController;
 
@@ -60,10 +63,10 @@ namespace Krk.Bum.View.Inputs
 
         private void HandleHoldDown(Vector2 position)
         {
-            var trash = GetItem(position);
-            if (trash != null)
+            var item = GetItem(position);
+            if (item != null)
             {
-                playerController.TargetPosition = trash.Position;
+                playerController.TargetPosition = item.Position;
             }
             else
             {
@@ -87,6 +90,12 @@ namespace Krk.Bum.View.Inputs
                 if (storeView != null)
                 {
                     return storeMediator.GetControllerFor(storeView);
+                }
+
+                var partView = hit.collider.GetComponent<PartView>();
+                if (partView != null)
+                {
+                    return collectionMediator.GetControllerFor(partView);
                 }
 
             }

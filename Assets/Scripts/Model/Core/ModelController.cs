@@ -36,6 +36,13 @@ namespace Krk.Bum.Model.Core
             get { return modelData.ItemsSold; }
         }
 
+        public int ItemsCreated
+        {
+            get { return modelData.ItemsCreated; }
+        }
+
+        public bool IsAnyCollectionSpawned { get; set; }
+
 
         public ModelController(ModelControllerConfig config, ModelData modelData,
             ModelLoader modelLoader, CollectionLoader collectionLoader,
@@ -258,6 +265,9 @@ namespace Krk.Bum.Model.Core
             item.TotalCount++;
             itemLoader.Save(item);
 
+            modelData.ItemsCreated++;
+            modelLoader.Save(modelData);
+
             foreach (var requiredPart in item.RequiredParts)
             {
                 var part = GetPart(requiredPart.PartId);
@@ -308,10 +318,11 @@ namespace Krk.Bum.Model.Core
             return part.Count < config.MaxResourceCount;
         }
 
-        public void CollectPart(PartData part, int value)
+        public void CollectPart(PartData collected)
         {
+            var part = GetPart(collected.Id);
             var prevCount = part.Count;
-            part.Count += value;
+            part.Count += collected.Count;
             if (part.Count > config.MaxResourceCount) part.Count = config.MaxResourceCount;
 
             if (part.Count != prevCount)
@@ -330,6 +341,15 @@ namespace Krk.Bum.Model.Core
                 count += part.Count;
             }
             return count;
+        }
+
+
+        public void CollectAllParts(int value)
+        {
+            foreach (var part in modelData.Parts)
+            {
+                part.Count += value;
+            }
         }
     }
 }
