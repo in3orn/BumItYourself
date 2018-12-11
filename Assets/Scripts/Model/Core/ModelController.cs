@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Krk.Bum.Model.Utils;
 using UnityEngine;
 using UnityEngine.Events;

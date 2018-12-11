@@ -7,11 +7,8 @@ namespace Krk.Bum.Model.Context
 {
     public class ModelContext : MonoBehaviour
     {
-        public ModelConfig ModelConfig;
-
         public ModelControllerConfig ModelControllerConfig;
-
-
+        
         private ModelController modelController;
 
         public ModelController ModelController
@@ -23,6 +20,8 @@ namespace Krk.Bum.Model.Context
                   ModelLoader, CollectionLoader, ItemLoader, PartLoader));
             }
         }
+
+        public ModelConfig ModelConfig;
 
         private ModelData modelData;
 
@@ -74,6 +73,46 @@ namespace Krk.Bum.Model.Context
             get
             {
                 return collectionController ?? (collectionController = new CollectionController(ModelController));
+            }
+        }
+
+
+        public PlayerLookConfig PlayerLookConfig;
+
+        private PlayerLookData playerLookData;
+
+        public PlayerLookData PlayerLookData
+        {
+            get { return playerLookData ?? (playerLookData = PlayerLookLoader.Load(PlayerLookConfig)); }
+        }
+
+        private PlayerLookController playerLookController;
+
+        public PlayerLookController PlayerLookController
+        {
+            get
+            {
+                return playerLookController ?? (playerLookController = new PlayerLookController());
+            }
+        }
+
+        private PlayerLookLoader playerLookLoader;
+
+        public PlayerLookLoader PlayerLookLoader
+        {
+            get
+            {
+                return playerLookLoader ?? (playerLookLoader = new PlayerLookLoader(PlayerBodyLoader));
+            }
+        }
+
+        private PlayerBodyLoader playerBodyLoader;
+
+        public PlayerBodyLoader PlayerBodyLoader
+        {
+            get
+            {
+                return playerBodyLoader ?? (playerBodyLoader = new PlayerBodyLoader(PrefsWrapper));
             }
         }
     }
