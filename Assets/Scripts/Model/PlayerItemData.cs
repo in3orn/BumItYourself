@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 
 namespace Krk.Bum.Model
 {
@@ -8,8 +7,10 @@ namespace Krk.Bum.Model
     {
         public string Id;
         public string Name;
+
         public float Price;
-        public Sprite Image;
+
+        public ImageData Image;
 
         public bool Unlocked;
     }

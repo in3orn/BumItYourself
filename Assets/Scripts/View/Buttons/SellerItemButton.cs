@@ -30,8 +30,12 @@ namespace Krk.Bum.View.Buttons
         public void Init(PlayerItemData data)
         {
             Item = data;
+
             UpdateAppearance();
-            image.sprite = data.Image;
+
+            image.sprite = data.Image.Image;
+            image.color = data.Image.Color;
+            image.rectTransform.rotation = Quaternion.Euler(0f, 0f, data.Image.Rotation);
         }
 
         private void OnEnable()

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Krk.Bum.Model.Utils;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,6 +11,7 @@ namespace Krk.Bum.Model.Core
         public UnityAction<PartData> OnPartCollected;
         public UnityAction<ItemData> OnItemCreated;
         public UnityAction<ItemData> OnItemSold;
+        public UnityAction<int> OnCashDecreased;
 
 
         private readonly ModelControllerConfig config;
@@ -356,6 +356,8 @@ namespace Krk.Bum.Model.Core
         {
             modelData.Cash -= Mathf.RoundToInt(price); //TODO all prices should be float??
             modelLoader.Save(modelData);
+
+            if (OnCashDecreased != null) OnCashDecreased(modelData.Cash);
         }
     }
 }

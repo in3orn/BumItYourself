@@ -8,7 +8,9 @@ namespace Krk.Bum.Model
     {
         public string Id;
         public string Name;
+
         public float Price;
-        public Sprite Image;
+
+        public ImageData Image;
     }
 }

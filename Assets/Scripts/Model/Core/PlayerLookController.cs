@@ -6,7 +6,7 @@ namespace Krk.Bum.Model.Core
 {
     public class PlayerLookController
     {
-        public UnityAction<string> OnBodyChanged;
+        public UnityAction<PlayerItemData> OnBodyChanged;
 
 
         private readonly PlayerLookData playerLookData;
@@ -30,19 +30,20 @@ namespace Krk.Bum.Model.Core
             this.playerItemLoader = playerItemLoader;
         }
 
-        public void UseItem(PlayerItemData item)
-        {
-            playerLookData.CurrentBodyId = item.Id;
-            playerLookLoader.Save(playerLookData);
-        }
-
         public void BuyItem(PlayerItemData item)
         {
             item.Unlocked = true;
             playerItemLoader.Save(item);
 
+            UseItem(item);
+        }
+
+        public void UseItem(PlayerItemData item)
+        {
             playerLookData.CurrentBodyId = item.Id;
             playerLookLoader.Save(playerLookData);
+
+            if (OnBodyChanged != null) OnBodyChanged(item);
         }
     }
 }

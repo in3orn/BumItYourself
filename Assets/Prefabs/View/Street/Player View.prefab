@@ -805,13 +805,14 @@ GameObject:
   - component: {fileID: 5335125783099433916}
   - component: {fileID: 9162947289404400578}
   - component: {fileID: 5335125783099433915}
+  - component: {fileID: 8593902197759500680}
   - component: {fileID: 5335125783099433913}
   - component: {fileID: 5335125783099433914}
   - component: {fileID: 928825729537475206}
   - component: {fileID: 6809831998694739269}
   - component: {fileID: 450735378975963330}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -866,6 +867,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 9162947289404400578}
+--- !u!114 &8593902197759500680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5335125783099433917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc56ae5fb2348b4bb3e63f4406de227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelContext: {fileID: 0}
+  bodyRenderer: {fileID: 5335125783817675440}
 --- !u!114 &5335125783099433913
 MonoBehaviour:
   m_ObjectHideFlags: 0

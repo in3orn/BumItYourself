@@ -13,15 +13,108 @@ MonoBehaviour:
   m_Name: Player Look
   m_EditorClassIdentifier: 
   Bodies:
-  - Id: player-body-suit-01
-    Name: Elegant suit
-    Price: 5
-    Image: {fileID: 21300000, guid: 7d64f2488d3e5d64c84df4317e68ee2b, type: 3}
-  - Id: player-body-suit-02
-    Name: Elegant suit
+  - Id: player-body-small-star-blue
+    Name: Small Star Blue
     Price: 10
-    Image: {fileID: 21300000, guid: 9778c04c596e4c34d806344b65bfe784, type: 3}
-  - Id: player-body-suit-03
-    Name: Elegant suit
-    Price: 15
-    Image: {fileID: 21300000, guid: a4b2c1943a87eb449963837059c024ab, type: 3}
+    Image:
+      Image: {fileID: 21300000, guid: f690b0b9b2ef63940af4c605240173d3, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-small-star-brown
+    Name: Small Star Brown
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: 829569f9a7ca5e4448bd5b5eddbc749b, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-small-star-red
+    Name: Small Star Red
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: 50b1b5a1f1f2690419b231518f1e7de8, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-ananas-stripes-black
+    Name: Ananas Stripped Ortalion Black
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 57040cf76b58c104aa1b43304d3bcae9, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-ananas-stripes-purple
+    Name: Ananas Stripped Ortalion Purple
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 838e61f12830d1e4b9ad519382fe2bd7, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-ananas-stripes-green
+    Name: Ananas Stripped Ortalion Green
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 033048e1fd0fd6743b10bd3c6a87f16d, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-ananas-text-white
+    Name: Ananas Sweatshirt White
+    Price: 99
+    Image:
+      Image: {fileID: 21300000, guid: 6ced11de264a5c1479db798d28a92870, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-ananas-text-yellow
+    Name: Ananas Sweatshirt Yellow
+    Price: 99
+    Image:
+      Image: {fileID: 21300000, guid: 8425d94da32d2804cb2429ddf3e46b79, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-ananas-text-black
+    Name: Ananas Sweatshirt Black
+    Price: 99
+    Image:
+      Image: {fileID: 21300000, guid: 43a78c8e5f9df0f498b0f583b84aeb4f, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-suit-elegant-blue
+    Name: Elegant Suit Blue
+    Price: 499
+    Image:
+      Image: {fileID: 21300000, guid: 1915e8f70c245ac4dbae9ef3f9d50a17, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-suit-elegant-brown
+    Name: Elegant Suit Brown
+    Price: 499
+    Image:
+      Image: {fileID: 21300000, guid: 871b647839a18cf4c9e0e4be28880f10, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-suit-elegant-grey
+    Name: Elegant Suit Grey
+    Price: 499
+    Image:
+      Image: {fileID: 21300000, guid: 1cfa2047e59db9c45979c5dc566d65e3, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-suit-extravagant-orange
+    Name: Evtravagant Suit Dark Grey
+    Price: 999
+    Image:
+      Image: {fileID: 21300000, guid: 9451a151154197b4cb893191346e22c8, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-suit-extravagant-pink
+    Name: Evtravagant Suit Light Grey
+    Price: 999
+    Image:
+      Image: {fileID: 21300000, guid: 6cc8b82442bbe99439f9d132bff2d9fa, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-suit-extravagant-purple
+    Name: Evtravagant Suit Deep Blue
+    Price: 999
+    Image:
+      Image: {fileID: 21300000, guid: 80506e19cc86e784e88ed89ae58b422e, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
