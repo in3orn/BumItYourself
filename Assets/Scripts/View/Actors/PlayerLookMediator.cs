@@ -22,6 +22,13 @@ namespace Krk.Bum.View.Actors
             playerLookController = modelContext.PlayerLookController;
         }
 
+        private void Start()
+        {
+            var bodyId = playerLookController.CurrentBodyId;
+            var bodyData = playerLookController.GetItem(bodyId);
+            HandleBodyChanged(bodyData);
+        }
+
         private void OnEnable()
         {
             playerLookController.OnBodyChanged += HandleBodyChanged;

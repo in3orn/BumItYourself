@@ -66,8 +66,16 @@ namespace Krk.Bum.View.Street
 
         private BlockView GetRandomTemplate()
         {
-            var index = Random.Range(0, config.Templates.Length);
-            return config.Templates[index];
+            if (config.TestTemplates != null && config.TestTemplates.Length > 0)
+            {
+                var index = Random.Range(0, config.TestTemplates.Length);
+                return config.TestTemplates[index];
+            }
+            else
+            {
+                var index = Random.Range(0, config.Templates.Length);
+                return config.Templates[index];
+            }
         }
     }
 }

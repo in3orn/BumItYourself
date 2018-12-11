@@ -40,7 +40,10 @@ namespace Krk.Bum.View.Screens
             if (shown)
             {
                 Unsubscribe();
+
+                playerLookController.UpdateItemsState(playerLookController.Bodies, modelController.Cash);
                 screenView.Init(playerLookController.Bodies);
+
                 Subscribe();
             }
             base.SetShown(shown);
@@ -51,6 +54,7 @@ namespace Krk.Bum.View.Screens
             base.OnEnable();
 
             backListener.Subscribe(screenView.BackButton);
+
             Subscribe();
         }
 
@@ -61,6 +65,7 @@ namespace Krk.Bum.View.Screens
             if (viewContext != null && screenView != null)
             {
                 backListener.Unsubscribe(screenView.BackButton);
+
                 Unsubscribe();
             }
         }
@@ -84,7 +89,7 @@ namespace Krk.Bum.View.Screens
         private void HandleCollectionButtonClicked(SellerItemButton button)
         {
             var item = button.Item;
-            if(item.Unlocked)
+            if (item.Unlocked)
             {
                 playerLookController.UseItem(item);
             }
@@ -94,7 +99,8 @@ namespace Krk.Bum.View.Screens
                 modelController.DecreaseMoney(item.Price);
             }
 
-            button.UpdateAppearance();
+            playerLookController.UpdateItemsState(playerLookController.Bodies, modelController.Cash);
+            screenView.UpdateAppearance();
         }
     }
 }

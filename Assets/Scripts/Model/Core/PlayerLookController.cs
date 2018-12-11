@@ -28,6 +28,22 @@ namespace Krk.Bum.Model.Core
             this.playerLookData = playerLookData;
             this.playerLookLoader = playerLookLoader;
             this.playerItemLoader = playerItemLoader;
+
+            var currentItem = GetItem(CurrentBodyId);
+            currentItem.Equipped = true;
+        }
+
+        public PlayerItemData GetItem(string id)
+        {
+            foreach(var item in Bodies)
+            {
+                if(id.Equals(item.Id))
+                {
+                    return item;
+                }
+            }
+
+            return null;
         }
 
         public void BuyItem(PlayerItemData item)
@@ -40,10 +56,29 @@ namespace Krk.Bum.Model.Core
 
         public void UseItem(PlayerItemData item)
         {
+            ClearItems(playerLookData.Bodies);
+            item.Equipped = true;
+
             playerLookData.CurrentBodyId = item.Id;
             playerLookLoader.Save(playerLookData);
 
             if (OnBodyChanged != null) OnBodyChanged(item);
+        }
+
+        private void ClearItems(PlayerItemData[] items)
+        {
+            foreach (var item in items)
+            {
+                item.Equipped = false;
+            }
+        }
+
+        public void UpdateItemsState(PlayerItemData[] items, int cash)
+        {
+            foreach (var item in items)
+            {
+                item.CanPurchase = item.Price <= cash;
+            }
         }
     }
 }

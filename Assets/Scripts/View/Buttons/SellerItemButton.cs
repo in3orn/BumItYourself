@@ -12,7 +12,7 @@ namespace Krk.Bum.View.Buttons
 
 
         [SerializeField]
-        private StoreItemButtonConfig config = null;
+        private SellerItemButtonConfig config = null;
 
         [SerializeField]
         private Button button = null;
@@ -21,7 +21,10 @@ namespace Krk.Bum.View.Buttons
         private Image image = null;
 
         [SerializeField]
-        private TextMeshProUGUI count = null;
+        private Image background = null;
+
+        [SerializeField]
+        private TextMeshProUGUI price = null;
 
 
         public PlayerItemData Item { get; private set; }
@@ -58,11 +61,30 @@ namespace Krk.Bum.View.Buttons
 
         public void UpdateAppearance()
         {
-            //TODO
-            //var active = Item.Count > 0;
-            //count.text = Item.Count.ToString();
-            //count.color = active ? config.DefaultColor : config.LockedColor;
-            //button.interactable = active;
+            if(Item.Equipped)
+            {
+                price.text = "use";
+                background.color = config.EquippedColor;
+                button.interactable = true;
+            }
+            else if(Item.Unlocked)
+            {
+                price.text = "use";
+                background.color = config.PurchasedColor;
+                button.interactable = true;
+            }
+            else if(Item.CanPurchase)
+            {
+                price.text = string.Format(config.PriceFormat, Item.Price);
+                background.color = config.DefaultColor;
+                button.interactable = true;
+            }
+            else
+            {
+                price.text = string.Format(config.PriceFormat, Item.Price);
+                background.color = config.LockedColor;
+                button.interactable = false;
+            }
         }
     }
 }

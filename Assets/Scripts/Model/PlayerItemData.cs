@@ -13,5 +13,7 @@ namespace Krk.Bum.Model
         public ImageData Image;
 
         public bool Unlocked;
+        public bool Equipped;
+        public bool CanPurchase;
     }
 }
