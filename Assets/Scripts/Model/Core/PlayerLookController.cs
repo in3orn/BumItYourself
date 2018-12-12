@@ -40,7 +40,7 @@ namespace Krk.Bum.Model.Core
 
             if (CurrentBagId.Length > 0)
             {
-                var currentItem = GetBody(CurrentBagId);
+                var currentItem = GetBag(CurrentBagId);
                 currentItem.Equipped = true;
             }
         }
@@ -94,7 +94,8 @@ namespace Krk.Bum.Model.Core
             if (Contains(playerLookData.Bodies, item))
             {
                 ClearItems(playerLookData.Bodies);
-                
+                item.Equipped = true;
+
                 playerLookData.CurrentBodyId = item.Id;
                 playerLookLoader.Save(playerLookData);
 
@@ -104,6 +105,7 @@ namespace Krk.Bum.Model.Core
             if (Contains(playerLookData.Bags, item))
             {
                 ClearItems(playerLookData.Bags);
+                item.Equipped = true;
 
                 playerLookData.CurrentBagId = item.Id;
                 playerLookLoader.Save(playerLookData);
