@@ -29,8 +29,11 @@ namespace Krk.Bum.Model.Core
             this.playerLookLoader = playerLookLoader;
             this.playerItemLoader = playerItemLoader;
 
-            var currentItem = GetItem(CurrentBodyId);
-            currentItem.Equipped = true;
+            if (CurrentBodyId.Length > 0)
+            {
+                var currentItem = GetItem(CurrentBodyId);
+                currentItem.Equipped = true;
+            }
         }
 
         public PlayerItemData GetItem(string id)
