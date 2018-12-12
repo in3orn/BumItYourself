@@ -13,5 +13,7 @@ namespace Krk.Bum.Model
         public int Count;
 
         public bool IsCollection;
+
+        public float SpawnRatio;
     }
 }
