@@ -15,8 +15,9 @@ MonoBehaviour:
   Id: winter
   Name: Winter Decorations
   Image:
-    Image: {fileID: 0}
-    Color: {r: 0, g: 0.5467467, b: 0.6226415, a: 1}
+    Image: {fileID: 21300000, guid: 508d3a533748e9541a58892ee634e315, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
     Rotation: 0
+  Price: 99
   Items:
   - {fileID: 11400000, guid: 2fedc892e0372594f8315c3d5e175310, type: 2}

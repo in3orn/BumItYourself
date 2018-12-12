@@ -82,7 +82,16 @@ namespace Krk.Bum.View.Screens
         {
             foreach (var id in groupData.CollectionsIds)
             {
-                //sellerItems.Add();
+                var collection = modelController.GetCollection(id);
+                sellerItems.Add(new PlayerItemData()
+                {
+                    Id = collection.Id,
+                    Name = collection.Name,
+                    Image = collection.Image,
+                    Price = collection.Price,
+                    Unlocked = collection.Unlocked,
+                    Equipped = collection.Unlocked
+                });
             }
         }
 
@@ -136,15 +145,29 @@ namespace Krk.Bum.View.Screens
             var item = button.Item;
             if (item.Unlocked)
             {
-                playerLookController.UseItem(item);
+                var collection = modelController.GetCollection(item.Id);
+                if (collection == null)
+                {
+                    playerLookController.UseItem(item);
+                }
             }
             else if (modelController.Cash >= item.Price)
             {
-                playerLookController.BuyItem(item);
-                modelController.DecreaseMoney(item.Price);
+                var collection = modelController.GetCollection(item.Id);
+                if (collection != null)
+                {
+                    modelController.UnlockCollection(collection);
+                    modelController.DecreaseMoney(item.Price);
+                    item.Unlocked = true;
+                    item.Equipped = true;
+                }
+                else
+                {
+                    playerLookController.BuyItem(item);
+                    modelController.DecreaseMoney(item.Price);
+                }
             }
-
-            //TODO do this on view items
+            
             UpdateItemsState(modelController.Cash);
             screenView.UpdateAppearance();
         }

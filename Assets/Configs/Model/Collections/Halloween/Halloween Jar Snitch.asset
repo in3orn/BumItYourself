@@ -16,8 +16,8 @@ MonoBehaviour:
   Name: Jar Snitch
   Reward: 35
   Image:
-    Image: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-    Color: {r: 0.5377358, g: 0.12936096, b: 0.12936096, a: 1}
+    Image: {fileID: 21300000, guid: ea9fb211989e38346a17fc6ec4d44613, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
     Rotation: 0
   RequiredParts:
   - PartId: jar

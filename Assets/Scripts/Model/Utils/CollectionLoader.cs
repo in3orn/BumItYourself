@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Krk.Bum.Model.Utils
+﻿namespace Krk.Bum.Model.Utils
 {
     public class CollectionLoader
     {
@@ -38,6 +36,7 @@ namespace Krk.Bum.Model.Utils
                 Name = config.Name,
 
                 Image = config.Image,
+                Price = config.Price,
 
                 Unlocked = wrapper.GetBool(config.Id, UnlockedKey),
 
