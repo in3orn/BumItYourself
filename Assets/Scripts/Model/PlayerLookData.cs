@@ -6,7 +6,9 @@ namespace Krk.Bum.Model
     public class PlayerLookData
     {
         public string CurrentBodyId;
+        public string CurrentBagId;
 
         public PlayerItemData[] Bodies;
+        public PlayerItemData[] Bags;
     }
 }

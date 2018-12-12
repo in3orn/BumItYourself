@@ -13,6 +13,9 @@ namespace Krk.Bum.View.Actors
         [SerializeField]
         private SpriteRenderer bodyRenderer = null;
 
+        [SerializeField]
+        private SpriteRenderer bagRenderer = null;
+
 
         private PlayerLookController playerLookController;
 
@@ -27,14 +30,22 @@ namespace Krk.Bum.View.Actors
             var bodyId = playerLookController.CurrentBodyId;
             if (bodyId.Length > 0)
             {
-                var bodyData = playerLookController.GetItem(bodyId);
+                var bodyData = playerLookController.GetBody(bodyId);
                 HandleBodyChanged(bodyData);
+            }
+
+            var bagId = playerLookController.CurrentBagId;
+            if (bagId.Length > 0)
+            {
+                var bagData = playerLookController.GetBag(bagId);
+                HandleBagChanged(bagData);
             }
         }
 
         private void OnEnable()
         {
             playerLookController.OnBodyChanged += HandleBodyChanged;
+            playerLookController.OnBagChanged += HandleBagChanged;
         }
 
         private void OnDisable()
@@ -42,6 +53,7 @@ namespace Krk.Bum.View.Actors
             if (modelContext != null)
             {
                 playerLookController.OnBodyChanged -= HandleBodyChanged;
+                playerLookController.OnBagChanged -= HandleBagChanged;
             }
         }
 
@@ -50,6 +62,13 @@ namespace Krk.Bum.View.Actors
             bodyRenderer.sprite = bodyData.Image.Image;
             bodyRenderer.color = bodyData.Image.Color;
             bodyRenderer.transform.rotation = Quaternion.Euler(0f, 0f, bodyData.Image.Rotation);
+        }
+
+        private void HandleBagChanged(PlayerItemData bagData)
+        {
+            bagRenderer.sprite = bagData.Image.Image;
+            bagRenderer.color = bagData.Image.Color;
+            bagRenderer.transform.rotation = Quaternion.Euler(0f, 0f, bagData.Image.Rotation);
         }
     }
 }

@@ -19,9 +19,18 @@ MonoBehaviour:
     - player-body-suit-elegant-blue
     - player-body-suit-elegant-brown
     - player-body-suit-elegant-grey
+    BagsIds: []
   - Name: Extravagant Suits
     CollectionsIds: []
     BodiesIds:
     - player-body-suit-extravagant-orange
     - player-body-suit-extravagant-pink
     - player-body-suit-extravagant-purple
+    BagsIds: []
+  - Name: Elegant Cases
+    CollectionsIds: []
+    BodiesIds: []
+    BagsIds:
+    - player-bag-case-blue
+    - player-bag-case-brown
+    - player-bag-case-black

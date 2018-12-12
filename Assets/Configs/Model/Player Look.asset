@@ -118,3 +118,67 @@ MonoBehaviour:
       Image: {fileID: 21300000, guid: 80506e19cc86e784e88ed89ae58b422e, type: 3}
       Color: {r: 1, g: 1, b: 1, a: 1}
       Rotation: 0
+  Bags:
+  - Id: player-bag-eko-blue
+    Name: Eko Bag Blue
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: f6204d29300aff144ba727d19d64e8ae, type: 3}
+      Color: {r: 0.25663045, g: 0.5571861, b: 0.6886792, a: 1}
+      Rotation: 0
+  - Id: player-bag-eko-green
+    Name: Eko Bag Green
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: f6204d29300aff144ba727d19d64e8ae, type: 3}
+      Color: {r: 0.2880918, g: 0.735849, b: 0.30883107, a: 1}
+      Rotation: 0
+  - Id: player-bag-eko-orange
+    Name: Eko Bag Orange
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: f6204d29300aff144ba727d19d64e8ae, type: 3}
+      Color: {r: 0.8867924, g: 0.4981973, b: 0.17150229, a: 1}
+      Rotation: 0
+  - Id: player-bag-case-blue
+    Name: Elegant Case Blue
+    Price: 199
+    Image:
+      Image: {fileID: 21300000, guid: 1052544132760c5498de5813c9f9c922, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-bag-case-brown
+    Name: Elegant Case Brown
+    Price: 199
+    Image:
+      Image: {fileID: 21300000, guid: 987bf6d50cc55ff4fa329c4749e755e5, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-bag-case-black
+    Name: Elegant Case Black
+    Price: 199
+    Image:
+      Image: {fileID: 21300000, guid: 11a3f1666ca52454daa2a640c14dea5a, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-bag-shield
+    Name: America's Shield
+    Price: 4999
+    Image:
+      Image: {fileID: 21300000, guid: 3a986b13e58f31c488f826afa33debe4, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-bag-life-desk
+    Name: Bywatch's Swim Board
+    Price: 1999
+    Image:
+      Image: {fileID: 21300000, guid: 19d76952785b6c543b61458eec285583, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-bag-blade
+    Name: Illidan's Blade
+    Price: 4999
+    Image:
+      Image: {fileID: 21300000, guid: 2b534188464508340a0eede088fe3294, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0

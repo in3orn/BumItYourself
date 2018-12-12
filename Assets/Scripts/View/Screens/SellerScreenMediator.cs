@@ -75,6 +75,7 @@ namespace Krk.Bum.View.Screens
             {
                 AppendByCollectionItems(group);
                 AppendByBodyItems(group);
+                AppendByBagItems(group);
             }
         }
 
@@ -99,7 +100,15 @@ namespace Krk.Bum.View.Screens
         {
             foreach (var id in groupData.BodiesIds)
             {
-                sellerItems.Add(playerLookController.GetItem(id));
+                sellerItems.Add(playerLookController.GetBody(id));
+            }
+        }
+
+        private void AppendByBagItems(SellerGroupData groupData)
+        {
+            foreach (var id in groupData.BagsIds)
+            {
+                sellerItems.Add(playerLookController.GetBag(id));
             }
         }
 

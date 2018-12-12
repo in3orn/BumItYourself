@@ -6,5 +6,6 @@ namespace Krk.Bum.Model
     public class PlayerLookConfig : ScriptableObject
     {
         public PlayerItemConfig[] Bodies;
+        public PlayerItemConfig[] Bags;
     }
 }

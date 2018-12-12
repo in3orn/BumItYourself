@@ -19,3 +19,7 @@ MonoBehaviour:
     - player-body-small-star-blue
     - player-body-small-star-brown
     - player-body-small-star-red
+    BagsIds:
+    - player-bag-eko-blue
+    - player-bag-eko-green
+    - player-bag-eko-orange

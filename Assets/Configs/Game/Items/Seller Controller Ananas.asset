@@ -19,9 +19,18 @@ MonoBehaviour:
     - player-body-ananas-stripes-black
     - player-body-ananas-stripes-purple
     - player-body-ananas-stripes-green
+    BagsIds: []
   - Name: Sweatshirts
     CollectionsIds: []
     BodiesIds:
     - player-body-ananas-text-white
     - player-body-ananas-text-yellow
     - player-body-ananas-text-black
+    BagsIds: []
+  - Name: Bags
+    CollectionsIds: []
+    BodiesIds: []
+    BagsIds:
+    - player-bag-eko-blue
+    - player-bag-eko-green
+    - player-bag-eko-orange

@@ -19,3 +19,11 @@ MonoBehaviour:
     - halloween
     - winter
     BodiesIds: []
+    BagsIds: []
+  - Name: Misc
+    CollectionsIds: []
+    BodiesIds: []
+    BagsIds:
+    - player-bag-shield
+    - player-bag-life-desk
+    - player-bag-blade
