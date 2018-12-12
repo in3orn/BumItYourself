@@ -20,6 +20,7 @@ namespace Krk.Bum.View.Street
         private ModelController modelController;
         private BlocksController blocksController;
         private ViewStateController viewStateController;
+        private SellerViewController sellerViewController;
 
 
         private Dictionary<SellerView, IStreetItemController> stores;
@@ -32,6 +33,7 @@ namespace Krk.Bum.View.Street
             modelController = modelContext.ModelController;
             blocksController = viewContext.BlocksController;
             viewStateController = viewContext.ViewStateController;
+            sellerViewController = viewContext.SellerViewController;
         }
 
         private void OnEnable()
@@ -44,7 +46,7 @@ namespace Krk.Bum.View.Street
             var sellerView = blockView.GetComponentInChildren<SellerView>();
             if (sellerView != null)
             {
-                var sellerController = new SellerController()
+                var sellerController = new SellerController(sellerView.SellerControllerConfig)
                 {
                     Position = sellerView.transform.position
                 };
@@ -61,8 +63,9 @@ namespace Krk.Bum.View.Street
             //TODO
         }
 
-        private void HandleStoreOpened()
+        private void HandleStoreOpened(SellerControllerConfig sellerControllerConfig)
         {
+            sellerViewController.CurrentConfig = sellerControllerConfig;
             viewStateController.SetState(ViewStateEnum.Seller);
         }
 

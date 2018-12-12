@@ -88,5 +88,15 @@ namespace Krk.Bum.View.Context
                     new ThoughtsProvider(NotificationThoughtsProviderConfig));
             }
         }
+
+        private SellerViewController sellerViewController;
+
+        public SellerViewController SellerViewController
+        {
+            get
+            {
+                return sellerViewController ?? (sellerViewController = new SellerViewController());
+            }
+        }
     }
 }

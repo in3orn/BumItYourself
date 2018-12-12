@@ -3,6 +3,10 @@ using Krk.Bum.Common;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using Krk.Bum.View.Buttons;
+using Krk.Bum.View.Street;
+using System.Collections.Generic;
+using Krk.Bum.Model;
+using Krk.Bum.Game.Items;
 
 namespace Krk.Bum.View.Screens
 {
@@ -15,6 +19,7 @@ namespace Krk.Bum.View.Screens
         private SellerScreenView screenView = null;
 
 
+        private SellerViewController sellerViewController;
         private PlayerLookController playerLookController;
 
         private ModelController modelController;
@@ -22,9 +27,20 @@ namespace Krk.Bum.View.Screens
         private IButtonListener backListener;
 
 
+        private readonly List<PlayerItemData> sellerItems;
+
+
+        public SellerScreenMediator()
+        {
+            sellerItems = new List<PlayerItemData>();
+        }
+
+
         protected override void Awake()
         {
             base.Awake();
+
+            sellerViewController = viewContext.SellerViewController;
             playerLookController = modelContext.PlayerLookController;
             modelController = modelContext.ModelController;
             backListener = viewContext.BackButtonListener;
@@ -41,12 +57,41 @@ namespace Krk.Bum.View.Screens
             {
                 Unsubscribe();
 
-                playerLookController.UpdateItemsState(playerLookController.Bodies, modelController.Cash);
-                screenView.Init(playerLookController.Bodies);
+                InitSellerItems();
+                UpdateItemsState(modelController.Cash);
+                screenView.Init(sellerItems.ToArray());
 
                 Subscribe();
             }
+
             base.SetShown(shown);
+        }
+
+        private void InitSellerItems()
+        {
+            sellerItems.Clear();
+
+            foreach (var group in sellerViewController.CurrentConfig.Groups)
+            {
+                AppendByCollectionItems(group);
+                AppendByBodyItems(group);
+            }
+        }
+
+        private void AppendByCollectionItems(SellerGroupData groupData)
+        {
+            foreach (var id in groupData.CollectionsIds)
+            {
+                //sellerItems.Add();
+            }
+        }
+
+        private void AppendByBodyItems(SellerGroupData groupData)
+        {
+            foreach (var id in groupData.BodiesIds)
+            {
+                sellerItems.Add(playerLookController.GetItem(id));
+            }
         }
 
         protected override void OnEnable()
@@ -74,7 +119,7 @@ namespace Krk.Bum.View.Screens
         {
             foreach (var button in screenView.ItemButtons)
             {
-                button.OnButtonClicked += HandleCollectionButtonClicked;
+                button.OnButtonClicked += HandleSellerButtonClicked;
             }
         }
 
@@ -82,11 +127,11 @@ namespace Krk.Bum.View.Screens
         {
             foreach (var button in screenView.ItemButtons)
             {
-                button.OnButtonClicked -= HandleCollectionButtonClicked;
+                button.OnButtonClicked -= HandleSellerButtonClicked;
             }
         }
 
-        private void HandleCollectionButtonClicked(SellerItemButton button)
+        private void HandleSellerButtonClicked(SellerItemButton button)
         {
             var item = button.Item;
             if (item.Unlocked)
@@ -99,8 +144,17 @@ namespace Krk.Bum.View.Screens
                 modelController.DecreaseMoney(item.Price);
             }
 
-            playerLookController.UpdateItemsState(playerLookController.Bodies, modelController.Cash);
+            //TODO do this on view items
+            UpdateItemsState(modelController.Cash);
             screenView.UpdateAppearance();
+        }
+
+        public void UpdateItemsState(int cash)
+        {
+            foreach (var item in sellerItems)
+            {
+                item.CanPurchase = item.Price <= cash;
+            }
         }
     }
 }

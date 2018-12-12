@@ -75,13 +75,5 @@ namespace Krk.Bum.Model.Core
                 item.Equipped = false;
             }
         }
-
-        public void UpdateItemsState(PlayerItemData[] items, int cash)
-        {
-            foreach (var item in items)
-            {
-                item.CanPurchase = item.Price <= cash;
-            }
-        }
     }
 }
