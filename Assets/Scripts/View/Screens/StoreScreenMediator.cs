@@ -84,6 +84,14 @@ namespace Krk.Bum.View.Screens
 
         private void HandleSellAllClicked()
         {
+            foreach (var button in screenView.ItemButtons)
+            {
+                if (button.Item.Count > 0)
+                {
+                    screenView.ShowFadeLabel(button, button.Item.Count);
+                }
+            }
+
             modelController.SellAllItems();
 
             screenView.UpdateAppearance();
@@ -94,6 +102,7 @@ namespace Krk.Bum.View.Screens
             var item = button.Item;
             if (modelController.CanSellItem(item))
             {
+                screenView.ShowFadeLabel(button, 1);
                 modelController.SellItem(item);
             }
 

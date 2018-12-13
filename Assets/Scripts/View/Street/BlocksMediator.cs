@@ -1,6 +1,7 @@
 ﻿using Krk.Bum.Game.Actors;
 using Krk.Bum.Game.Context;
 using Krk.Bum.View.Context;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Krk.Bum.View.Street
@@ -25,6 +26,15 @@ namespace Krk.Bum.View.Street
         private PlayerController playerController;
 
 
+        private readonly List<BlockView> blocksToSpawn;
+
+
+        public BlocksMediator()
+        {
+            blocksToSpawn = new List<BlockView>();
+        }
+
+
         private void Awake()
         {
             blocksController = GetBlocksController();
@@ -38,6 +48,7 @@ namespace Krk.Bum.View.Street
             var data = blocksController.SpawnFirstBlock(view);
             view.SetPosition(data.Center);
         }
+
         protected virtual BlocksController GetBlocksController()
         {
             return viewContext.BlocksController;
@@ -66,8 +77,22 @@ namespace Krk.Bum.View.Street
 
         private BlockView GetRandomTemplate()
         {
-            var index = Random.Range(0, config.Templates.Length);
-            return config.Templates[index];
+            if (blocksToSpawn.Count <= 0)
+            {
+                if (config.TestTemplates != null && config.TestTemplates.Length > 0)
+                {
+                    blocksToSpawn.AddRange(config.TestTemplates);
+                }
+                else
+                {
+                    blocksToSpawn.AddRange(config.Templates);
+                }
+            }
+
+            var index = Random.Range(0, blocksToSpawn.Count);
+            var result = blocksToSpawn[index];
+            blocksToSpawn.RemoveAt(index);
+            return result;
         }
     }
 }

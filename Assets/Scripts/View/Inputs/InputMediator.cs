@@ -21,6 +21,9 @@ namespace Krk.Bum.View.Inputs
         private StoreMediator storeMediator = null;
 
         [SerializeField]
+        private SellerMediator sellerMediator = null;
+
+        [SerializeField]
         private CollectionMediator collectionMediator = null;
 
 
@@ -90,6 +93,12 @@ namespace Krk.Bum.View.Inputs
                 if (storeView != null)
                 {
                     return storeMediator.GetControllerFor(storeView);
+                }
+
+                var sellerView = hit.collider.GetComponent<SellerView>();
+                if (sellerView != null)
+                {
+                    return sellerMediator.GetControllerFor(sellerView);
                 }
 
                 var partView = hit.collider.GetComponent<PartView>();

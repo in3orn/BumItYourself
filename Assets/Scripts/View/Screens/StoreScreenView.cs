@@ -1,5 +1,7 @@
-﻿using Krk.Bum.Model;
+﻿using DG.Tweening;
+using Krk.Bum.Model;
 using Krk.Bum.View.Buttons;
+using Krk.Bum.View.Elements;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +20,9 @@ namespace Krk.Bum.View.Screens
 
         [SerializeField]
         private RectTransform itemsContent = null;
+
+        [SerializeField]
+        private FadeLabelView fadeLabelTemplate = null;
 
 
         private readonly List<StoreItemButton> itemButtons;
@@ -69,10 +74,23 @@ namespace Krk.Bum.View.Screens
 
         public void UpdateAppearance()
         {
-            foreach(var button in ItemButtons)
+            foreach (var button in ItemButtons)
             {
                 button.UpdateAppearance();
             }
+        }
+
+        public void ShowFadeLabel(StoreItemButton button, int count)
+        {
+            SpawnFadeLabel(button.GetComponent<RectTransform>(), button.Item.Reward * count);
+        }
+
+        private void SpawnFadeLabel(RectTransform parent, float value)
+        {
+            var gameObject = Instantiate(fadeLabelTemplate, parent);
+            var fadeLabel = gameObject.GetComponent<FadeLabelView>();
+            fadeLabel.Show(parent, Mathf.RoundToInt(value));
+            DOVirtual.DelayedCall(5f, () => Destroy(fadeLabel.gameObject));  //TODO return to pool :)
         }
     }
 }

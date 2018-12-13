@@ -56,7 +56,7 @@ namespace Krk.Bum.View.Screens
         private void HandleTestButtonClicked()
         {
             GetRandomLoot();
-            viewStateController.SetState(Model.ViewStateEnum.Summary);
+            viewStateController.SetState(Model.ViewStateEnum.Seller);
         }
 
         private void GetRandomLoot() //TODO test one

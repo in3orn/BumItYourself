@@ -27,10 +27,11 @@ namespace Krk.Bum.View.Elements
             fadeColors.TargetColor = label.color;
         }
 
-        public void Show(RectTransform rectTransform)
+        public void Show(RectTransform rectTransform, int value = 1)
         {
             label.rectTransform.position = rectTransform.position;
             label.rectTransform.DOAnchorPos(config.Move);
+            label.text = string.Format(config.Format, value);
 
             label.DOFade(config.Fade, fadeColors);
         }

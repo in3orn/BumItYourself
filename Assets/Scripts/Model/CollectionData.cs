@@ -13,8 +13,10 @@ namespace Krk.Bum.Model
 
         public ImageData Image;
 
-        public ItemData[] Items;
+        public int Price;
 
         public bool Unlocked;
+
+        public ItemData[] Items;
     }
 }

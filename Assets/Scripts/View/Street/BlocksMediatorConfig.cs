@@ -8,5 +8,7 @@ namespace Krk.Bum.View.Street
         public BlockView FirstTemplate;
 
         public BlockView[] Templates;
+
+        public BlockView[] TestTemplates;
     }
 }

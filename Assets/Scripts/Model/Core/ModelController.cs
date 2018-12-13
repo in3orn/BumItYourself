@@ -11,6 +11,7 @@ namespace Krk.Bum.Model.Core
         public UnityAction<PartData> OnPartCollected;
         public UnityAction<ItemData> OnItemCreated;
         public UnityAction<ItemData> OnItemSold;
+        public UnityAction<int> OnCashDecreased;
 
 
         private readonly ModelControllerConfig config;
@@ -54,7 +55,47 @@ namespace Krk.Bum.Model.Core
             this.modelLoader = modelLoader;
             this.itemLoader = itemLoader;
             this.partLoader = partLoader;
+            
+            InitSpawnRatios();
         }
+
+        private void ClearSpawnRatios()
+        {
+            foreach(var part in modelData.Parts)
+            {
+                part.SpawnRatio = 0f;
+            }
+        }
+
+        private void InitSpawnRatios()
+        {
+            ClearSpawnRatios();
+
+            foreach (var collection in modelData.Collections)
+            {
+                InitSpawnRatios(collection);
+            }
+        }
+
+        private void InitSpawnRatios(CollectionData collection)
+        {
+            if (!collection.Unlocked) return;
+
+            foreach (var item in collection.Items)
+            {
+                InitSpawnRatios(item);
+            }
+        }
+
+        private void InitSpawnRatios(ItemData item)
+        {
+            foreach(var resource in item.RequiredParts)
+            {
+                var part = GetPart(resource.PartId);
+                part.SpawnRatio += resource.RequiredCount;
+            }
+        }
+
 
         public bool IsAnyCollectionUnlocked()
         {
@@ -86,6 +127,8 @@ namespace Krk.Bum.Model.Core
             collection.Unlocked = true;
             collectionLoader.Save(collection);
 
+            InitSpawnRatios();
+
             if (OnCollectionUnlocked != null) OnCollectionUnlocked(collection);
         }
 
@@ -103,7 +146,6 @@ namespace Krk.Bum.Model.Core
 
             return result;
         }
-
 
         public bool HasPrevItem(string itemId)
         {
@@ -350,6 +392,14 @@ namespace Krk.Bum.Model.Core
             {
                 part.Count += value;
             }
+        }
+
+        public void DecreaseMoney(float price)
+        {
+            modelData.Cash -= Mathf.RoundToInt(price); //TODO all prices should be float??
+            modelLoader.Save(modelData);
+
+            if (OnCashDecreased != null) OnCashDecreased(modelData.Cash);
         }
     }
 }

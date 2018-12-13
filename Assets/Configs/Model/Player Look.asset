@@ -1,0 +1,418 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c1206a047a0a3c488ae49c5de924fed, type: 3}
+  m_Name: Player Look
+  m_EditorClassIdentifier: 
+  Bodies:
+  - Id: player-body-small-star-blue
+    Name: Small Star Blue
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: f690b0b9b2ef63940af4c605240173d3, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-small-star-brown
+    Name: Small Star Brown
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: 829569f9a7ca5e4448bd5b5eddbc749b, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-small-star-red
+    Name: Small Star Red
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: 50b1b5a1f1f2690419b231518f1e7de8, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-ananas-stripes-black
+    Name: Ananas Stripped Ortalion Black
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 57040cf76b58c104aa1b43304d3bcae9, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-ananas-stripes-purple
+    Name: Ananas Stripped Ortalion Purple
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 838e61f12830d1e4b9ad519382fe2bd7, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-ananas-stripes-green
+    Name: Ananas Stripped Ortalion Green
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 033048e1fd0fd6743b10bd3c6a87f16d, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-ananas-text-white
+    Name: Ananas Sweatshirt White
+    Price: 99
+    Image:
+      Image: {fileID: 21300000, guid: 6ced11de264a5c1479db798d28a92870, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-ananas-text-yellow
+    Name: Ananas Sweatshirt Yellow
+    Price: 99
+    Image:
+      Image: {fileID: 21300000, guid: 8425d94da32d2804cb2429ddf3e46b79, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-ananas-text-black
+    Name: Ananas Sweatshirt Black
+    Price: 99
+    Image:
+      Image: {fileID: 21300000, guid: 43a78c8e5f9df0f498b0f583b84aeb4f, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-suit-elegant-blue
+    Name: Elegant Suit Blue
+    Price: 499
+    Image:
+      Image: {fileID: 21300000, guid: 1915e8f70c245ac4dbae9ef3f9d50a17, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-suit-elegant-brown
+    Name: Elegant Suit Brown
+    Price: 499
+    Image:
+      Image: {fileID: 21300000, guid: 871b647839a18cf4c9e0e4be28880f10, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-suit-elegant-grey
+    Name: Elegant Suit Grey
+    Price: 499
+    Image:
+      Image: {fileID: 21300000, guid: 1cfa2047e59db9c45979c5dc566d65e3, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-suit-extravagant-orange
+    Name: Evtravagant Suit Dark Grey
+    Price: 999
+    Image:
+      Image: {fileID: 21300000, guid: 9451a151154197b4cb893191346e22c8, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-suit-extravagant-pink
+    Name: Evtravagant Suit Light Grey
+    Price: 999
+    Image:
+      Image: {fileID: 21300000, guid: 6cc8b82442bbe99439f9d132bff2d9fa, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-body-suit-extravagant-purple
+    Name: Evtravagant Suit Deep Blue
+    Price: 999
+    Image:
+      Image: {fileID: 21300000, guid: 80506e19cc86e784e88ed89ae58b422e, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  Bags:
+  - Id: player-bag-eko-blue
+    Name: Eko Bag Blue
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: f6204d29300aff144ba727d19d64e8ae, type: 3}
+      Color: {r: 0.25663045, g: 0.5571861, b: 0.6886792, a: 1}
+      Rotation: 0
+  - Id: player-bag-eko-green
+    Name: Eko Bag Green
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: f6204d29300aff144ba727d19d64e8ae, type: 3}
+      Color: {r: 0.2880918, g: 0.735849, b: 0.30883107, a: 1}
+      Rotation: 0
+  - Id: player-bag-eko-orange
+    Name: Eko Bag Orange
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: f6204d29300aff144ba727d19d64e8ae, type: 3}
+      Color: {r: 0.8867924, g: 0.4981973, b: 0.17150229, a: 1}
+      Rotation: 0
+  - Id: player-bag-case-blue
+    Name: Elegant Case Blue
+    Price: 199
+    Image:
+      Image: {fileID: 21300000, guid: 1052544132760c5498de5813c9f9c922, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-bag-case-brown
+    Name: Elegant Case Brown
+    Price: 199
+    Image:
+      Image: {fileID: 21300000, guid: 987bf6d50cc55ff4fa329c4749e755e5, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-bag-case-black
+    Name: Elegant Case Black
+    Price: 199
+    Image:
+      Image: {fileID: 21300000, guid: 11a3f1666ca52454daa2a640c14dea5a, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-bag-shield
+    Name: America's Shield
+    Price: 199
+    Image:
+      Image: {fileID: 21300000, guid: 3a986b13e58f31c488f826afa33debe4, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-bag-life-desk
+    Name: Bywatch's Swim Board
+    Price: 199
+    Image:
+      Image: {fileID: 21300000, guid: 19d76952785b6c543b61458eec285583, type: 3}
+      Color: {r: 1, g: 0.51687396, b: 0, a: 1}
+      Rotation: 0
+  - Id: player-bag-blade
+    Name: Illidan's Blade
+    Price: 199
+    Image:
+      Image: {fileID: 21300000, guid: 2b534188464508340a0eede088fe3294, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  Sticks:
+  - Id: player-stick-simple
+    Name: Simple Walking Stick
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: 306ebe7e96943aa4c8f30a68622270c6, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-stick-elegant
+    Name: Elegant Walking Stick
+    Price: 49
+    Image:
+      Image: {fileID: 21300000, guid: 08c518a9a1f6c854baeba89c1acc9a1f, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-stick-christmass
+    Name: Christmas Walking Stick
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 084c1c608441bfc438400c6c59535085, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-stick-baseball
+    Name: Baseball Bat
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: 4758fc452086bda4aace3b1c26cce47c, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-stick-hospital
+    Name: Hospital Walking Stick
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 7cb67e48ba4ba064198d2f269626fd9c, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-stick-skull
+    Name: Skull Walking Stick
+    Price: 49
+    Image:
+      Image: {fileID: 21300000, guid: 8659b8e988deeee4d88430edbe086eeb, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  Glasses:
+  - Id: player-glasses-monocle-black
+    Name: Monocle Black
+    Price: 99
+    Image:
+      Image: {fileID: 21300000, guid: dbf806d2d04354a408cbc6673623441c, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-monocle-gold
+    Name: Monocle Gold
+    Price: 99
+    Image:
+      Image: {fileID: 21300000, guid: adc80b52512f81f4a960665c86666561, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-monocle-silver
+    Name: Monocle Silver
+    Price: 99
+    Image:
+      Image: {fileID: 21300000, guid: cddcd35ddfd670e46bda58652febc69d, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-round-red
+    Name: Glasses Round Red
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: 9a19365ebba4e7046833a1455d34a763, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-round-orange
+    Name: Glasses Round Orange
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: 6cdd0599e2838e342a329c642d467382, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-round-blue
+    Name: Glasses Round Blue
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: cdd140efe7e9ef84b9a611cbdde7306a, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-winged-blue
+    Name: Glasses Winged Blue
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 9bf3186ab14e88f44a6f8cee7daef374, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-winged-green
+    Name: Glasses Winged Green
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 2f51f177438613043ac4d83bd5b85e65, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-winged-red
+    Name: Glasses Winged Red
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 51eb943947f80a04aa3b3eb50f4b210f, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-stars-green
+    Name: Glasses Stars Green
+    Price: 49
+    Image:
+      Image: {fileID: 21300000, guid: 8bcb02f87893e4d42b11e864a61cda19, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-stars-yellow
+    Name: Glasses Stars Yellow
+    Price: 49
+    Image:
+      Image: {fileID: 21300000, guid: 3bcf33fde856c1745a4494ffed93d1b6, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-stars-teal
+    Name: Glasses Stars Teal
+    Price: 49
+    Image:
+      Image: {fileID: 21300000, guid: e8b76bf452c40bc448ee5f2954c2a741, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  Beards:
+  - Id: player-beard-long-dark
+    Name: Beard Long Dark
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: e83477427d0869f45bfaf6c1d44f3465, type: 3}
+      Color: {r: 0.26415092, g: 0.22510974, b: 0.20558916, a: 1}
+      Rotation: 0
+  - Id: player-beard-long-brown
+    Name: Beard Long Brown
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: e83477427d0869f45bfaf6c1d44f3465, type: 3}
+      Color: {r: 0.4339623, g: 0.18502888, b: 0.063456744, a: 1}
+      Rotation: 0
+  - Id: player-beard-long-gray
+    Name: Beard Long Gray
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: e83477427d0869f45bfaf6c1d44f3465, type: 3}
+      Color: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+      Rotation: 0
+  - Id: player-beard-short-dark
+    Name: Beard Short Dark
+    Price: 20
+    Image:
+      Image: {fileID: 21300000, guid: 4ac70fb90ad3e9f489cffe04b3e3ba78, type: 3}
+      Color: {r: 0.26666668, g: 0.22745098, b: 0.20784314, a: 1}
+      Rotation: 0
+  - Id: player-beard-short-brown
+    Name: Beard Short Brown
+    Price: 20
+    Image:
+      Image: {fileID: 21300000, guid: 4ac70fb90ad3e9f489cffe04b3e3ba78, type: 3}
+      Color: {r: 0.43529412, g: 0.1882353, b: 0.06666667, a: 1}
+      Rotation: 0
+  - Id: player-beard-short-gray
+    Name: Beard Short Gray
+    Price: 20
+    Image:
+      Image: {fileID: 21300000, guid: 4ac70fb90ad3e9f489cffe04b3e3ba78, type: 3}
+      Color: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
+      Rotation: 0
+  - Id: player-beard-goat-dark
+    Name: Beard Goat Dark
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: d86c61b960757394eba6dee048a7ef52, type: 3}
+      Color: {r: 0.26666668, g: 0.22745098, b: 0.20784314, a: 1}
+      Rotation: 0
+  - Id: player-beard-goat-brown
+    Name: Beard Goat Brown
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: d86c61b960757394eba6dee048a7ef52, type: 3}
+      Color: {r: 0.43529412, g: 0.1882353, b: 0.06666667, a: 1}
+      Rotation: 0
+  - Id: player-beard-goat-gray
+    Name: Beard Goat Gray
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: d86c61b960757394eba6dee048a7ef52, type: 3}
+      Color: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
+      Rotation: 0
+  - Id: player-mustache-simple-dark
+    Name: Mustache Simple Dark
+    Price: 20
+    Image:
+      Image: {fileID: 21300000, guid: 02cea06c66fc6b04cb8119e4811098c4, type: 3}
+      Color: {r: 0.26666668, g: 0.22745098, b: 0.20784314, a: 1}
+      Rotation: 0
+  - Id: player-mustache-simple-brown
+    Name: Mustache Simple Brown
+    Price: 20
+    Image:
+      Image: {fileID: 21300000, guid: 02cea06c66fc6b04cb8119e4811098c4, type: 3}
+      Color: {r: 0.43529412, g: 0.1882353, b: 0.06666667, a: 1}
+      Rotation: 0
+  - Id: player-mustache-simple-gray
+    Name: Mustache Simple Gray
+    Price: 20
+    Image:
+      Image: {fileID: 21300000, guid: 02cea06c66fc6b04cb8119e4811098c4, type: 3}
+      Color: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
+      Rotation: 0
+  - Id: player-mustache-pilot-dark
+    Name: Mustache Pilot Dark
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: df1da88b2d7aba147970a54323da25c1, type: 3}
+      Color: {r: 0.26666668, g: 0.22745098, b: 0.20784314, a: 1}
+      Rotation: 0
+  - Id: player-mustache-pilot-brown
+    Name: Mustache Pilot Brown
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: df1da88b2d7aba147970a54323da25c1, type: 3}
+      Color: {r: 0.43529412, g: 0.1882353, b: 0.06666667, a: 1}
+      Rotation: 0
+  - Id: player-mustache-pilot-gray
+    Name: Mustache Pilot Gray
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: df1da88b2d7aba147970a54323da25c1, type: 3}
+      Color: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
+      Rotation: 0

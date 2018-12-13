@@ -367,7 +367,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3720343392560543334}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -401,6 +401,8 @@ MonoBehaviour:
   itemButton: {fileID: 4710628988969276813, guid: 9e18c654d96ad67429a10e49c1e10a44,
     type: 3}
   itemsContent: {fileID: 3720343391742525139}
+  fadeLabelTemplate: {fileID: 7023387490410902051, guid: 94d300d4cca4f9d44baf743ede12ed12,
+    type: 3}
 --- !u!114 &3720343392560543328
 MonoBehaviour:
   m_ObjectHideFlags: 0

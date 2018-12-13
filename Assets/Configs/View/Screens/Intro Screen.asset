@@ -15,12 +15,12 @@ MonoBehaviour:
   Subtitles:
   - Delay: 1
     Duration: 2
-    Text: Homeless...
+    Text: No perspective<br>for a job?
   - Delay: 0
     Duration: 2
-    Text: They have many things to tell...
+    Text: No problem!
   - Delay: 0
     Duration: 2
-    Text: What's your story?
+    Text: D.I.Y.
   FadeInDuration: 1
   FadeOutDuration: 1

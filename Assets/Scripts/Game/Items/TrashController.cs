@@ -34,12 +34,12 @@ namespace Krk.Bum.Game.Items
         {
             if (!modelController.IsAnyCollectionUnlocked())
             {
-                if(modelController.IsAnyCollectionSpawned)
+                if (modelController.IsAnyCollectionSpawned)
                 {
                     OnEmptyHit?.Invoke(this);
                     return;
                 }
-                
+
                 var collection = modelController.GetAllCollections()[0];
                 modelController.IsAnyCollectionSpawned = true;
 
@@ -71,30 +71,45 @@ namespace Krk.Bum.Game.Items
 
         private PartData CollectRandomPart()
         {
-            var parts = modelController.GetAllParts();
+            PartData spawned = null;
 
-            var count = 1;
-            var index = 0;
-            PartData part = null;
-
-            while (true)
+            var currentValue = 0f;
+            var spawnValue = Random.value * GetSpawnValue();
+            foreach(var part in modelController.GetAllParts())
             {
-                index = Random.Range(0, parts.Length);
-                part = parts[index];
-
                 if (modelController.CanCollectPart(part))
                 {
-                    break;
+                    currentValue += part.SpawnRatio;
+                    if(spawnValue < currentValue)
+                    {
+                        spawned = part;
+                        break;
+                    }
                 }
             }
 
             return new PartData
             {
-                Id = part.Id,
-                Name = part.Name,
-                Image = part.Image,
-                Count = count
+                Id = spawned.Id,
+                Name = spawned.Name,
+                Image = spawned.Image,
+                Count = 1
             };
+        }
+
+        private float GetSpawnValue()
+        {
+            var result = 0f;
+
+            foreach (var part in modelController.GetAllParts())
+            {
+                if (modelController.CanCollectPart(part))
+                {
+                    result += part.SpawnRatio;
+                }
+            }
+
+            return result;
         }
     }
 }

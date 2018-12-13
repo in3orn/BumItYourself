@@ -1,4 +1,5 @@
-﻿using Krk.Bum.Model;
+﻿using System;
+using Krk.Bum.Model;
 using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using UnityEngine;
@@ -24,13 +25,14 @@ namespace Krk.Bum.View.Screen_Canvas
 
         private void Start()
         {
-            if(modelController.ItemsSold > 0)
+            if (modelController.ItemsSold > 0)
                 display.Init(modelController.Cash);
         }
 
         private void OnEnable()
         {
             modelController.OnItemSold += HandleItemSold;
+            modelController.OnCashDecreased += HandleCashDecreased;
         }
 
         private void OnDisable()
@@ -38,10 +40,19 @@ namespace Krk.Bum.View.Screen_Canvas
             if (modelContext != null)
             {
                 modelController.OnItemSold -= HandleItemSold;
+                modelController.OnCashDecreased -= HandleCashDecreased;
             }
         }
 
         private void HandleItemSold(ItemData data)
+        {
+            if (display.Shown)
+                display.IncreaseValue(modelController.Cash);
+            else
+                display.Show(modelController.Cash);
+        }
+
+        private void HandleCashDecreased(int cash)
         {
             if (display.Shown)
                 display.IncreaseValue(modelController.Cash);

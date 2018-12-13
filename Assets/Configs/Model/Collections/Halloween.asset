@@ -15,9 +15,10 @@ MonoBehaviour:
   Id: halloween
   Name: Halloween Treats
   Image:
-    Image: {fileID: 0}
-    Color: {r: 0.14733891, g: 0.7264151, b: 0.1791314, a: 1}
+    Image: {fileID: 21300000, guid: 0d49ed23f2cf02d41be0f35864a959a2, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
     Rotation: 0
+  Price: 49
   Items:
   - {fileID: 11400000, guid: 55d91caae97b62b4b94a0860c88d3f57, type: 2}
   - {fileID: 11400000, guid: 3adfe22d8142144478110b2225dcebbe, type: 2}

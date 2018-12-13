@@ -16,8 +16,8 @@ MonoBehaviour:
   Name: Pumpkin Head
   Reward: 20
   Image:
-    Image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    Color: {r: 0.8867924, g: 0.4928718, b: 0, a: 1}
+    Image: {fileID: 21300000, guid: 5d1e7a7706b1ae14bbac0cd9e6588795, type: 3}
+    Color: {r: 0.9811321, g: 0.3812208, b: 0, a: 1}
     Rotation: 0
   RequiredParts:
   - PartId: pumpkin
