@@ -19,6 +19,9 @@ namespace Krk.Bum.View.Actors
         [SerializeField]
         private SpriteRenderer stickRenderer = null;
 
+        [SerializeField]
+        private SpriteRenderer glassesRenderer = null;
+
 
         private PlayerLookController playerLookController;
 
@@ -50,6 +53,13 @@ namespace Krk.Bum.View.Actors
                 var data = playerLookController.GetStick(stickId);
                 HandleStickChanged(data);
             }
+
+            var glassesId = playerLookController.CurrentGlassesId;
+            if (glassesId.Length > 0)
+            {
+                var data = playerLookController.GetGlasses(glassesId);
+                HandleGlassesChanged(data);
+            }
         }
 
         private void OnEnable()
@@ -57,6 +67,7 @@ namespace Krk.Bum.View.Actors
             playerLookController.OnBodyChanged += HandleBodyChanged;
             playerLookController.OnBagChanged += HandleBagChanged;
             playerLookController.OnStickChanged += HandleStickChanged;
+            playerLookController.OnGlassesChanged += HandleGlassesChanged;
         }
 
         private void OnDisable()
@@ -66,6 +77,7 @@ namespace Krk.Bum.View.Actors
                 playerLookController.OnBodyChanged -= HandleBodyChanged;
                 playerLookController.OnBagChanged -= HandleBagChanged;
                 playerLookController.OnStickChanged -= HandleStickChanged;
+                playerLookController.OnGlassesChanged -= HandleGlassesChanged;
             }
         }
 
@@ -82,6 +94,11 @@ namespace Krk.Bum.View.Actors
         private void HandleStickChanged(PlayerItemData data)
         {
             SetImage(stickRenderer, data.Image);
+        }
+
+        private void HandleGlassesChanged(PlayerItemData data)
+        {
+            SetImage(glassesRenderer, data.Image);
         }
 
         private void SetImage(SpriteRenderer renderer, ImageData data)

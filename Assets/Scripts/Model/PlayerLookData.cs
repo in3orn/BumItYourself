@@ -8,9 +8,11 @@ namespace Krk.Bum.Model
         public string CurrentBodyId;
         public string CurrentBagId;
         public string CurrentStickId;
+        public string CurrentGlassesId;
 
         public PlayerItemData[] Bodies;
         public PlayerItemData[] Bags;
         public PlayerItemData[] Sticks;
+        public PlayerItemData[] Glasses;
     }
 }

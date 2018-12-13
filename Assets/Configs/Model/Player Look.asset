@@ -225,3 +225,88 @@ MonoBehaviour:
       Image: {fileID: 21300000, guid: 8659b8e988deeee4d88430edbe086eeb, type: 3}
       Color: {r: 1, g: 1, b: 1, a: 1}
       Rotation: 0
+  Glasses:
+  - Id: player-glasses-monocle-black
+    Name: Monocle Black
+    Price: 99
+    Image:
+      Image: {fileID: 21300000, guid: dbf806d2d04354a408cbc6673623441c, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-monocle-gold
+    Name: Monocle Gold
+    Price: 99
+    Image:
+      Image: {fileID: 21300000, guid: adc80b52512f81f4a960665c86666561, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-monocle-silver
+    Name: Monocle Silver
+    Price: 99
+    Image:
+      Image: {fileID: 21300000, guid: cddcd35ddfd670e46bda58652febc69d, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-round-red
+    Name: Glasses Round Red
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: 9a19365ebba4e7046833a1455d34a763, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-round-orange
+    Name: Glasses Round Orange
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: 6cdd0599e2838e342a329c642d467382, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-round-blue
+    Name: Glasses Round Blue
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: cdd140efe7e9ef84b9a611cbdde7306a, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-winged-blue
+    Name: Glasses Winged Blue
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 9bf3186ab14e88f44a6f8cee7daef374, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-winged-green
+    Name: Glasses Winged Green
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 2f51f177438613043ac4d83bd5b85e65, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-winged-red
+    Name: Glasses Winged Red
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 51eb943947f80a04aa3b3eb50f4b210f, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-stars-green
+    Name: Glasses Stars Green
+    Price: 49
+    Image:
+      Image: {fileID: 21300000, guid: 8bcb02f87893e4d42b11e864a61cda19, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-stars-yellow
+    Name: Glasses Stars Yellow
+    Price: 49
+    Image:
+      Image: {fileID: 21300000, guid: 3bcf33fde856c1745a4494ffed93d1b6, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-glasses-stars-teal
+    Name: Glasses Stars Teal
+    Price: 49
+    Image:
+      Image: {fileID: 21300000, guid: e8b76bf452c40bc448ee5f2954c2a741, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0

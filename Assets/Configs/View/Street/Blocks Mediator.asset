@@ -27,4 +27,5 @@ MonoBehaviour:
   - {fileID: 8078194300456024632, guid: 5ea1a9faa87ee4e4d8efb0c817700e2c, type: 3}
   - {fileID: 3316030625291678623, guid: 553dbca207366f84fa4554d79492c4f6, type: 3}
   - {fileID: 1548544833012797885, guid: f89b13ad2c0737448b8df958e10452e4, type: 3}
+  - {fileID: 5194454363400996608, guid: c37cb827c9434f04a879b6c2e2d87eb8, type: 3}
   TestTemplates: []
