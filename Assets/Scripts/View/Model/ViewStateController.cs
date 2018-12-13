@@ -14,7 +14,8 @@ namespace Krk.Bum.View.Model
         Game,
         Seller,
         Store,
-        Intro
+        Intro,
+        EndGame
     }
 
     public class ViewStateController
