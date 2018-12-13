@@ -92,7 +92,14 @@ namespace Krk.Bum.Model.Core
             foreach(var resource in item.RequiredParts)
             {
                 var part = GetPart(resource.PartId);
-                part.SpawnRatio += resource.RequiredCount;
+                if (part != null)
+                {
+                    part.SpawnRatio += resource.RequiredCount;
+                }
+                else
+                {
+                    Debug.LogError("Invalid part id: " + resource.PartId);
+                }
             }
         }
 

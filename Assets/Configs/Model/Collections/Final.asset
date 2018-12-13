@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6735d2c94a7484b8dd0d74210e170a, type: 3}
   m_Name: Final
   m_EditorClassIdentifier: 
-  Id: collection-final
+  Id: final
   Name: Final Collection
   Image:
     Image: {fileID: 21300000, guid: ae4ceaa6f3fe60d438645257b291225a, type: 3}

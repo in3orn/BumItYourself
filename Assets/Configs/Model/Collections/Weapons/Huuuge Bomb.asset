@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37823ef609f66374d8d2e341752438e2, type: 3}
-  m_Name: Black Bomb
+  m_Name: Huuuge Bomb
   m_EditorClassIdentifier: 
-  Id: itme-black-bomb
-  Name: Black Bomb
-  Reward: 2500
+  Id: item-huuuge-bomb
+  Name: Huuuge Bomb
+  Reward: 5000
   Image:
-    Image: {fileID: 21300000, guid: 6960137185dcdbb47911f10d06954603, type: 3}
+    Image: {fileID: 21300000, guid: 18d57e25467422a45921487046f1730a, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
     Rotation: 0
   RequiredParts:
-  - PartId: part-mentos
+  - PartId: part-kacperin-c
     RequiredCount: 50
+  - PartId: part-mentos
+    RequiredCount: 25
   - PartId: part-coke
-    RequiredCount: 2
-  - PartId: part-borygo
     RequiredCount: 1
-  - PartId: candle
-    RequiredCount: 5
+  - PartId: part-lighter
+    RequiredCount: 1

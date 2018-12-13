@@ -10,21 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37823ef609f66374d8d2e341752438e2, type: 3}
-  m_Name: Black Bomb
+  m_Name: Shotgun
   m_EditorClassIdentifier: 
-  Id: itme-black-bomb
-  Name: Black Bomb
-  Reward: 2500
+  Id: item-shotgun
+  Name: Shotgun
+  Reward: 1000
   Image:
-    Image: {fileID: 21300000, guid: 6960137185dcdbb47911f10d06954603, type: 3}
+    Image: {fileID: 21300000, guid: 0440a60e389de4544851a8713880280e, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
     Rotation: 0
   RequiredParts:
-  - PartId: part-mentos
-    RequiredCount: 50
-  - PartId: part-coke
-    RequiredCount: 2
-  - PartId: part-borygo
+  - PartId: part-pcv-tube
+    RequiredCount: 3
+  - PartId: nail
+    RequiredCount: 12
+  - PartId: part-lighter
     RequiredCount: 1
-  - PartId: candle
-    RequiredCount: 5
+  - PartId: part-pen
+    RequiredCount: 1
+  - PartId: part-clip
+    RequiredCount: 1

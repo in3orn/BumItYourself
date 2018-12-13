@@ -15,11 +15,11 @@ MonoBehaviour:
   Groups:
   - Name: DIY Albums
     CollectionsIds:
-    - collection-default
-    - collection-halloween
-    - collection-winter
-    - collection-weapons
-    - collection-final
+    - fall
+    - halloween
+    - winter
+    - weapons
+    - final
     BodiesIds: []
     BagsIds: []
     SticksIds: []

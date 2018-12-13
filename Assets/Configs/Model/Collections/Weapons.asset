@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6735d2c94a7484b8dd0d74210e170a, type: 3}
   m_Name: Weapons
   m_EditorClassIdentifier: 
-  Id: collection-weapons
+  Id: weapons
   Name: Weapons
   Image:
     Image: {fileID: 21300000, guid: 34aadf03cda6a304d97913fefc971007, type: 3}
@@ -20,4 +20,6 @@ MonoBehaviour:
     Rotation: 0
   Price: 25000
   Items:
+  - {fileID: 11400000, guid: 47114bfc0f3d77c4ab715c5eb451952f, type: 2}
   - {fileID: 11400000, guid: 94d5b6ecf0ced364aab0663436813fca, type: 2}
+  - {fileID: 11400000, guid: 56e7038dcf126fe4a92a80e698e7368c, type: 2}
