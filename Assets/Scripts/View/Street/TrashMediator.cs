@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Krk.Bum.Game.Actors;
 using Krk.Bum.Game.Context;
 using Krk.Bum.Game.Items;
@@ -7,11 +8,15 @@ using Krk.Bum.Model.Context;
 using Krk.Bum.Model.Core;
 using Krk.Bum.View.Context;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Krk.Bum.View.Street
 {
     public class TrashMediator : MonoBehaviour
     {
+        public UnityAction OnTrashHit;
+
+
         [SerializeField]
         private ModelContext modelContext = null;
 
@@ -65,6 +70,7 @@ namespace Krk.Bum.View.Street
                 trashes[trashView] = trashController;
 
                 trashController.OnEmptyHit += trashView.HitEmpty;
+                trashController.OnEmptyHit += HandleEmptyTrashHit;
                 trashController.OnHit += trashView.Hit;
                 trashController.OnHit += HandleTrashHit;
 
@@ -80,6 +86,12 @@ namespace Krk.Bum.View.Street
         private void HandleTrashHit(TrashController trashController, PartData partData)
         {
             playerController.Hit(trashController.Position);
+            if (OnTrashHit != null) OnTrashHit();
+        }
+
+        private void HandleEmptyTrashHit(TrashController trashController)
+        {
+            if (OnTrashHit != null) OnTrashHit();
         }
 
         private void HandleTrashViewHit(TrashView trashView, PartData partData)

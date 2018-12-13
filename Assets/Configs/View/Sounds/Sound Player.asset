@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5543966e356f2468c1a4058376a88c, type: 3}
+  m_Name: Sound Player
+  m_EditorClassIdentifier: 
+  TrashHits:
+  - {fileID: 8300000, guid: ddfdd92d79e9be541a375f5f834338e1, type: 3}
+  - {fileID: 8300000, guid: 65a32cd41eaf61540b20b42088a7f427, type: 3}
+  CraftItem:
+  - {fileID: 8300000, guid: ee02f83590abf3840aa5afffe9cb270c, type: 3}
+  SellItem:
+  - {fileID: 8300000, guid: 369a80ac7480e38468be203541125d5a, type: 3}
+  UnlockCollection:
+  - {fileID: 8300000, guid: ce6ae7ab455bc2a4ebaacd8dcdaeaec6, type: 3}
+  CollectPart:
+  - {fileID: 8300000, guid: bb6a2a9b03586a6489eda53283665a88, type: 3}
+  - {fileID: 8300000, guid: a1d0ba8ab31a0014093f098b46aeb5eb, type: 3}
+  - {fileID: 8300000, guid: eada6721c80f7a64a82fa1cd8f4aaa3b, type: 3}
