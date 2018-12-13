@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: halloween-pumpkin-head
   Name: Pumpkin Head
-  Reward: 20
+  Reward: 10
   Image:
     Image: {fileID: 21300000, guid: 5d1e7a7706b1ae14bbac0cd9e6588795, type: 3}
     Color: {r: 0.9811321, g: 0.3812208, b: 0, a: 1}

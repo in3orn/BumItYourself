@@ -28,7 +28,7 @@ namespace Krk.Bum.Model.Core
 
             if (Input.GetKeyDown(KeyCode.C))
             {
-                modelController.DecreaseMoney(-100);
+                modelController.DecreaseMoney(-100000);
             }
         }
     }

@@ -15,11 +15,16 @@ MonoBehaviour:
   Groups:
   - Name: DIY Albums
     CollectionsIds:
-    - fall
-    - halloween
-    - winter
+    - collection-default
+    - collection-halloween
+    - collection-winter
+    - collection-weapons
+    - collection-final
     BodiesIds: []
     BagsIds: []
+    SticksIds: []
+    GlassesIds: []
+    BeardsIds: []
   - Name: Misc
     CollectionsIds: []
     BodiesIds: []
@@ -27,3 +32,6 @@ MonoBehaviour:
     - player-bag-shield
     - player-bag-life-desk
     - player-bag-blade
+    SticksIds: []
+    GlassesIds: []
+    BeardsIds: []

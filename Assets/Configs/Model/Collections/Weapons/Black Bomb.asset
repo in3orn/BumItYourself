@@ -10,17 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37823ef609f66374d8d2e341752438e2, type: 3}
-  m_Name: Winter Cork Reindeer
+  m_Name: Black Bomb
   m_EditorClassIdentifier: 
-  Id: winter-cork-reindeer
-  Name: Cork Reindeer
-  Reward: 500
+  Id: itme-black-bomb
+  Name: Black Bomb
+  Reward: 1000
   Image:
-    Image: {fileID: 21300000, guid: 8cec17e71ac27e74592ca0cbc0fcf279, type: 3}
+    Image: {fileID: 21300000, guid: 6960137185dcdbb47911f10d06954603, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
     Rotation: 0
   RequiredParts:
-  - PartId: wine-cork
+  - PartId: part-mentos
+    RequiredCount: 50
+  - PartId: part-coke
     RequiredCount: 2
-  - PartId: toothpick
+  - PartId: part-borygo
+    RequiredCount: 1
+  - PartId: candle
     RequiredCount: 5
