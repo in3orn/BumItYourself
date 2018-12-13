@@ -310,3 +310,109 @@ MonoBehaviour:
       Image: {fileID: 21300000, guid: e8b76bf452c40bc448ee5f2954c2a741, type: 3}
       Color: {r: 1, g: 1, b: 1, a: 1}
       Rotation: 0
+  Beards:
+  - Id: player-beard-long-dark
+    Name: Beard Long Dark
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: e83477427d0869f45bfaf6c1d44f3465, type: 3}
+      Color: {r: 0.26415092, g: 0.22510974, b: 0.20558916, a: 1}
+      Rotation: 0
+  - Id: player-beard-long-brown
+    Name: Beard Long Brown
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: e83477427d0869f45bfaf6c1d44f3465, type: 3}
+      Color: {r: 0.4339623, g: 0.18502888, b: 0.063456744, a: 1}
+      Rotation: 0
+  - Id: player-beard-long-gray
+    Name: Beard Long Gray
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: e83477427d0869f45bfaf6c1d44f3465, type: 3}
+      Color: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+      Rotation: 0
+  - Id: player-beard-short-dark
+    Name: Beard Short Dark
+    Price: 20
+    Image:
+      Image: {fileID: 21300000, guid: 4ac70fb90ad3e9f489cffe04b3e3ba78, type: 3}
+      Color: {r: 0.26666668, g: 0.22745098, b: 0.20784314, a: 1}
+      Rotation: 0
+  - Id: player-beard-short-brown
+    Name: Beard Short Brown
+    Price: 20
+    Image:
+      Image: {fileID: 21300000, guid: 4ac70fb90ad3e9f489cffe04b3e3ba78, type: 3}
+      Color: {r: 0.43529412, g: 0.1882353, b: 0.06666667, a: 1}
+      Rotation: 0
+  - Id: player-beard-short-gray
+    Name: Beard Short Gray
+    Price: 20
+    Image:
+      Image: {fileID: 21300000, guid: 4ac70fb90ad3e9f489cffe04b3e3ba78, type: 3}
+      Color: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
+      Rotation: 0
+  - Id: player-beard-goat-dark
+    Name: Beard Goat Dark
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: d86c61b960757394eba6dee048a7ef52, type: 3}
+      Color: {r: 0.26666668, g: 0.22745098, b: 0.20784314, a: 1}
+      Rotation: 0
+  - Id: player-beard-goat-brown
+    Name: Beard Goat Brown
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: d86c61b960757394eba6dee048a7ef52, type: 3}
+      Color: {r: 0.43529412, g: 0.1882353, b: 0.06666667, a: 1}
+      Rotation: 0
+  - Id: player-beard-goat-gray
+    Name: Beard Goat Gray
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: d86c61b960757394eba6dee048a7ef52, type: 3}
+      Color: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
+      Rotation: 0
+  - Id: player-mustache-simple-dark
+    Name: Mustache Simple Dark
+    Price: 20
+    Image:
+      Image: {fileID: 21300000, guid: 02cea06c66fc6b04cb8119e4811098c4, type: 3}
+      Color: {r: 0.26666668, g: 0.22745098, b: 0.20784314, a: 1}
+      Rotation: 0
+  - Id: player-mustache-simple-brown
+    Name: Mustache Simple Brown
+    Price: 20
+    Image:
+      Image: {fileID: 21300000, guid: 02cea06c66fc6b04cb8119e4811098c4, type: 3}
+      Color: {r: 0.43529412, g: 0.1882353, b: 0.06666667, a: 1}
+      Rotation: 0
+  - Id: player-mustache-simple-gray
+    Name: Mustache Simple Gray
+    Price: 20
+    Image:
+      Image: {fileID: 21300000, guid: 02cea06c66fc6b04cb8119e4811098c4, type: 3}
+      Color: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
+      Rotation: 0
+  - Id: player-mustache-pilot-dark
+    Name: Mustache Pilot Dark
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: df1da88b2d7aba147970a54323da25c1, type: 3}
+      Color: {r: 0.26666668, g: 0.22745098, b: 0.20784314, a: 1}
+      Rotation: 0
+  - Id: player-mustache-pilot-brown
+    Name: Mustache Pilot Brown
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: df1da88b2d7aba147970a54323da25c1, type: 3}
+      Color: {r: 0.43529412, g: 0.1882353, b: 0.06666667, a: 1}
+      Rotation: 0
+  - Id: player-mustache-pilot-gray
+    Name: Mustache Pilot Gray
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: df1da88b2d7aba147970a54323da25c1, type: 3}
+      Color: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
+      Rotation: 0

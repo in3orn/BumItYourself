@@ -78,6 +78,7 @@ namespace Krk.Bum.View.Screens
                 AppendByBagItems(group);
                 AppendByStickItems(group);
                 AppendByGlassesItems(group);
+                AppendByBeardItems(group);
             }
         }
 
@@ -127,6 +128,14 @@ namespace Krk.Bum.View.Screens
             foreach (var id in groupData.GlassesIds)
             {
                 sellerItems.Add(playerLookController.GetGlasses(id));
+            }
+        }
+
+        private void AppendByBeardItems(SellerGroupData groupData)
+        {
+            foreach (var id in groupData.BeardsIds)
+            {
+                sellerItems.Add(playerLookController.GetBeard(id));
             }
         }
 

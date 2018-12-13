@@ -9,5 +9,6 @@ namespace Krk.Bum.Model
         public PlayerItemConfig[] Bags;
         public PlayerItemConfig[] Sticks;
         public PlayerItemConfig[] Glasses;
+        public PlayerItemConfig[] Beards;
     }
 }

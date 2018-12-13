@@ -7,7 +7,7 @@ namespace Krk.Bum.Model
     public class ImageData
     {
         public Sprite Image;
-        public Color Color;
+        public Color Color = Color.white;
         public float Rotation;
     }
 }

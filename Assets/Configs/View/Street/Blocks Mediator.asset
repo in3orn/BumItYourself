@@ -28,4 +28,7 @@ MonoBehaviour:
   - {fileID: 3316030625291678623, guid: 553dbca207366f84fa4554d79492c4f6, type: 3}
   - {fileID: 1548544833012797885, guid: f89b13ad2c0737448b8df958e10452e4, type: 3}
   - {fileID: 5194454363400996608, guid: c37cb827c9434f04a879b6c2e2d87eb8, type: 3}
-  TestTemplates: []
+  - {fileID: 7647546460925048011, guid: dcaeb609f4d38ea488424726bc88ff84, type: 3}
+  - {fileID: 2437088308224692576, guid: 489c6cca0ed07ed4cb2b9b11394ca7c3, type: 3}
+  TestTemplates:
+  - {fileID: 2437088308224692576, guid: 489c6cca0ed07ed4cb2b9b11394ca7c3, type: 3}

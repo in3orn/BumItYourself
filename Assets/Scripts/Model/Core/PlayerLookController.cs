@@ -9,6 +9,7 @@ namespace Krk.Bum.Model.Core
         public UnityAction<PlayerItemData> OnBagChanged;
         public UnityAction<PlayerItemData> OnStickChanged;
         public UnityAction<PlayerItemData> OnGlassesChanged;
+        public UnityAction<PlayerItemData> OnBeardChanged;
 
 
         private readonly PlayerLookData playerLookData;
@@ -22,11 +23,13 @@ namespace Krk.Bum.Model.Core
         public string CurrentBagId { get { return playerLookData.CurrentBagId; } }
         public string CurrentStickId { get { return playerLookData.CurrentStickId; } }
         public string CurrentGlassesId { get { return playerLookData.CurrentGlassesId; } }
+        public string CurrentBeardId { get { return playerLookData.CurrentBeardId; } }
 
         public PlayerItemData[] Bodies { get { return playerLookData.Bodies; } }
         public PlayerItemData[] Bags { get { return playerLookData.Bags; } }
         public PlayerItemData[] Sticks { get { return playerLookData.Sticks; } }
         public PlayerItemData[] Glasses { get { return playerLookData.Glasses; } }
+        public PlayerItemData[] Beards { get { return playerLookData.Beards; } }
 
 
         public PlayerLookController(PlayerLookData playerLookData,
@@ -60,6 +63,12 @@ namespace Krk.Bum.Model.Core
                 var currentItem = GetGlasses(CurrentGlassesId);
                 currentItem.Equipped = true;
             }
+
+            if (CurrentBeardId.Length > 0)
+            {
+                var currentItem = GetBeard(CurrentBeardId);
+                currentItem.Equipped = true;
+            }
         }
 
         public PlayerItemData GetItem(string id)
@@ -74,6 +83,9 @@ namespace Krk.Bum.Model.Core
             if (result != null) return result;
 
             result = GetGlasses(id);
+            if (result != null) return result;
+
+            result = GetBeard(id);
             if (result != null) return result;
 
             return null;
@@ -97,6 +109,11 @@ namespace Krk.Bum.Model.Core
         public PlayerItemData GetGlasses(string id)
         {
             return GetItem(Glasses, id);
+        }
+
+        public PlayerItemData GetBeard(string id)
+        {
+            return GetItem(Beards, id);
         }
 
         public PlayerItemData GetItem(PlayerItemData[] items, string id)
@@ -166,6 +183,17 @@ namespace Krk.Bum.Model.Core
                 playerLookLoader.Save(playerLookData);
 
                 if (OnGlassesChanged != null) OnGlassesChanged(item);
+                return;
+            }
+            if (Contains(playerLookData.Beards, item))
+            {
+                ClearItems(playerLookData.Beards);
+                item.Equipped = true;
+
+                playerLookData.CurrentBeardId = item.Id;
+                playerLookLoader.Save(playerLookData);
+
+                if (OnBeardChanged != null) OnBeardChanged(item);
                 return;
             }
         }

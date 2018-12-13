@@ -1,4 +1,6 @@
-﻿namespace Krk.Bum.Model.Utils
+﻿using System;
+
+namespace Krk.Bum.Model.Utils
 {
     public class PlayerItemLoader
     {
@@ -44,6 +46,11 @@
         public void Save(PlayerItemData data)
         {
             wrapper.SetBool(data.Id, UnlockedKey, data.Unlocked);
+        }
+
+        internal PlayerItemData[] Load(object beards)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -22,6 +22,9 @@ namespace Krk.Bum.View.Actors
         [SerializeField]
         private SpriteRenderer glassesRenderer = null;
 
+        [SerializeField]
+        private SpriteRenderer beardRenderer = null;
+
 
         private PlayerLookController playerLookController;
 
@@ -68,6 +71,7 @@ namespace Krk.Bum.View.Actors
             playerLookController.OnBagChanged += HandleBagChanged;
             playerLookController.OnStickChanged += HandleStickChanged;
             playerLookController.OnGlassesChanged += HandleGlassesChanged;
+            playerLookController.OnBeardChanged += HandleBeardChanged;
         }
 
         private void OnDisable()
@@ -78,6 +82,7 @@ namespace Krk.Bum.View.Actors
                 playerLookController.OnBagChanged -= HandleBagChanged;
                 playerLookController.OnStickChanged -= HandleStickChanged;
                 playerLookController.OnGlassesChanged -= HandleGlassesChanged;
+                playerLookController.OnBeardChanged -= HandleBeardChanged;
             }
         }
 
@@ -99,6 +104,11 @@ namespace Krk.Bum.View.Actors
         private void HandleGlassesChanged(PlayerItemData data)
         {
             SetImage(glassesRenderer, data.Image);
+        }
+
+        private void HandleBeardChanged(PlayerItemData data)
+        {
+            SetImage(beardRenderer, data.Image);
         }
 
         private void SetImage(SpriteRenderer renderer, ImageData data)

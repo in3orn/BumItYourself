@@ -12,5 +12,6 @@ namespace Krk.Bum.Game.Items
         public string[] BagsIds;
         public string[] SticksIds;
         public string[] GlassesIds;
+        public string[] BeardsIds;
     }
 }
