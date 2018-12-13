@@ -163,22 +163,65 @@ MonoBehaviour:
       Rotation: 0
   - Id: player-bag-shield
     Name: America's Shield
-    Price: 4999
+    Price: 199
     Image:
       Image: {fileID: 21300000, guid: 3a986b13e58f31c488f826afa33debe4, type: 3}
       Color: {r: 1, g: 1, b: 1, a: 1}
       Rotation: 0
   - Id: player-bag-life-desk
     Name: Bywatch's Swim Board
-    Price: 1999
+    Price: 199
     Image:
       Image: {fileID: 21300000, guid: 19d76952785b6c543b61458eec285583, type: 3}
-      Color: {r: 1, g: 1, b: 1, a: 1}
+      Color: {r: 1, g: 0.51687396, b: 0, a: 1}
       Rotation: 0
   - Id: player-bag-blade
     Name: Illidan's Blade
-    Price: 4999
+    Price: 199
     Image:
       Image: {fileID: 21300000, guid: 2b534188464508340a0eede088fe3294, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  Sticks:
+  - Id: player-stick-simple
+    Name: Simple Walking Stick
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: 306ebe7e96943aa4c8f30a68622270c6, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-stick-elegant
+    Name: Elegant Walking Stick
+    Price: 49
+    Image:
+      Image: {fileID: 21300000, guid: 08c518a9a1f6c854baeba89c1acc9a1f, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-stick-christmass
+    Name: Christmas Walking Stick
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 084c1c608441bfc438400c6c59535085, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-stick-baseball
+    Name: Baseball Bat
+    Price: 10
+    Image:
+      Image: {fileID: 21300000, guid: 4758fc452086bda4aace3b1c26cce47c, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-stick-hospital
+    Name: Hospital Walking Stick
+    Price: 25
+    Image:
+      Image: {fileID: 21300000, guid: 7cb67e48ba4ba064198d2f269626fd9c, type: 3}
+      Color: {r: 1, g: 1, b: 1, a: 1}
+      Rotation: 0
+  - Id: player-stick-skull
+    Name: Skull Walking Stick
+    Price: 49
+    Image:
+      Image: {fileID: 21300000, guid: 8659b8e988deeee4d88430edbe086eeb, type: 3}
       Color: {r: 1, g: 1, b: 1, a: 1}
       Rotation: 0

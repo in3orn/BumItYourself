@@ -4,6 +4,7 @@
     {
         private const string CurrentBodyKey= "current-body";
         private const string CurrentBagKey = "current-bag";
+        private const string CurrentStickKey = "current-stick";
 
 
         private readonly PlayerItemLoader playerItemLoader;
@@ -25,9 +26,11 @@
             {
                 CurrentBodyId = wrapper.GetString(CurrentBodyKey),
                 CurrentBagId = wrapper.GetString(CurrentBagKey),
+                CurrentStickId = wrapper.GetString(CurrentStickKey),
 
                 Bodies = playerItemLoader.Load(config.Bodies),
-                Bags = playerItemLoader.Load(config.Bags)
+                Bags = playerItemLoader.Load(config.Bags),
+                Sticks = playerItemLoader.Load(config.Sticks)
             };
         }
 
@@ -35,6 +38,7 @@
         {
             wrapper.SetString(CurrentBodyKey, data.CurrentBodyId);
             wrapper.SetString(CurrentBagKey, data.CurrentBagId);
+            wrapper.SetString(CurrentStickKey, data.CurrentStickId);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Krk.Bum.Model.Utils;
-using System;
 using UnityEngine.Events;
 
 namespace Krk.Bum.Model.Core
@@ -8,6 +7,7 @@ namespace Krk.Bum.Model.Core
     {
         public UnityAction<PlayerItemData> OnBodyChanged;
         public UnityAction<PlayerItemData> OnBagChanged;
+        public UnityAction<PlayerItemData> OnStickChanged;
 
 
         private readonly PlayerLookData playerLookData;
@@ -19,9 +19,11 @@ namespace Krk.Bum.Model.Core
 
         public string CurrentBodyId { get { return playerLookData.CurrentBodyId; } }
         public string CurrentBagId { get { return playerLookData.CurrentBagId; } }
+        public string CurrentStickId { get { return playerLookData.CurrentStickId; } }
 
         public PlayerItemData[] Bodies { get { return playerLookData.Bodies; } }
         public PlayerItemData[] Bags { get { return playerLookData.Bags; } }
+        public PlayerItemData[] Sticks { get { return playerLookData.Sticks; } }
 
 
         public PlayerLookController(PlayerLookData playerLookData,
@@ -43,6 +45,12 @@ namespace Krk.Bum.Model.Core
                 var currentItem = GetBag(CurrentBagId);
                 currentItem.Equipped = true;
             }
+
+            if (CurrentStickId.Length > 0)
+            {
+                var currentItem = GetStick(CurrentStickId);
+                currentItem.Equipped = true;
+            }
         }
 
         public PlayerItemData GetItem(string id)
@@ -51,6 +59,9 @@ namespace Krk.Bum.Model.Core
             if (result != null) return result;
 
             result = GetBag(id);
+            if (result != null) return result;
+
+            result = GetStick(id);
             if (result != null) return result;
 
             return null;
@@ -64,6 +75,11 @@ namespace Krk.Bum.Model.Core
         public PlayerItemData GetBag(string id)
         {
             return GetItem(Bags, id);
+        }
+
+        public PlayerItemData GetStick(string id)
+        {
+            return GetItem(Sticks, id);
         }
 
         public PlayerItemData GetItem(PlayerItemData[] items, string id)
@@ -111,6 +127,17 @@ namespace Krk.Bum.Model.Core
                 playerLookLoader.Save(playerLookData);
 
                 if (OnBagChanged != null) OnBagChanged(item);
+                return;
+            }
+            if (Contains(playerLookData.Sticks, item))
+            {
+                ClearItems(playerLookData.Sticks);
+                item.Equipped = true;
+
+                playerLookData.CurrentStickId = item.Id;
+                playerLookLoader.Save(playerLookData);
+
+                if (OnStickChanged != null) OnStickChanged(item);
                 return;
             }
         }

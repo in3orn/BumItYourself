@@ -16,6 +16,9 @@ namespace Krk.Bum.View.Actors
         [SerializeField]
         private SpriteRenderer bagRenderer = null;
 
+        [SerializeField]
+        private SpriteRenderer stickRenderer = null;
+
 
         private PlayerLookController playerLookController;
 
@@ -30,15 +33,22 @@ namespace Krk.Bum.View.Actors
             var bodyId = playerLookController.CurrentBodyId;
             if (bodyId.Length > 0)
             {
-                var bodyData = playerLookController.GetBody(bodyId);
-                HandleBodyChanged(bodyData);
+                var data = playerLookController.GetBody(bodyId);
+                HandleBodyChanged(data);
             }
 
             var bagId = playerLookController.CurrentBagId;
             if (bagId.Length > 0)
             {
-                var bagData = playerLookController.GetBag(bagId);
-                HandleBagChanged(bagData);
+                var data = playerLookController.GetBag(bagId);
+                HandleBagChanged(data);
+            }
+
+            var stickId = playerLookController.CurrentStickId;
+            if (stickId.Length > 0)
+            {
+                var data = playerLookController.GetStick(stickId);
+                HandleStickChanged(data);
             }
         }
 
@@ -46,6 +56,7 @@ namespace Krk.Bum.View.Actors
         {
             playerLookController.OnBodyChanged += HandleBodyChanged;
             playerLookController.OnBagChanged += HandleBagChanged;
+            playerLookController.OnStickChanged += HandleStickChanged;
         }
 
         private void OnDisable()
@@ -54,21 +65,30 @@ namespace Krk.Bum.View.Actors
             {
                 playerLookController.OnBodyChanged -= HandleBodyChanged;
                 playerLookController.OnBagChanged -= HandleBagChanged;
+                playerLookController.OnStickChanged -= HandleStickChanged;
             }
         }
 
-        private void HandleBodyChanged(PlayerItemData bodyData)
+        private void HandleBodyChanged(PlayerItemData data)
         {
-            bodyRenderer.sprite = bodyData.Image.Image;
-            bodyRenderer.color = bodyData.Image.Color;
-            bodyRenderer.transform.rotation = Quaternion.Euler(0f, 0f, bodyData.Image.Rotation);
+            SetImage(bodyRenderer, data.Image);
         }
 
-        private void HandleBagChanged(PlayerItemData bagData)
+        private void HandleBagChanged(PlayerItemData data)
         {
-            bagRenderer.sprite = bagData.Image.Image;
-            bagRenderer.color = bagData.Image.Color;
-            bagRenderer.transform.rotation = Quaternion.Euler(0f, 0f, bagData.Image.Rotation);
+            SetImage(bagRenderer, data.Image);
+        }
+
+        private void HandleStickChanged(PlayerItemData data)
+        {
+            SetImage(stickRenderer, data.Image);
+        }
+
+        private void SetImage(SpriteRenderer renderer, ImageData data)
+        {
+            renderer.sprite = data.Image;
+            renderer.color = data.Color;
+            renderer.transform.rotation = Quaternion.Euler(0f, 0f, data.Rotation);
         }
     }
 }
